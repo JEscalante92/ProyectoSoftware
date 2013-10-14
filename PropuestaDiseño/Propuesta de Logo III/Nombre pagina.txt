@@ -1,0 +1,10 @@
+DesCuriVita
+Des =desarrolladores
+Curi =curiculum
+Vita = Vitae
+
+CuriDesarrollador
+
+
+
+DesVitae = desarrollador y curiculum-vitae
