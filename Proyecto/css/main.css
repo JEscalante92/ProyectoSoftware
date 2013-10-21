@@ -1,0 +1,119 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #F1F1F1; 
+	color: #333333;
+	font-size: 16px;
+}
+footer{
+	background-color: #333333;
+	color: #FFFFFF;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+footer p{
+	vertical-align: center;
+}
+header{
+	background-color: #BF2A2A;
+	height: 50px;
+	margin: 0 auto;
+	width: 1000px;
+}
+header a{
+	height: 35px;
+	padding: 7.5px;
+}
+header h1{
+	color: #FFFFFF;
+	font-size: 1.5em;
+	margin: 0;
+	padding: 10px 0;
+}
+header nav{
+	height: 50px;
+	float: right;
+}
+header nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a, h1{
+	display: inline-block;
+	vertical-align: top;
+}
+nav, #logo{
+	display: inline-block;
+	vertical-align: top;
+}
+#logo
+{
+	height: 50px;
+	text-align: left;
+	float: left;
+}
+#search{
+	height: 35px;
+	margin: 0 auto;
+	width: 1000px;
+}
+#search button{
+	background-color: #3477C4;
+	border: 0px;
+	color: #FFFFFF;
+	float: right;
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+}
+#search input{
+	background-color: #333333;
+	border-style: none;
+	color: #999999;
+	font-size: 16px;
+	float: left;
+	height: 35px;
+	margin: 0 0 0 7.5px;
+	padding: 0em 0.5em; 
+	width: 75%;
+}
+#wrapper-contenido{
+	background-color: #333333;
+	text-align: center;
+}
+#wrapper-logo{
+	background-color: #BF2A2A;
+	text-align: center;
+}
+.tab{
+	display: inline-block;
+	font-size: 0;
+	height: 50px;
+	vertical-align: top;
+}
+.tab:hover{
+	background-color: rgba(255,255,255,0.2);
+}
+.tab a{
+	color: #FFFFFF;
+	height: auto;
+	font-size: 16px;
+	margin: 0;
+	padding: 1em 0.5em;
+	text-decoration: none;
+}
+@media screen and (max-width:1000px){
+	header{
+		display: block;
+		width: auto;
+	}
+	#search{
+		display: block;
+		width: auto;
+	}
+}
