@@ -1,0 +1,46 @@
+@font-face{font-family:'icomoon';src:url("fonts/icomoon.eot?9zknv6");src:url("fonts/icomoon.eot?#iefix9zknv6") format('embedded-opentype'),url("fonts/icomoon.ttf?9zknv6") format('truetype'),url("fonts/icomoon.woff?9zknv6") format('woff'),url("fonts/icomoon.svg?9zknv6#icomoon") format('svg');font-weight:normal;font-style:normal}
+[class*="icon-"]{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.icon-search:before{content:"\e600"}
+.icon-user:before{content:"\e601"}
+.icon-password:before{content:"\e602"}
+.icon-mail:before{content:"\e603"}
+.icon-location:before{content:"\e604"}
+.icon-portafolio:before{content:"\e606"}
+.icon-console:before{content:"\e607"}
+.icon-screen:before{content:"\e608"}
+.icon-mobile:before{content:"\e609"}
+.icon-settings:before{content:"\e60a"}
+.icon-web:before{content:"\e60b"}
+.icon-eye:before{content:"\e60c"}
+.icon-eye-blocked:before{content:"\e60d"}
+.icon-exit:before{content:"\e60e"}
+.icon-enter:before{content:"\e60f"}
+.icon-trophy:before{content:"\e610"}
+.icon-conference:before{content:"\e612"}
+.icon-library:before{content:"\e616"}
+.icon-star:before{content:"\e617"}
+.icon-warning:before{content:"\e618"}
+.icon-twitter:before{content:"\e619"}
+.icon-facebook:before{content:"\e61a"}
+.icon-google-plus:before{content:"\e61b"}
+.icon-users:before{content:"\e61d"}
+.icon-signup:before{content:"\e611"}
+.icon-graduate:before{content:"\e613"}
+.icon-medal:before{content:"\e614"}
+.icon-question:before{content:"\e61c"}
+.icon-arrow-up:before{content:"\e605"}
+.icon-arrow-down:before{content:"\e615"}
+body{background-color:#fff;color:#333;font-size:16px}
+.wrapper-Titulo{display:block;height:50px;padding:7.5px 8px 7.5px 32px;}
+.wrapper-Titulo a{height:35px;margin:0;float:left}
+.wrapper-Titulo a,.wrapper-Titulo #Titulo{display:inline-block;vertical-align:top}
+.wrapper-Titulo #Titulo{font-size:1.5em;margin:0;padding:7.5px 8px 7.5px 16px}
+.wrapper-Contenido{display:block;height:500px;padding:7.5px 8px 7.5px 32px;}
+.wrapper-Contenido a{text-decoration:none}
+.wrapper-Contenido p{font-size:1.1em}
+.wrapper-Contenido #item-administrador{margin:0;padding:15px 16px 15px 32px}
+.wrapper-Contenido #item-general{margin:0;padding:15px 16px 15px 24px}
+.wrapper-Contenido #item-ayuda{margin:0;padding:15px 16px 15px 32px}
+.wrapper-Contenido #item-usuario{margin:0;padding:15px 16px 15px 32px}
+.wrapper-Contenido #item-administrador,.wrapper-Contenido #item-ayuda{display:inline-block;vertical-align:top}
+.wrapper-Contenido #item-general,.wrapper-Contenido #item-usuario{display:inline-block;vertical-align:top}
