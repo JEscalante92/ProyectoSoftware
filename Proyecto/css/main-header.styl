@@ -1,0 +1,56 @@
+@import 'nib'
+@import 'iconos.styl'
+header
+	background-color: #0064AD
+	color: #FFFFFF
+	overflow: hidden
+	a
+		color: #FFFFFF
+		text-decoration: none
+		h1
+			font-size: 24px
+			float: left
+			margin: 10px 10px 10px 0px
+		img
+			float: left
+			margin: 5px 10px 5px 10px
+	nav
+		float: right
+		button
+			background-color: transparent
+			border: none
+			height: 50px
+			width: 50px
+		button:hover
+			background-color: rgba(255,255,255,0.3)
+		ul
+			margin: 0px
+			padding: 0px
+			list-style: none
+			li
+				display: inline-block
+				height: 50px
+				span
+					border-left: 2px solid #FFFFFF
+					font-size: 16px
+					padding: 0px 5px
+					margin: 15.5px 0px
+					display: block
+					a:hover
+						text-decoration: underline
+					a:last-child
+						background-color: #FFFFFF
+						color: #0064AD
+						border-radius: 5px
+						padding: 0.3em
+
+			li:hover
+				background-color: rgba(255,255,255,0.3)
+				
+		button, ul
+			display: inline-block
+			vertical-align: top
+#wrapper-header
+	height: 50px
+	margin: 0 auto
+	width: 1000px
