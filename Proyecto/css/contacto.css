@@ -1,0 +1,81 @@
+@font-face{font-family:'icomoon';src:url("fonts/icomoon.eot");src:url("fonts/icomoon.eot?#iefix") format('embedded-opentype'),url("fonts/icomoon.ttf") format('truetype'),url("fonts/icomoon.woff") format('woff'),url("fonts/icomoon.svg#icomoon") format('svg');font-weight:normal;font-style:normal}
+[class*="icon-"]{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.icon-search:before{content:"\e600"}
+.icon-user:before{content:"\e601"}
+.icon-password:before{content:"\e602"}
+.icon-mail:before{content:"\e603"}
+.icon-location:before{content:"\e604"}
+.icon-portafolio:before{content:"\e606"}
+.icon-console:before{content:"\e607"}
+.icon-screen:before{content:"\e608"}
+.icon-mobile:before{content:"\e609"}
+.icon-settings:before{content:"\e60a"}
+.icon-web:before{content:"\e60b"}
+.icon-eye:before{content:"\e60c"}
+.icon-eye-blocked:before{content:"\e60d"}
+.icon-exit:before{content:"\e60e"}
+.icon-enter:before{content:"\e60f"}
+.icon-trophy:before{content:"\e610"}
+.icon-conference:before{content:"\e612"}
+.icon-library:before{content:"\e616"}
+.icon-star:before{content:"\e617"}
+.icon-warning:before{content:"\e618"}
+.icon-twitter:before{content:"\e619"}
+.icon-facebook:before{content:"\e61a"}
+.icon-google-plus:before{content:"\e61b"}
+.icon-users:before{content:"\e61d"}
+.icon-signup:before{content:"\e611"}
+.icon-graduate:before{content:"\e613"}
+.icon-medal:before{content:"\e614"}
+.icon-question:before{content:"\e61c"}
+.icon-language:before{content:"\e61e"}
+.icon-arrow-up:before{content:"\e605"}
+.icon-arrow-down:before{content:"\e615"}
+body{background-color:#fff;color:#333;font-size:16px}
+.wrapper-titulo display block{height:50px;}
+.wrapper-titulo display block h1{padding:7.5px 8px 7.5px 32px}
+.wrapper-link{display:block;margin:0}
+#info-item,#equipo-item,#contacto-item,#otros-item{display:inline-block;}
+#info-item a,#equipo-item a,#contacto-item a,#otros-item a{padding:7.5px 8px 7.5px 8px;text-decoration:none}
+#info-item img,#equipo-item img,#contacto-item img,#otros-item img{background-color:#0064ad;height:40px}
+#info-item figure,#equipo-item figure,#contacto-item figure,#otros-item figure,#info-item a,#equipo-item a,#contacto-item a,#otros-item a{display:inline-block;vertical-align:top}
+#info-item h3,#equipo-item h3,#contacto-item h3,#otros-item h3{float:right}
+#info-item{border:1px solid #ccc;}
+#info-item a{height:40px}
+#equipo-item{border:1px solid #ccc;}
+#equipo-item a{height:40px}
+#contacto-item{border:1px solid #ccc;}
+#contacto-item a{height:40px}
+#otros-item{border:1px solid #ccc;}
+#otros-item a{height:40px}
+.wraper-equipo{display:block;margin:0}
+#escalante-item,#tini-item{display:block;margin:0;padding:7.5px 8px 7.5px 8px;}
+#escalante-item img,#tini-item img{height:120px}
+#escalante-item figure,#tini-item figure,#escalante-item section,#tini-item section{display:inline-block;vertical-align:top}
+#escalante-item figure,#tini-item figure{float:left}
+#chejo-item{display:block;margin:0;padding:7.5px 8px 7.5px 8px;}
+#chejo-item img{height:120px}
+#chejo-item figure,#chejo-item section{display:inline-block;vertical-align:top}
+figure{float:right}
+#tini-item{display:inline-block;}
+#tini-item figure,#tini-item figure,#tini-item #dato-tini{display:inline-block;vertical-align:top}
+#dato-tini{padding:7.5px 8px 7.5px 10px;float:left}
+.sociales-item{display:block}
+#twitter{height:50px;}
+#twitter figure{background-color:#5cc7eb}
+#facebook{height:50px;}
+#facebook figure{background-color:#4d639c}
+#google{height:50px;}
+#google figure{background-color:#da2128}
+#correo{height:50px;}
+#correo figure{background-color:#2c3e50}
+#twitter,#facebook,#google,#correo{display:inline-block;}
+#twitter a,#facebook a,#google a,#correo a{padding:7.5px 8px 7.5px 10px;text-decoration:none}
+#twitter figure,#facebook figure,#google figure,#correo figure{float:left}
+#twitter figure,#facebook figure,#google figure,#correo figure,#twitter a,#facebook a,#google a,#correo a{display:inline-block;vertical-align:top}
+#twitter p,#facebook p,#google p,#correo p{color:#000}
+.wrapper-ayuda{display:block;margin:0}
+#ayuda-item{display:block;margin:0;padding:7.5px 8px 7.5px 8px;}
+#ayuda-item figure{background-color:#0064ad;float:right}
+#ayuda-item img{height:60px}
+#ayuda-item figure,#ayuda-item section{display:inline-block;vertical-align:top}
