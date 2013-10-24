@@ -1,47 +1,29 @@
-@font-face{font-family:'icomoon';src:url("fonts/icomoon.eot?9zknv6");src:url("fonts/icomoon.eot?#iefix9zknv6") format('embedded-opentype'),url("fonts/icomoon.ttf?9zknv6") format('truetype'),url("fonts/icomoon.woff?9zknv6") format('woff'),url("fonts/icomoon.svg?9zknv6#icomoon") format('svg');font-weight:normal;font-style:normal}
-[class*="icon-"]{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.icon-search:before{content:"\e600"}
-.icon-user:before{content:"\e601"}
-.icon-password:before{content:"\e602"}
-.icon-mail:before{content:"\e603"}
-.icon-location:before{content:"\e604"}
-.icon-portafolio:before{content:"\e606"}
-.icon-console:before{content:"\e607"}
-.icon-screen:before{content:"\e608"}
-.icon-mobile:before{content:"\e609"}
-.icon-settings:before{content:"\e60a"}
-.icon-web:before{content:"\e60b"}
-.icon-eye:before{content:"\e60c"}
-.icon-eye-blocked:before{content:"\e60d"}
-.icon-exit:before{content:"\e60e"}
-.icon-enter:before{content:"\e60f"}
-.icon-trophy:before{content:"\e610"}
-.icon-conference:before{content:"\e612"}
-.icon-library:before{content:"\e616"}
-.icon-star:before{content:"\e617"}
-.icon-warning:before{content:"\e618"}
-.icon-twitter:before{content:"\e619"}
-.icon-facebook:before{content:"\e61a"}
-.icon-google-plus:before{content:"\e61b"}
-.icon-users:before{content:"\e61d"}
-.icon-signup:before{content:"\e611"}
-.icon-graduate:before{content:"\e613"}
-.icon-medal:before{content:"\e614"}
-.icon-question:before{content:"\e61c"}
-.icon-arrow-up:before{content:"\e605"}
-.icon-arrow-down:before{content:"\e615"}
-header{background-color:#0064ad;color:#fff;overflow:hidden;}
-header a{color:#fff;text-decoration:none;}
-header a h1{font-size:24px;float:left;margin:10px 10px 10px 0}
-header a img{float:left;margin:5px 10px 5px 10px}
-header nav{float:right;}
-header nav button{background-color:transparent;border:none;height:50px;width:50px}
-header nav button:hover{background-color:rgba(255,255,255,0.3)}
-header nav ul{margin:0;padding:0;list-style:none;}
-header nav ul li{display:inline-block;height:50px;}
-header nav ul li span{border-left:2px solid #fff;font-size:16px;padding:0 5px;margin:15.5px 0;display:block;}
-header nav ul li span a:hover{text-decoration:underline}
-header nav ul li span a:last-child{background-color:#fff;color:#0064ad;-webkit-border-radius:5px;border-radius:5px;padding:.3em}
-header nav ul li:hover{background-color:rgba(255,255,255,0.3)}
-header nav button,header nav ul{display:inline-block;vertical-align:top}
-#wrapper-header{height:50px;margin:0 auto;width:1000px}
+header{color:#fff;height:50px;margin:0 auto;position:relative;width:960px;}
+header #logo{color:#fff;float:left;position:relative;text-decoration:none;}
+header #logo h1{font-size:24px;float:left;margin:10px 10px 10px 0}
+header #logo img{float:left;margin:5px 10px 5px 10px}
+header nav{display:block;float:right;height:50px;}
+header nav ul{margin:0;padding:0;font-size:0;}
+header nav ul li{display:inline-block;list-style:none;position:relative;vertical-align:top;}
+header nav ul li div{font-size:16px;padding:0 .75em;margin:15.5px 0;display:block;border-left:2px solid #fff}
+header nav ul li:last-child{background-color:#004b8b;position:relative;}
+header nav ul li:last-child div{border:0}
+header nav ul li:last-child:hover{background-color:#004b8b}
+header nav ul li:hover{background:rgba(255,255,255,0.15)}
+#header-usuario{margin:7px 0 7px 48px;}
+#header-usuario a{text-decoration:none;height:auto;color:#fff;}
+#header-usuario a img{float:left;margin-left:-48px}
+#header-usuario p{font-size:14px;display:block;margin:0;padding:0}
+#header-menu{font-size:16px;color:#2c3e50;border:1px solid #004b8b;border-top:0;display:none;}
+#header-menu li{list-style:none;display:block;text-align:center;background-color:#fff;padding:.3em 0}
+#header-menu li:hover{background-color:#ddd}
+.menu-active{display:block !important}
+#header-registro a{text-decoration:none}
+#header-registro a:last-child{background-color:rgba(255,255,255,0.95);-webkit-border-radius:.3em;border-radius:.3em;padding:.4em;color:#0064ad}
+#header-registro a:hover{cursor:pointer;text-decoration:underline}
+#header-search #input-search{display:none}
+#header-search .icon-search{color:#fff;cursor:pointer}
+#wrapper-header{background-color:#0064ad}
+.search-active{margin:12.5px 0;position:relative;}
+.search-active .icon-search{color:#2c3e50 !important;position:absolute;line-height:1.5;padding-left:.3em}
+.search-active #input-search{display:block !important;padding:.1em 0 .1em 1.8em;margin:0;border:1px solid #2c3e50;-webkit-border-radius:3px;border-radius:3px;min-height:1.5em;outline:0;font-size:.875em;color:#777;width:250px}
