@@ -1,57 +1,60 @@
 @import 'nib'
 @import 'iconos.styl'
-
+@import 'main-header.styl'
 body
-    background-color #FFFFFF
-    color #333
+    background-color: #F0F0F0
+    color: #2C3E50
     font-size 16px
-   
-.wrapper-Titulo    
-    display block    
-    height 50px
-    padding 7.5px 8px 7.5px 32px
-    
-    a
-        height 35px
-        margin 0
-        float left
-    
-    a, #Titulo
-        display inline-block
-        vertical-align top
+#contenido
+    background-color: #FFFFFF
+    border: 1px solid #CCCCCC
+    border-radius: 5px
+    font-size: 0
+    margin: 20px auto
+    padding: 10px
+    width: 940px
+    #contenido-cabecera
+        font-size: 16px
+        line-height: 48px
+        margin: 10px 0px
+        overflow: hidden
+        h2
+            float: left
+            margin: 0px 10px
+        p
+            color: #777777
+            float: right
+            margin: 0px 10px
+        .contenedor-icon
+            float: left
+    #contenido-mapa
+        border-top: 1px solid #CCCCCC
+        overflow: hidden;
+        section
+            font-size: 16px
+            margin: 20px
+            float: left
+            ul
+                margin: 0
+                padding-left: 20px
+            li
+                list-style: disc
+                a
+                    color: #2C3E50
+                    margin: 0
+                    text-decoration: none
+                a:hover
+                    text-decoration: underline
+.contenedor-icon
+    background-color: #0064AD
+    border-radius: 5px
+    line-height: 48px
+    height: 48px
+    font-size: 32px
+    width: 48px
+    span
+        color: #FFFFFF
+        margin: 8px
 
-    #Titulo
-        font-size 1.5em
-        margin 0
-        padding 7.5px 8px 7.5px 16px
-.wrapper-Contenido
-    display block
-    height 500px
-    padding 7.5px 8px 7.5px 32px
-
-    a
-        text-decoration none
     
-    p
-        font-size 1.1em    
-    #item-administrador
-        margin 0
-        padding 15px 16px 15px 32px 
-
-    #item-general
-        margin 0
-        padding 15px 16px 15px 24px 
-    #item-ayuda
-        margin 0
-        padding 15px 16px 15px 32px 
-    #item-usuario
-        margin 0
-        padding 15px 16px 15px 32px 
-    
-    #item-administrador, #item-ayuda
-        display inline-block
-        vertical-align top
-    #item-general, #item-usuario
-        display inline-block
-        vertical-align top
-    
+@import 'main-footer.styl'

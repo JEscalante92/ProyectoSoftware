@@ -13,58 +13,143 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
-        <div id="Header-item">
-
-        </div>
-        <div class= "wrapper-Titulo">        
-            <figure>
-                <a href="#">
-                    <img src="img/MapaSitio.png" alt="Mapa de sitio" >
+        <div id="wrapper-header">
+            <header>
+                <a id="logo" href="#">
+                    <img src="img/logo_thumb.png" width="40" height="40"/>
+                    <h1>Nombrenombre </h1>
                 </a>
-            </figure>
-            <h1 id="Titulo"> Mapa de sitio</h1>
-            <hr/>  
-        </div>
-    	<div class="wrapper-Contenido">              		
-            <article id="item-general">
-    			<p><b>General</b></p>
-                    <dl>
-                        <dd><a href="#">Principal</a></dd>
-                        <dd><a href="#">Registrarse</a></dd>
-                        <dd><a href="#">Iniciar sesion</a></dd>
-                        <dd><a href="#">Noticias</a></dd>
+                <nav>
+                    <ul>
+                        <li>
+                            <div id="header-search">
+                                <i class="icon-search"></i>
+                                <input id="input-search"type="search" placeholder="Ingrese su busqueda"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="header-reportar">
+                                <i class="icon-warning"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="header-usuario">
+                                <a href="#">
+                                    <img height="40" width="40" src="img/usuario_thumb.png"/>
+                                    <b>JEscalante92</b>
+                                </a>
+                                <p>jescalante92@gmail.com</p>
+                            </div>
+                            <ul id="header-menu">
+                                <li>Editar perfil</li>
+                                <li>Ayuda</li>
+                                <li>Cerrar sesión</li>
+                            </ul>
+                        </li>
                     </ul>
-            </article>
-    		<article id="item-usuario">
-    			<p><b>Usuario</b></p>
-    			<dl>
-    				<dd><a href="#">Principal Usuario </a> </dd>     				
-		    		<dd><a href="#">Perfil</a></dd> 
-    				<dd><a href="#">Habilidades</a></dd>
-                    <dd><a href="#">Portafolio</a></dd>
-                    <dd><a href="#">Cuenta</a></dd>
-    			</dl>
-    		</article>
-            <article id="item-administrador">
-                <p><b>Administrador</b></p>
-                <dl>
-                    <dd><a href="#">panel Administrador </a>                  
-                    <dd><a href="#">Listado de Usuarios</a></dd> 
-                    <dd><a href="#">Listado de Denuncias</a></dd>
-                    <dd><a href="#">Listado de Reportes</a></dd>
-                    <dd><a href="#">Mantenimiento de tecnologia</a></dd>
-                </dl>
-            </article>
-            <article id="item-ayuda">
-                <p><b>Ayuda</b></p>
-                <dl>
-                    <dd><a href="#">Preguntas frecuentes</a>
-                    <dd><a href="#">Informacion legal</a>
-                    <dd><a href="#">Contactanos</a></dd> 
-                    <dd><a href="#">Mapa de sitio</a></dd>
-                </dl>
-            </article>
-    	</div>    	    	
+                </nav>
+            </header>
+        </div>
+    	<div class="wrapper-Contenido">
+            <section id="contenido">
+                <div id="contenido-cabecera">
+                    <div class="contenedor-icon">
+                        <span class="icon-screen"></span>
+                    </div>
+                    <h2>Mapa del sitio</h2>
+                </div>
+                <section id="contenido-mapa">
+                    <section id="mapa-general">
+                        <b>General:</b>
+                        <ul>
+                            <li><a href="#">Principal</a></li>
+                            <li><a href="#">Registrarse</a></li>
+                            <li><a href="#">Iniciar sesión</a></li>
+                            <li><a href="#">Noticias</a></li>
+                        <ul>
+                    </section>
+                    <section id="mapa-usuario">
+                        <b>Usuarios:</b>
+                        <ul>
+                            <li><a href="#">Principal</a></li>
+                            <li><a href="#">Perfil</a></li>
+                            <li><a href="#">Habilidades</a></li>
+                            <li><a href="#">Portafolios</a></li>
+                            <li><a href="#">Cuenta</a></li>
+                        <ul>
+                    </section>
+                    <section id="mapa-administrador">
+                        <b>Administradores:</b>
+                        <ul>
+                            <li><a href="#">Panel administrador</a></li>
+                            <li><a href="#">Usuarios</a></li>
+                            <li><a href="#">Denuncias</a></li>
+                            <li><a href="#">Mantenimientos</a></li>
+                        <ul>
+                    </section>
+                    <section id="mapa-ayuda">
+                        <b>Ayuda:</b>
+                        <ul>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                            <li><a href="#">Información legal</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Mapa del sitio</a></li>
+                        <ul>
+                    </section>
+                </section>
+            </section>             		
+    	</div> 
+        <div id="wrapper-footer">
+            <footer>
+                <div id="footer-left">
+                    <section id="footer-about">
+                        <b>Acerca de</b>
+                        <ul>
+                            <li><a href="#">Información del sitio</a></li>
+                            <li><a href="#">Condiciones del servicio</a></li>
+                            <li><a href="#">Politica de privacidad</a></li>
+                            <li><a href="#">Información legal</a></li>
+                        <ul>
+                    </section>
+                    <section id="footer-ayuda">
+                        <b>Ayuda</b>
+                        <ul>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                            <li><a href="#">Soporte tecnico</a></li>
+                            <li><a href="#">Mapa del sitio</a></li>
+                        <ul>
+                    </section>
+                    <section id="footer-comunidad">
+                        <b>Comunidad</b>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Google+</a></li>
+                            <li><a href="#">Github</a></li>
+                        <ul>
+                    </section>
+                </div>
+                <section id="footer-contacto">
+                    <div class="contacto-tarjeta" data-contacto="twitter">
+                        <div ><i class="icon-twitter"></i></div>
+                    </div>
+                    <div class="contacto-tarjeta" data-contacto="fb">
+                        <div ><i class="icon-facebook"></i></div>
+                    </div>
+                    <div class="contacto-tarjeta" data-contacto="gplus">
+                        <div ><i class="icon-google-plus"></i></div>
+                    </div>
+                    <div class="contacto-tarjeta" data-contacto="mail">
+                        <div ><i class="icon-mail"></i></div>
+                    </div>
+                </section>
+                <div id="info-web">
+                    <img src="img/logo_extended.png" height="50" width="150"/>
+                    <p>Copyright 2013<b></b></p>
+                    <p>Todos los derechos reservados</p>
+                </diV>
+            </footer>
+        </div>   	
     	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="js/main.js"></script>
     </body>
