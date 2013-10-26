@@ -12,51 +12,110 @@
     <link rel="stylesheet" href="css/main-inicio.css">
 </head>
 <body>
+	<div id="wrapper-header">
+            <header>
+                <a id="logo" href="#">
+                    <img src="img/logo_thumb.png" width="40" height="40"/>
+                    <h1>Nombrenombre </h1>
+                </a>
+                <nav>
+                    <ul>
+                        <li>
+                            <div id="header-search">
+                                <i class="icon-search"></i>
+                                <input id="input-search"type="search" placeholder="Ingrese su busqueda"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="header-reportar">
+                                <i class="icon-warning"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="header-usuario">
+                                <a href="#">
+                                    <img height="40" width="40" src="img/usuario_thumb.png"/>
+                                    <b>JEscalante92</b>
+                                </a>
+                                <p>jescalante92@gmail.com</p>
+                            </div>
+                            <ul id="header-menu">
+                                <li>Editar perfil</li>
+                                <li>Ayuda</li>
+                                <li>Cerrar sesión</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
 	<div id="wrapper-contenido">
-		<article id="ingresoDatos">
-			 <form name="ingreso" id="ingreso" method="post">
-			 	<div id="input-nombre">
-			 		<i class="icon-user"></i>
-			 		<input type="text" id="nombre" placeholder="Escoge un usuario">
-			 	</div>
-			 	<div id="input-email">
-			 		<i class="icon-mail"></i>
-			 		<input type="email" id="email" placeholder="Correo electronico">
-			 	</div>
-			 	<div id="input-password">
-			 		<i class="icon-password"></i>
-			 		<input type="password" id="password" placeholder="Contraseña">
-			 	</div>
-			 	<input type="submit" id="boton" value="Registrar en <<nombre>>">
-			 </form>	
-		</article>
-		<article id="titulo">
-			<section>
-				<img src="img/imgTemp.png"/>
-				<h2>Comunidad de desarrolladores de software</h2>
-				<h3>Explora nuevos horizontes de desarrollo</h3>
-			</section>
-		</article>
+		<div id="contenido-cabecera">
+			<article id="titulo">
+				<section>
+					<img src="img/imgTemp.png"/>
+					<h2>Comunidad de desarrolladores de software</h2>
+					<h3>Explora nuevos horizontes de desarrollo</h3>
+				</section>
+			</article>
+			<article id="ingresoDatos">
+				 <form name="ingreso" id="ingreso" method="post">
+				 	<div id="input-nombre">
+				 		<i class="icon-user"></i>
+				 		<input type="text" id="nombre" placeholder="Escoge un usuario">
+				 	</div>
+				 	<div id="input-email">
+				 		<i class="icon-mail"></i>
+				 		<input type="email" id="email" placeholder="Correo electronico">
+				 	</div>
+				 	<div id="input-password">
+				 		<i class="icon-password"></i>
+				 		<input type="password" id="password" placeholder="Contraseña">
+				 	</div>
+				 	<input type="submit" id="boton" value="Registrar en <<nombre>>">
+				 </form>	
+			</article>
+		</div>
 		<article id="opciones">
 			<section id="perfil">
+				<div>
+                    <div class="contenedor-icon">
+                        <span class="icon-user"></span>
+                    </div>
+                </div>
 				<h2>Diseña tu perfil</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.
 				</p>
 			</section>
 			<section id="profesionales">
+				<div>
+                    <div class="contenedor-icon">
+                        <span class="icon-portafolio"></span>
+                    </div>
+                </div>
 				<h2>Encuentra profesionales</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.
 				</p>
 			</section>
 			<section id="acceso">
+				<div>
+                    <div class="contenedor-icon">
+                        <span class="icon-mobile"></span>
+                    </div>
+                </div>
 				<h2>Facil acceso</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.
 				</p>
 			</section>
 			<section id="habilidades">
+				<div>
+                    <div class="contenedor-icon">
+                        <span class="icon-console"></span>
+                    </div>
+                </div>
 				<h2>Coloca tus habilidades</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.
@@ -64,5 +123,58 @@
 			</section>
 		</article>
 	</div>
+	<div id="wrapper-footer">
+            <footer>
+                <div id="footer-left">
+                    <section id="footer-about">
+                        <b>Acerca de</b>
+                        <ul>
+                            <li><a href="#">Información del sitio</a></li>
+                            <li><a href="#">Condiciones del servicio</a></li>
+                            <li><a href="#">Politica de privacidad</a></li>
+                            <li><a href="#">Información legal</a></li>
+                        <ul>
+                    </section>
+                    <section id="footer-ayuda">
+                        <b>Ayuda</b>
+                        <ul>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                            <li><a href="#">Soporte tecnico</a></li>
+                            <li><a href="#">Mapa del sitio</a></li>
+                        <ul>
+                    </section>
+                    <section id="footer-comunidad">
+                        <b>Comunidad</b>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Google+</a></li>
+                            <li><a href="#">Github</a></li>
+                        <ul>
+                    </section>
+                </div>
+                <section id="footer-contacto">
+                    <div class="contacto-tarjeta" data-contacto="twitter">
+                        <div ><i class="icon-twitter"></i></div>
+                    </div>
+                    <div class="contacto-tarjeta" data-contacto="fb">
+                        <div ><i class="icon-facebook"></i></div>
+                    </div>
+                    <div class="contacto-tarjeta" data-contacto="gplus">
+                        <div ><i class="icon-google-plus"></i></div>
+                    </div>
+                    <div class="contacto-tarjeta" data-contacto="mail">
+                        <div ><i class="icon-mail"></i></div>
+                    </div>
+                </section>
+                <div id="info-web">
+                    <img src="img/logo_extended.png" height="50" width="150"/>
+                    <p>Copyright 2013<b></b></p>
+                    <p>Todos los derechos reservados</p>
+                </diV>
+            </footer>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src='js/main-header.js'></script>
 </body>
 </html>

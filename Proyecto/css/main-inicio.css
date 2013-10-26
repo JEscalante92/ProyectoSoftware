@@ -1,101 +1,66 @@
-input{
-	color: #000;
-	text-align: left;
-	border-radius: 5px;
-}
-#input-nombre .icon-user{
-	color: #2C3E50 !important;
-	position: absolute;
-	line-height: 1.5;
-	padding-left: 0.3em;
-}
-#input-email .icon-mail{
-	color: #2C3E50 !important;
-	position: absolute;
-	line-height: 1.5;
-	padding-left: 0.3em;
-}
-#input-password .icon-password{
-	color: #2C3E50 !important;
-	position: absolute;
-	line-height: 1.5;
-	padding-left: 0.3em;
-}
-#ingresoDatos{
-	position: relative;
-	right: 150px;
-	float: right;
-	display: block;
-	float: right;
-	margin-top: 20px;
-}
-#nombre{
-	margin-top: 10px;
-	display: block !important;
-	padding: 0.1em 0em 0.1em 1.8em;
-}
-#email{
-	margin-top: 10px;
-	display: block !important;
-	padding: 0.1em 0em 0.1em 1.8em;
-}
-#password{
-	margin-top: 10px;
-	display: block !important;
-	padding: 0.1em 0em 0.1em 1.8em;
-}
-#titulo{
-	float: left;
-	display: inline-block;
-	font-size: 12px;
-	height: 222px;
-	width: 380px;
-}
-#titulo h2{
-	color: #2C3E50;
-}
-#wrapper-contenido{
-	width: 960px;
-	background: #fff;
-	margin: 0 auto;
-}
-#boton{
-	background: #0064AD;
-	color: #fff;
-	text-align: center;
-	border-radius: 5px;
-	padding: 5px;
-	margin-top: 10px;
-}
-#perfil, #acceso, #profesionales, #habilidades{
-	font-size: 11px;
-	background: #EFF0F2;
-	height: 150px;
-	width: 200px;
-	text-align: center;
-	border-radius: 5px;
-}
-#perfil{
-	position: relative;
-	top: 260px;
-	right: 365px;
-	display: inline-block;
-}
-#profesionales{
-	position: relative;
-	top: 110px;
-	right: 150px;
-	display: inline-block;
-}
-#acceso{
-	position: relative;
-	bottom: 40px;
-	left: 445px;
-	display: inline-block;
-}
-#habilidades{
-	position: relative;
-	bottom: 40px;
-	left: 455px;
-	display: inline-block;
-}
+header{color:#fff;height:50px;margin:0 auto;position:relative;width:960px;}
+header #logo{color:#fff;float:left;position:relative;text-decoration:none;}
+header #logo h1{font-size:24px;float:left;margin:10px 10px 10px 0}
+header #logo img{float:left;margin:5px 10px 5px 10px}
+header nav{display:block;float:right;height:50px;}
+header nav ul{margin:0;padding:0;font-size:0;}
+header nav ul li{display:inline-block;list-style:none;position:relative;vertical-align:top;}
+header nav ul li div{font-size:16px;padding:0 .75em;margin:15.5px 0;display:block;border-left:2px solid #fff}
+header nav ul li:last-child{background-color:#004b8b;position:relative;}
+header nav ul li:last-child div{border:0}
+header nav ul li:last-child:hover{background-color:#004b8b}
+header nav ul li:hover{background:rgba(255,255,255,0.15)}
+#header-usuario{margin:7px 0 7px 48px;}
+#header-usuario a{text-decoration:none;height:auto;color:#fff;}
+#header-usuario a img{float:left;margin-left:-48px}
+#header-usuario p{font-size:14px;display:block;margin:0;padding:0}
+#header-menu{font-size:16px;color:#2c3e50;border:1px solid #004b8b;border-top:0;display:none;}
+#header-menu li{list-style:none;display:block;text-align:center;background-color:#fff;padding:.3em 0}
+#header-menu li:hover{background-color:#ddd}
+.menu-active{display:block !important}
+#header-registro a{text-decoration:none}
+#header-registro a:last-child{background-color:rgba(255,255,255,0.95);-webkit-border-radius:.3em;border-radius:.3em;padding:.4em;color:#0064ad}
+#header-registro a:hover{cursor:pointer;text-decoration:underline}
+#header-search #input-search{display:none}
+#header-search .icon-search{color:#fff;cursor:pointer}
+#wrapper-header{background-color:#0064ad}
+.search-active{margin:12.5px 0;position:relative;}
+.search-active .icon-search{color:#2c3e50 !important;position:absolute;line-height:1.5;padding-left:.3em}
+.search-active #input-search{display:block !important;padding:.1em 0 .1em 1.8em;margin:0;border:1px solid #2c3e50;-webkit-border-radius:3px;border-radius:3px;min-height:1.5em;outline:0;font-size:.875em;color:#777;width:250px}
+body{background-color:#f0f0f0;color:#2c3e50}
+input{color:#000;text-align:left;-webkit-border-radius:5px;border-radius:5px}
+#input-nombre .icon-user{color:#2c3e50 !important;position:absolute;line-height:1.5;padding-left:.3em}
+#input-email .icon-mail{color:#2c3e50 !important;position:absolute;line-height:1.5;padding-left:.3em}
+#input-password .icon-password{color:#2c3e50 !important;position:absolute;line-height:1.5;padding-left:.3em}
+#ingresoDatos{display:inline-block;margin-top:20px;margin-left:20px;vertical-align:top;}
+#ingresoDatos input{height:25px;line-height:25px;border:1px solid #2c3e50;width:250px}
+#nombre{margin-top:10px;display:block !important;padding:.1em 0 .1em 1.8em}
+#email{margin-top:10px;display:block !important;padding:.1em 0 .1em 1.8em}
+#password{margin-top:10px;display:block !important;padding:.1em 0 .1em 1.8em}
+#titulo{display:inline-block;font-size:12px;height:222px;width:380px;text-align:center}
+#titulo h2{color:#2c3e50}
+#wrapper-contenido{width:960px;background:#fff;margin:10px auto;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;padding:10px}
+#boton{background:#0064ad;color:#fff;text-align:center;-webkit-border-radius:5px;border-radius:5px;padding:5px;margin-top:10px;border:0;width:281px !important;height:40px !important}
+#opciones{clear:both;text-align:center;margin-top:20px;}
+#opciones section{margin-top:10px;font-size:11px;background:#ddd;display:inline-block;width:200px;text-align:center;-webkit-border-radius:5px;border-radius:5px;padding:10px}
+#contenido-cabecera{overflow:hidden;width:auto;margin:0 100px}
+.contenedor-icon{background-color:#0064ad;-webkit-border-radius:50%;border-radius:50%;line-height:48px;height:48px;font-size:32px;width:48px;margin:0 auto;}
+.contenedor-icon span{color:#fff;margin:8px}
+footer{color:#fff;margin:0 auto;position:relative;font-size:16px;width:960px;}
+footer section{float:left;margin:10px;}
+footer section ul{margin:0;padding:0}
+footer section li{list-style:none;display:block;}
+footer section li a{color:#fff;margin:0;text-decoration:none}
+footer section li a:hover{text-decoration:underline}
+footer #footer-contacto{float:right}
+footer #info-web{clear:both;display:block;margin:0 auto;padding:20px 0 10px 0;text-align:center;width:250px;}
+footer #info-web p{margin:0}
+#wrapper-footer{background-color:#333}
+.contacto-tarjeta{float:left;margin:0 5px;}
+.contacto-tarjeta div{background-color:#0064ad;display:inline-block;font-size:16px;height:32px;line-height:32px;width:32px;}
+.contacto-tarjeta div i{color:#fff;margin:0 8px}
+.contacto-tarjeta:hover{cursor:pointer}
+.contacto-tarjeta[data-contacto=twitter] div{background-color:#5cc7eb}
+.contacto-tarjeta[data-contacto=fb] div{background-color:#4d639c}
+.contacto-tarjeta[data-contacto=gplus] div{background-color:#da2128}
+.contacto-tarjeta[data-contacto=mail] div{background-color:#2c3e50}
