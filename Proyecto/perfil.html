@@ -51,26 +51,18 @@
         </div>
         <div id="contenido-wrapper">
             <section id="perfil">
-                <div class="perfil-left">
+                <section class="contenido-left">
                     <section id="perfil-personal">
                         <div id="personal-info">
-                            <img src="img/usuario.png" height="90" width="90"/>
-                            <h2>Jorge Eduardo Escalante Castañeda <span>(21 años)</span></h2>
-                            <div class="info-basica">
-                                <i class="icon-graduate"></i>
-                                <p>Ingeniero en informatica y sistemas </p>
+                            <div id="info-cabecera">
+                                <img src="img/usuario.png" height="90" width="90"/>
+                                <h2>Jorge Eduardo Escalante Castañeda <span>(21 años)</span></h2>
                             </div>
-                            <div class="info-basica">
-                                <i class="icon-location"></i>
-                                <p>Guatemala</p>
-                            </div class="info-basica">
-                            <div class="info-basica">
-                                <i class="icon-language"></i>
-                                <p>Español</p>
-                            </div>
-                            <div class="info-basica">
-                                <i class="icon-web"></i>
-                                <p>www.pagina.com</p>
+                            <div id="info-datos">
+                                <p><i class="icon-graduate"></i> Ingeniero en informatica y sistemas</p>
+                                <p><i class="icon-location"></i> Guatemala</p>
+                                <p><i class="icon-language"></i> Español</p>
+                                <p><i class="icon-web"></i> www.pagina.com</p>
                             </div>
                         </div>
                         <div id="personal-contacto">
@@ -153,39 +145,58 @@
                             </article>
                         </section>
                     </section>
-                </div>
-                <section id="perfil-habilidades">
-                    <div id="habilidades-cabecera">
-                        <div class="contenedor-icon">
-                            <span class="icon-console"></span>
-                        </div>
-                        <h3>Habilidades<span>(5)</span></h3>
-                    </div>
-                    <section>
-                        <article class="habilidad">
-                            <img src="img/html5_logo.png" height="48" width="48"/>
-                            <b>HTML5</b>
-                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
-                        </article>
-                        <article class="habilidad">
-                            <img src="img/javascript_logo.png" height="48" width="48"/>
-                            <b>Javascript</b>
-                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
-                        </article>
-                        <article class="habilidad">
-                            <img src="img/css3_logo.png" height="48" width="48"/>
-                            <b>CSS3</b>
-                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
-                        </article>
-                        <article class="habilidad">
-                            <img src="img/backbone_logo.png" height="48" width="48"/>
-                            <b>Backbone.js</b>
-                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
-                        </article>
-                        <a href="#">Mostrar más</a>
-                    </section>
                 </section>
+                <section class="contenido-right">
+                    <section id="perfil-habilidades">
+                        <div id="habilidades-cabecera">
+                            <div class="contenedor-icon">
+                                <span class="icon-console"></span>
+                            </div>
+                            <h3>Habilidades<span> (5)</span></h3>
+                        </div>
+                        <section>
+                            <article class="habilidad">
+                                <div class="habilidad-header">
+                                    <a href="#">
+                                        <img src="img/html5_logo.png" height="48" width="48"/>
+                                        <b>HTML5</b>
+                                    </a>
+                                </div>
+                                <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            </article>
+                            <article class="habilidad">
+                                <div class="habilidad-header">
+                                    <a href="#">
+                                        <img src="img/javascript_logo.png" height="48" width="48"/>
+                                        <b>Javascript</b>
+                                    </a>
+                                </div>
+                                <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            </article>
+                            <article class="habilidad">
+                                <div class="habilidad-header">
+                                    <a href="#">
+                                        <img src="img/css3_logo.png" height="48" width="48"/>
+                                        <b>CSS3</b>
+                                    </a>
+                                </div>
+                                <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            </article>
+                            <article class="habilidad">
+                                <div class="habilidad-header">
+                                    <a href="#">
+                                        <img src="img/backbone_logo.png" height="48" width="48"/>
+                                        <b>Backbone.js</b>
+                                    </a>
+                                </div>
+                                <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            </article>
+                            <a class="mostrarmas" href="#">Mostrar más</a>
+                        </section>
+                    </section>
             </section>
+                </section>
+                
             <section id="portafolio">
                 <div id="portafolio-cabecera">
                     <div class="contenedor-icon">

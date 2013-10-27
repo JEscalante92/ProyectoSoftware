@@ -31,51 +31,46 @@
 .icon-language:before{content:"\e61e"}
 .icon-arrow-up:before{content:"\e605"}
 .icon-arrow-down:before{content:"\e615"}
-body{background-color:#fff;color:#333;font-size:16px}
-.wrapper-habilidad{display:block;margin:0}
-#habilidad-item{display:block;margin:0;padding:7.5px 8px 7.5px 8px;}
-#habilidad-item img{height:90px}
-#habilidad-item figure,#habilidad-item section{display:inline-block;vertical-align:top}
-#habilidad-item figure{float:left}
-#habilidad-item h2{margin:0}
-#habilidad-item p{margin:1}
-.wrapper-destacados{padding:px 8px 7.5px 8px;display:block;margin:0}
-#destacados-item{display:block;margin:0;padding:7.5px 8px 7.5px 8px;}
-#destacados-item img{background-color:#0064ad;height:48px}
-#destacados-item figure,#destacados-item section{display:inline-block;vertical-align:top}
-#destacados-item figure{float:left;padding:7.5px 32px 7.5px 16px}
-#destacados-item h2{margin:1}
-.wrapper-contenido{display:block;padding:7.5px 32px 7.5px 16px}
-#contenido-item{display:block;margin:0;}
-#contenido-item img{background-color:#0064ad;height:48px}
-#contenido-item figure,#contenido-item section{display:inline-block;vertical-align:top}
-#contenido-item figure{float:left;padding:4px 2px 2px 2px}
-#inferior-item{display:block;margin:0;}
-#inferior-item a{text-decoration:none}
-#inferior-item #imagen-locaction{margin:0;background-color:#000;height:16px !important}
-#inferior-item figure,#inferior-item section{display:inline-block;vertical-align:top}
-#inferior-item figure{float:left;padding:2px 8px 7.5px 8px}
-#inferior-item h3{margin:0;padding:2px 8px 2px 8px}
-#inferior-item h4,#inferior-item a{margin:0;float:left}
-#inferior-item #abajo-item{margin:0;background-color:#ccc}
-#inferior-item #NivelDominio{padding:1px 8px 7.5px 32px}
-#inferior-item #ubicacion{padding:1px 1px 7.5px 1px}
-#columana-uno,#columana-dos{display:inline-block;vertical-align:top}
-#columana-uno{border:1px solid #ccc}
-#columana-dos{float:right;border:1px solid #ccc}
-.mas-item{border:1px 70px 1px 64px;margin:0}
-#boton-item{background-color:#0064ad;color:#fff;padding:1px 75px 1px 75px;}
-#boton-item p{margin:0}
-.wrapper-proyectos{display:block;padding:8px 8px 7.5px 8px}
-#proyectos-item figure,#proyectos-item section{display:inline-block;vertical-align:top}
-#proyectos-item figure{float:left;padding:2px 8px 7.5px 8px}
-#foto-usuario{background-color:#0064ad;height:48px}
-#datos-item{display:block;}
-#datos-item h4,#datos-item h5{margin:0}
-#vistas-item{display:block;}
-#vistas-item p{display:inline-block;vertical-align:top;margin:0}
-#fecha{color:#fff;height:19px}
-#Link-Mas{display:block;margin:0}
-#link{text-decoration:none}
-#wrapper-izquierdo{float:left;width:75%}
-#wrapper-derecho{width:24%;float:right}
+.contenedor-icon{background-color:#0064ad;-webkit-border-radius:5px;border-radius:5px;line-height:48px;height:48px;font-size:32px;width:48px;}
+.contenedor-icon span{color:#fff;margin:8px}
+.contenido-left{border-right:1px solid #ccc;float:left;width:69.5%}
+.contenido-right{display:inline-block;width:30%}
+body{background-color:#f0f0f0;color:#2c3e50}
+#contenido{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;margin:20px auto;overflow:hidden;width:960px;}
+#contenido #tecnologia-info{padding:10px;margin-left:100px;}
+#contenido #tecnologia-info img{float:left;margin-left:-100px}
+#contenido #tecnologia-info b,#contenido #tecnologia-info h2,#contenido #tecnologia-info p{margin:0}
+#contenido #tecnologia-proyectos{padding:10px;}
+#contenido #tecnologia-proyectos h3{margin:0 0 10px 0}
+#contenido #tecnologia-proyectos #mostrarmas{margin:10px 0;display:block;float:right;text-decoration:none;text-align:right;color:#2c3e50}
+#contenido #tecnologia-proyectos #mostrarmas:hover{text-decoration:underline}
+#contenido #tecnologia-proyectos .item-proyecto{margin-bottom:10px;}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content{margin-left:50px;}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content a{color:#2c3e50;text-decoration:none}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content a:hover{cursor:pointer;text-decoration:underline}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content p .icon-arrow-down{color:#c0392b}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content p .icon-arrow-up{color:#27ae60}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content p,#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-content a{margin:0;font-size:14px}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-header{margin-left:50px;}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-header a{color:#2c3e50;text-decoration:none;}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-header a p{margin:0;font-weight:bold;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-header a img{float:left;margin-left:-50px}
+#contenido #tecnologia-proyectos .item-proyecto .item-proyecto-header a:hover{cursor:pointer;text-decoration:underline}
+#contenido #tecnologia-usuarios{padding:10px;}
+#contenido #tecnologia-usuarios section{padding:10px 0;}
+#contenido #tecnologia-usuarios section .item-usuario{border-bottom:1px solid #ccc;display:block;padding:10px 0;}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-header{margin-left:50px;}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-header img{margin-left:-50px;float:left}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer{padding-left:50px;}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer p{margin:0 0 0 5px;}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer p i{color:#f1c40f;margin:0 .5px}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer a,#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer p{display:inline-block}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-header,#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer{padding-right:5px;}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-header a,#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer a{color:#2c3e50;margin:0;text-decoration:none}
+#contenido #tecnologia-usuarios section .item-usuario .item-usuario-header a:hover,#contenido #tecnologia-usuarios section .item-usuario .item-usuario-footer a:hover{cursor:pointer;text-decoration:underline}
+#contenido #tecnologia-usuarios #usuarios-cabecera{border-bottom:1px solid #ccc;line-height:48px;overflow:hidden;padding-bottom:10px;}
+#contenido #tecnologia-usuarios #usuarios-cabecera h3{float:left;margin:0 10px}
+#contenido #tecnologia-usuarios #usuarios-cabecera .contenedor-icon{float:left}
+#contenido #tecnologia-usuarios #usuarios-mas{display:block;height:50px;line-height:50px;margin:10px auto;text-align:center;width:50%}
+.btn-aceptar{background-color:#0064ad;border:1px solid #004b8b;-webkit-border-radius:2.5px;border-radius:2.5px;color:#fff;text-decoration:none}
+.btn-aceptar:hover{background-color:#004b8b;text-decoration:underline}
