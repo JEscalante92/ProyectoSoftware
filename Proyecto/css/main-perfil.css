@@ -121,7 +121,7 @@ body{background-color:#f0f0f0;color:#2c3e50}
 #portafolio section .proyecto .proyecto-content{overflow:hidden;}
 #portafolio section .proyecto .proyecto-content img{float:left;margin:10px}
 #portafolio section .proyecto .proyecto-content a{clear:both;display:block;float:right;margin-right:10px;margin-bottom:10px;text-align:right}
-#portafolio section .proyecto .proyecto-content p{height:90px;overflow:hidden;margin-top:10px;margin-right:10px}
+#portafolio section .proyecto .proyecto-content p{height:90px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;margin-top:10px;margin-right:10px}
 #portafolio section .proyecto .proyecto-header{border-bottom:1px solid #ccc;overflow:hidden;padding:5px 10px;}
 #portafolio section .proyecto .proyecto-header a{font-weight:bold}
 #portafolio section .proyecto .proyecto-header p{float:right}

@@ -1,168 +1,114 @@
 @import 'nib'
 @import 'iconos.styl'
-
+@import 'cajas.styl'
 body
-    background-color #FFFFFF
-    color #333
-    font-size 16px
-.wrapper-about
-    display block    
-    padding 7.5px 8px 7.5px 32px
-.wrapper-titulo
-    display block 
+    background-color: #F0F0F0
+    color: #2C3E50
+#contenido
+    background-color: #FFFFFF
+    border: 1px solid #CCCCCC
+    border-radius: 5px
+    margin: 20px auto
+    overflow: hidden
+    width: 960px 
+    .contenido-left
+        section
+            padding: 0 10px 10px 10px
+            a
+                color: #2C3E50
+                text-decoration: none
+            h3
+                margin-bottom: 0
+            ul
+                margin: 0
+                padding-left: 20px
+            #contacto
+                border-top: 1px solid #CCCCCC
+                border-bottom: 1px solid #CCCCCC
+                overflow: hidden
+                padding: 10px
+                .contacto-tarjeta
+                    float: left
+                    margin: 0px 5px
+                    div
+                        background-color: #0064AD
+                        display: inline-block
+                        font-size: 16px
+                        height: 32px                
+                        line-height: 32px
+                        width: 32px
+                        i
+                            color: #FFFFFF
+                            margin: 0 8px
+                    a
+                        color: #0064AD
+                        font-size: 14px
+                        text-decoration: none
+                    a:hover
+                        cursor: pointer
+                        text-decoration: underline
 
-#titulo-item    
-    padding 7.5px 8px 7.5px 32px
-    
-    h1
-        padding 7.5px 8px 7.5px 32px 
-    
-
-.wrapper-link
-    display block  
-    margin 0
-    padding 7.5px 8px 7.5px 32px
-
-#info-item,#equipo-item,#contacto-item,#otros-item
-    display inline-block
-    
-    a
-        padding 7.5px 8px 7.5px 8px
-        text-decoration none
-    img
-        background-color #0064AD
-        height 32px
-
-    figure,a
-        display inline-block
-        vertical-align top
-    
-    h3
-        float right
-#info-item
-    border 1px solid #CCCCCC
-    a
-        height 40px
-        
-
-#equipo-item
-    border 1px solid #CCCCCC
-    a
-        height 40px  
-#contacto-item
-    border 1px solid #CCCCCC
-    a
-        height 40px  
-#otros-item
-    border 1px solid #CCCCCC
-    a
-        height 40px
-.wraper-equipo
-    display block
-    margin 0
-    padding 7.5px 8px 7.5px 32px
-
-#escalante-item,#tini-item
-    display block
-    margin 0
-    padding 7.5px 8px 7.5px 8px   
-    img
-        height 120px       
-        
-    figure,section
-        display inline-block
-        vertical-align top
-    figure
-        float left
-
-#chejo-item
-    display block
-    margin 0
-    padding 7.5px 8px 7.5px 8px   
-    img
-        height 120px
-               
-        
-    figure,section
-        display inline-block
-        vertical-align top
-   figure
-
-        float right
-
-
-    
-
-    
-#tini-item
-    display inline-block
-
-    figure
-        
-    figure,#dato-tini
-        display inline-block
-        vertical-align top
-#dato-tini
-        padding 7.5px 8px 7.5px 10px
-        float left
-.wrapper-contacto
-    display block
-    padding 7.5px 8px 7.5px 32px
-.sociales-item
-    display block
-    padding 7.5px 8px 7.5px 32px
-    
-#twitter
-    height 50px
-    figure
-        background-color #5CC7EB
-#facebook
-    height 50px
-    figure
-        background-color #4D639C
-#google
-    height 50px
-    figure
-        background-color #DA2128
-#correo
-    height 50px
-    figure
-        background-color #2C3E50
-
-#twitter,#facebook,#google,#correo
-    display inline-block
-    
-
-    
-    a
-        padding 7.5px 8px 7.5px 10px
-        text-decoration none
-    figure
-        float left
-    figure,a
-        display inline-block
-        vertical-align top
-    p
-        color #000
-.wrapper-ayuda
-    display block
-    margin 0
-    padding 7.5px 8px 7.5px 32px
-#ayuda-item
-    display block
-    margin 0
-    padding 7.5px 8px 7.5px 8px   
-    figure
-        background-color #0064AD
-        float right      
-    
-    img
-        height 60px
-        
-    figure,section
-        display inline-block
-        vertical-align top
-   
-
-
-        
+                .contacto-tarjeta[data-contacto=twitter]
+                    div
+                        background-color: #5CC7EB
+                .contacto-tarjeta[data-contacto=fb]
+                    div
+                        background-color: #4D639C
+                .contacto-tarjeta[data-contacto=gplus]
+                    div
+                        background-color: #DA2128
+                .contacto-tarjeta[data-contacto=mail]
+                    div
+                        background-color: #2C3E50
+            .persona-left
+                padding: 10px 0
+                .persona-header
+                    margin-left: 100px
+                    img
+                        margin-left: -100px
+                        float: left
+                p
+                    margin-top: 0px
+                    margin-left: 100px
+                    display: block
+            .persona-right
+                padding: 10px 0
+                .persona-header
+                    margin-right: 100px
+                    img
+                        margin-right: -100px
+                        float: right
+                p
+                    margin-top: 0px
+                    margin-right: 100px
+                    display: block
+        #contenido-cabecera
+            border-bottom: 1px solid #CCCCCC
+            font-size: 16px
+            line-height: 48px
+            margin: 10px
+            overflow: hidden
+            padding: 0px 0px 10px 0px
+            h2
+                float: left
+                margin: 0px 10px
+            p
+                color: #777777
+                float: right
+                margin: 0px 10px
+            .contenedor-icon
+                float: left
+    .contenido-right
+        ul
+            margin: 0
+            padding: 0
+            li
+                margin: 0
+                padding: 10px
+                list-style: none
+                border-bottom: 1px solid #CCCCCC
+                a
+                    color: #2C3E50
+                    text-decoration: none
+                a:hover
+                    text-decoration: underline
