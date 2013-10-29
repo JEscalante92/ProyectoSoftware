@@ -1,0 +1,41 @@
+article{
+
+}
+h2{
+	font-size: 16px;
+	color: #0064AD;
+}
+p{
+	background: #F0F0F0;
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	color: #2C3E50;
+	font-size: 14px;
+	margin-left: 10px;
+}
+section{
+	width: 600px;
+	height: 40px;
+	margin: auto;
+	overflow: hidden;
+	text-align: justify;
+	transition: height 2s;
+}
+section:focus{
+	height: 150px;
+	outline: none;
+}
+#titulo{
+	height: 40px;
+	padding-bottom: 20px;
+}
+#contenedor{
+	height: 360px;
+	width: 600px;
+	margin: auto;
+}
+#wrapper-contenido{
+	background: #FFFFFF;
+	margin: 0 auto;
+	width: 960px;
+}
