@@ -1,3 +1,5 @@
+@font-face{font-family:'russo_one';src:url("fonts/russoone-regular-webfont.eot");src:url("fonts/russoone-regular-webfont.eot?#iefix") format('embedded-opentype'),url("fonts/russoone-regular-webfont.woff") format('woff'),url("fonts/russoone-regular-webfont.ttf") format('truetype'),url("fonts/russoone-regular-webfont.svg#russo_oneregular") format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'pt_sans';src:url("fonts/pt_sans-web-regular-webfont.eot");src:url("fonts/pt_sans-web-regular-webfont.eot?#iefix") format('embedded-opentype'),url("fonts/pt_sans-web-regular-webfont.woff") format('woff'),url("fonts/pt_sans-web-regular-webfont.ttf") format('truetype'),url("fonts/pt_sans-web-regular-webfont.svg#pt_sansregular") format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'icomoon';src:url("fonts/icomoon.eot");src:url("fonts/icomoon.eot?#iefix") format('embedded-opentype'),url("fonts/icomoon.ttf") format('truetype'),url("fonts/icomoon.woff") format('woff'),url("fonts/icomoon.svg#icomoon") format('svg');font-weight:normal;font-style:normal}
 [class*="icon-"]{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .icon-search:before{content:"\e600"}
@@ -33,7 +35,7 @@
 .icon-arrow-down:before{content:"\e615"}
 header{color:#fff;height:50px;margin:0 auto;position:relative;width:960px;}
 header #logo{color:#fff;float:left;position:relative;text-decoration:none;}
-header #logo h1{font-size:24px;float:left;margin:10px 10px 10px 0}
+header #logo h1{font-family:'russo_one';font-size:28px;float:left;margin:10px 7px 7px 0}
 header #logo img{float:left;margin:5px 10px 5px 10px}
 header nav{display:block;float:right;height:50px;}
 header nav ul{margin:0;padding:0;font-size:0;}
@@ -43,7 +45,7 @@ header nav ul li:last-child{background-color:#004b8b;position:relative;}
 header nav ul li:last-child div{border:0}
 header nav ul li:last-child:hover{background-color:#004b8b}
 header nav ul li:hover{background:rgba(255,255,255,0.15)}
-#header-usuario{margin:7px 0 7px 48px;}
+#header-usuario{margin:7px 0 6px 48px;}
 #header-usuario a{text-decoration:none;height:auto;color:#fff;}
 #header-usuario a img{float:left;margin-left:-48px}
 #header-usuario p{font-size:14px;display:block;margin:0;padding:0}
@@ -66,7 +68,7 @@ header nav ul li:hover{background:rgba(255,255,255,0.15)}
 .contenido-right{display:inline-block;width:30%}
 .mostrarmas{margin:10px 0;display:block;float:right;text-decoration:none;text-align:right;color:#2c3e50}
 .mostrarmas:hover{text-decoration:underline}
-body{background-color:#f0f0f0;color:#2c3e50}
+body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans',sans-serif}
 #perfil,#portafolio{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;font-size:0;margin:20px auto;overflow:hidden;width:940px}
 #perfil-personal #personal-info{font-size:16px;padding:10px;}
 #perfil-personal #personal-info #info-cabecera{margin-left:95px;}
@@ -78,7 +80,7 @@ body{background-color:#f0f0f0;color:#2c3e50}
 #perfil-personal #personal-contacto{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin-top:30px;overflow:hidden;padding:10px;}
 #perfil-personal #personal-contacto .contacto-tarjeta{float:left;margin:0 5px;}
 #perfil-personal #personal-contacto .contacto-tarjeta div{background-color:#0064ad;display:inline-block;font-size:16px;height:32px;line-height:32px;width:32px;}
-#perfil-personal #personal-contacto .contacto-tarjeta div i{color:#fff;margin:0 8px}
+#perfil-personal #personal-contacto .contacto-tarjeta div i{color:#fff;text-align:center;vertical-align:middle}
 #perfil-personal #personal-contacto .contacto-tarjeta a{color:#0064ad;font-size:14px;text-decoration:none}
 #perfil-personal #personal-contacto .contacto-tarjeta a:hover{cursor:pointer;text-decoration:underline}
 #perfil-personal #personal-contacto .contacto-tarjeta[data-contacto=twitter] div{background-color:#5cc7eb}
@@ -121,7 +123,7 @@ body{background-color:#f0f0f0;color:#2c3e50}
 #portafolio section .proyecto .proyecto-content{overflow:hidden;}
 #portafolio section .proyecto .proyecto-content img{float:left;margin:10px}
 #portafolio section .proyecto .proyecto-content a{clear:both;display:block;float:right;margin-right:10px;margin-bottom:10px;text-align:right}
-#portafolio section .proyecto .proyecto-content p{height:90px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;margin-top:10px;margin-right:10px}
+#portafolio section .proyecto .proyecto-content p{height:90px;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;pemargin-top:10px;margin-right:10px}
 #portafolio section .proyecto .proyecto-header{border-bottom:1px solid #ccc;overflow:hidden;padding:5px 10px;}
 #portafolio section .proyecto .proyecto-header a{font-weight:bold}
 #portafolio section .proyecto .proyecto-header p{float:right}
@@ -130,7 +132,7 @@ body{background-color:#f0f0f0;color:#2c3e50}
 #portafolio #portafolio-cabecera p{color:#777;float:right;margin:0}
 #portafolio #portafolio-cabecera .contenedor-icon{float:left}
 .contenedor-icon{background-color:#0064ad;-webkit-border-radius:5px;border-radius:5px;line-height:48px;height:48px;font-size:32px;width:48px;}
-.contenedor-icon span{color:#fff;margin:8px}
+.contenedor-icon span{color:#fff;text-align:center;vertical-align:middle}
 .perfil-left{border-right:1px solid #ccc;display:inline-block;vertical-align:top;width:69.8%}
 footer{color:#fff;margin:0 auto;position:relative;font-size:16px;width:960px;}
 footer section{float:left;margin:10px;}
