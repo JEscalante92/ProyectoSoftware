@@ -19,8 +19,24 @@
 .contenido-right
 	display: inline-block
 	width: 30%
+.sub-menu
+	ul
+		margin: 0
+		padding: 0
+		li
+			margin: 0
+			padding: 10px
+			list-style: none
+			border-bottom: 1px solid #CCCCCC
+			a
+				color: #2C3E50
+				text-decoration: none
+		li:hover
+			background-color: #F0F0F0
+			cursor: pointer
+
 .mostrarmas
-	margin: 10px 0
+	margin: 10px 0px
 	display: block
 	float: right
 	text-decoration: none
@@ -28,3 +44,41 @@
 	color: #2C3E50
 .mostrarmas:hover
 	text-decoration: underline
+
+.usuario, .tecnologia
+	border-top: 1px solid #CCCCCC
+	padding: 10px 0px
+	a
+		color: #2C3E50
+		text-decoration: none
+	a:hover
+		text-decoration: underline
+	p
+		height: 50px
+		margin: 0px 0px 10px 50px
+		overflow: hidden
+		padding: 0
+	.usuario-header, .tecnologia-header
+		margin-left: 50px
+		a
+			img
+				float: left
+				margin-left: -50px
+	.usuario-footer, .tecnologia-footer
+		a:last-child
+			float: right
+.btn-aceptar
+    background-color: #0064AD
+    border: 1px solid #004B8B
+    border-radius: 2.5px
+    color: #FFFFFF
+    text-decoration: none
+    display: block
+    height: 50px
+    line-height: 50px
+    margin: 10px auto
+    text-align: center
+    width: 50%
+.btn-aceptar:hover
+    background-color: #004B8B
+    text-decoration: underline
