@@ -1,12 +1,9 @@
-# Django settings for Devsocial project.
+# Django settings for devsocial project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
 from unipath import Path
-
 RUTA_PROYECTO = Path(__file__).ancestor(2)
-
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -54,7 +51,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = RUTA_PROYECTO.child('media')
+MEDIA_ROOT = RUTA_PROYECTO.child('media'),
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -87,7 +84,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '=@r!fbxbv@4=#hs$afvnyu6e9pqqi8uj@$62y(a)2t6u4pu*sb'
+SECRET_KEY = '%_&z^#v)c#_3vqspv*eof3y%tf@y4te!$y(t$9*2s$i_!j#qg)'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -106,13 +103,12 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'Devsocial.urls'
+ROOT_URLCONF = 'devsocial.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'Devsocial.wsgi.application'
+WSGI_APPLICATION = 'devsocial.wsgi.application'
 
 TEMPLATE_DIRS = (
-    RUTA_PROYECTO.child('templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -125,10 +121,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'apps.devsocial'
+    'apps.devsocial',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
