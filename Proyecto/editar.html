@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Resultados de la busqueda</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/editar.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <section id="contenido">
+            <section class="contenido-left sub-menu">
+                <ul>
+                    <li><a href="#">Datos personales</a></li>
+                    <li><a href="#">Logros</a></li>
+                    <li><a href="#">Habilidades</a></li>
+                    <li><a href="#">Portafolio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </section>
+            <section class="contenido-right">
+                <section id="contenido-datos">
+                    <h3>Datos personales:</h3>
+                    <form method="post">
+                        <label>Foto de perfil:</label>
+                        <div>
+                            <img src="img/usuario.png"/>
+                            <input type="file"/>
+                        </div>
+                        <label>Nombre: </label>
+                        <div>
+                            <input type="text" value="Jorge Eduardo"/>
+                            <input type="text" value="Escalante Castañeda"/>
+                        </div>
+                        <label>Correo electronico: </label>
+                        <div>
+                            <input type="email" value="jescalantegt@gmail.com"/>
+                        </div>
+                        <label>Profesión: </label>
+                        <div>
+                            <select>
+                                <option>Ingenieria en informatica y sistemas</option>
+                                <option>Opcion 2</option>
+                            </select>
+                        </div>
+                        <label>Idiomas:</label>
+                        <div>
+                            <input type="text"/>
+                            <button><i class="icon-checkmark"></i></button>
+                        </div>
+                        <div id="idiomas">
+                            <article class="idioma">
+                                <p>Español</p>
+                                <button>
+                                    <i class="icon-close"></i>
+                                </button>
+                            </article>
+                            <article class="idioma">
+                                <p>Ingles</p>
+                                <button>
+                                    <i class="icon-close"></i>
+                                </button>
+                            </article>
+                            <article class="idioma">
+                                <p>Aleman</p>
+                                <button>
+                                    <i class="icon-close"></i>
+                                </button>
+                            </article>
+                        </div>
+                        <label>Sitio web:</label>
+                        <div>
+                            <input type="text" value="http://mipagina.com/" />
+                        </div>
+                        <label>Localidad: </label>
+                        <div>
+                            <input type="text" value="Guatemala" readonly/>
+                            <button><i class="icon-spinner"></i></button>
+                        </div>
+                        <label>Acerca de mi:</label>
+                        <div>
+                            <textarea maxlength="160">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                        </div>
+                        <label>Contraseña: </label>
+                        <div>
+                            <a href="#">Cambiar la contraseña</a>
+                        </div>
+                        <div>
+                            <input type="submit" value="Guardar cambios" />
+                        </div>
+                    </form>
+                </section>
+                <section id="contenido-logros">
+                    <h3>Logros obtenidos: </h3>
+                    <p>Si desea agregar un nuevo logro <a href="#">haz click aqui</a></p>
+                    <section>
+                        <article class="logro">
+                            <div class="contenedor-icon">
+                                <span class="icon-library"></span>
+                            </div>
+                            <div class="logro-header">
+                                <b class="logro-titulo">Ingenieria en informatica y sistemas</b>
+                                <p class="logro-fecha">2013/08/10</p>
+                            </div>
+                            <p class="logro-descripcion">Universidad Rafael Landivar</p>
+                            <div class="logro-opciones">
+                                <a href="#">Eliminar</a>
+                                <a href="#">Editar</a>
+                            </div>
+                        </article>
+                        <article class="logro">
+                            <div class="contenedor-icon">
+                                <span class="icon-library"></span>
+                            </div>
+                            <div class="logro-header">
+                                <b class="logro-titulo">Ingenieria en informatica y sistemas</b>
+                                <p class="logro-fecha">2013/08/10</p>
+                            </div>
+                            <p class="logro-descripcion">Universidad Rafael Landivar</p>
+                            <div class="logro-opciones">
+                                <a href="#">Eliminar</a>
+                                <a href="#">Editar</a>
+                            </div>
+                        </article>
+                        <article class="logro">
+                            <div class="contenedor-icon">
+                                <span class="icon-library"></span>
+                            </div>
+                            <div class="logro-header">
+                                <b class="logro-titulo">Ingenieria en informatica y sistemas</b>
+                                <p class="logro-fecha">2013/08/10</p>
+                            </div>
+                            <p class="logro-descripcion">Universidad Rafael Landivar</p>
+                            <div class="logro-opciones">
+                                <a href="#">Eliminar</a>
+                                <a href="#">Editar</a>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+                <section id="contenido-habilidades">
+                    <h3>Habilidades:</h3>
+                    <p>Si desea agregar una nueva habilidad <a href="#">haz click aqui</a></p>
+                    <section>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="img/javascript_logo.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="img/javascript_logo.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="img/javascript_logo.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="img/javascript_logo.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                    </section>
+                </section>
+                <section id="contenido-portafolio">
+                    <h3>Portafolio:</h3>
+                    <p>Si desea agregar un nuevo proyecto a su portafolio <a href="#">haz click aqui</a></p>
+                    <section>
+                        <article class="proyecto-editar">
+                            <div class="proyecto-header">
+                                <b>Proyecto I</b>
+                                <p>2012-12-09</p>
+                            </div>
+                            <div class="proyecto-content">
+                                <img src="img/usuario.png" height="90" width="90"/>
+                                <p>Descripción pequeña</p>
+                            </div>
+                            <div class="proyecto-opciones">
+                                <div class="opciones-datos">
+                                    <p><i class="icon-arrow-up"></i>192 <i class="icon-arrow-down"></i>192</p>
+                                </div>
+                                <div class="opciones-ajustes">
+                                    <a href="#">Eliminar</a>
+                                    <a href="#">Editar</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="proyecto-editar">
+                            <div class="proyecto-header">
+                                <b>Proyecto II</b>
+                                <p>2012-12-09</p>
+                            </div>
+                            <div class="proyecto-content">
+                                <img src="img/usuario.png" height="90" width="90"/>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="proyecto-opciones">
+                                <div class="opciones-datos">
+                                    <p><i class="icon-arrow-up"></i>192 <i class="icon-arrow-down"></i>192</p>
+                                </div>
+                                <div class="opciones-ajustes">
+                                    <a href="#">Eliminar</a>
+                                    <a href="#">Editar</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
