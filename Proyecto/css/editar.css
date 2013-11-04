@@ -58,13 +58,27 @@
 .idioma button{margin-left:5px !important;color:#fff;border:0;background-color:transparent}
 .idioma p,.idioma button{float:left;margin:0;padding:0;font-size:14px}
 .idioma:hover{background-color:#004b8b}
+.logro{border-top:1px solid #ccc;display:block;padding:10px 0;overflow:hidden;}
+.logro p{color:#777}
+.logro b,.logro p{margin:0}
+.logro .logro-header .logro-fecha{float:right}
+.logro .logro-descripcion,.logro .logro-header{margin-left:55px}
+.logro .contenedor-icon{-webkit-border-radius:0;border-radius:0;float:left}
+.logro .logro-opciones{float:right;margin-top:-19px;}
+.logro .logro-opciones a{margin-left:5px}
+.habilidad-editar{margin:10px 10px 10px 0;overflow:hidden;display:inline-block;}
+.habilidad-editar p{display:block;margin:0 0 0 58px;}
+.habilidad-editar p i{color:#f1c40f;margin:0 .5px}
+.habilidad-editar .habilidad-header{margin-left:58px;}
+.habilidad-editar .habilidad-header img{float:left;margin-left:-58px}
+.habilidad-editar .habilidad-opciones a{margin-right:5px}
 body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;margin:20px auto;overflow:hidden;width:960px;}
 #contenido a{color:#0064ad;text-decoration:none}
 #contenido a:hover{text-decoration:underline}
 #contenido textarea{height:100px}
 #contenido select{border:1px solid #2c3e50;color:#2c3e50;padding:5px;width:290px}
-#contenido input[type="text"],#contenido textarea,#contenido input[type="email"]{border:1px solid #2c3e50;color:#2c3e50;margin-bottom:10px;padding:5px;width:250px}
+#contenido input[type="text"],#contenido textarea,#contenido input[type="email"]{border:1px solid #2c3e50;-webkit-border-radius:5px;border-radius:5px;color:#2c3e50;margin-bottom:10px;padding:5px;width:250px}
 #contenido-datos{padding:10px;display:block;}
 #contenido-datos label{float:left}
 #contenido-datos div{margin-left:150px}
@@ -74,5 +88,9 @@ body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido-datos img{display:block;margin-bottom:10px}
 #contenido-datos div,#contenido-datos label{margin-top:10px}
 #contenido-datos #idiomas{margin-top:-5px}
+#contenido-logros{padding:10px}
+#contenido-logros > p,#contenido-logros > h3{margin:10px 0}
+#contenido-habilidades{padding:10px}
+#contenido-habilidades > p,#contenido-habilidades > h3{margin:10px 0}
 .contenido-left{border:0;width:30%}
 .contenido-right{border-left:1px solid #ccc;width:69.5%}
