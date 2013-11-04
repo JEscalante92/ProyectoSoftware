@@ -72,6 +72,20 @@
 .habilidad-editar .habilidad-header{margin-left:58px;}
 .habilidad-editar .habilidad-header img{float:left;margin-left:-58px}
 .habilidad-editar .habilidad-opciones a{margin-right:5px}
+.proyecto-editar{border-top:1px solid #ccc;overflow:hidden;margin:10px 0;}
+.proyecto-editar .proyecto-content{margin-bottom:10px;overflow:hidden;}
+.proyecto-editar .proyecto-content img{float:left}
+.proyecto-editar .proyecto-content > p{margin-left:100px;margin-top:0}
+.proyecto-editar .proyecto-header{overflow:hidden;}
+.proyecto-editar .proyecto-header b{float:left}
+.proyecto-editar .proyecto-header p{float:right;color:#777}
+.proyecto-editar .proyecto-header b,.proyecto-editar .proyecto-header p{margin:10px 0}
+.proyecto-editar .proyecto-opciones .opciones-ajustes{float:right;}
+.proyecto-editar .proyecto-opciones .opciones-ajustes a{margin-left:5px}
+.proyecto-editar .proyecto-opciones .opciones-datos{float:left;}
+.proyecto-editar .proyecto-opciones .opciones-datos p{margin:0;}
+.proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-down{color:#c0392b}
+.proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-up{color:#27ae60}
 body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;margin:20px auto;overflow:hidden;width:960px;}
 #contenido a{color:#0064ad;text-decoration:none}
@@ -92,5 +106,7 @@ body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido-logros > p,#contenido-logros > h3{margin:10px 0}
 #contenido-habilidades{padding:10px}
 #contenido-habilidades > p,#contenido-habilidades > h3{margin:10px 0}
+#contenido-portafolio{padding:10px}
+#contenido-portafolio > p,#contenido-portafolio > h3{margin:10px 0}
 .contenido-left{border:0;width:30%}
 .contenido-right{border-left:1px solid #ccc;width:69.5%}
