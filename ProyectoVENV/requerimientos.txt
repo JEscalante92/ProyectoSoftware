@@ -7,3 +7,7 @@ progressbar==2.3dev
 requests==1.0.4
 six==1.4.1
 wsgiref==0.1.2
+
+Nuevas Librerias
+django-imagekit==3.0.4
+pillow==2.2.1

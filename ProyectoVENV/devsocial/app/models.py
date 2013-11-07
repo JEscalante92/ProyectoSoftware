@@ -1,19 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import User
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
+
 
 class tblTipo_evento(models.Model):
 	nombre = models.CharField(max_length=140)
-
 	def __unicode__(self):
 			return self.nombre
+
 class tblTecnologia(models.Model):
 	nombre = models.CharField(max_length=50)
-	#fotoPerfil = ProcessedImageField(upload_to='fotoTecnologia',
-     #                                      processors=[ResizeToFill(90, 90)],
-      #                                     format='JPEG',
-       #                                    options={'quality': 60})
 	descripcion = models.TextField(max_length=200)
-
+	foto_tecnologia = ProcessedImageField(upload_to='foto_tecnologia',
+								processors=[ResizeToFill(90,90)],
+								format='JPEG',
+								options={'quality':60})
 	def __unicode__(self):
 		return self.nombre
 
@@ -23,7 +25,6 @@ class tblEvento (models.Model):
 	organizacion = models.CharField(max_length=140)
 	usuario = models.ForeignKey(User)
 	tipo_evento = models.ForeignKey(tblTipo_evento)
-
 	def __unicode__ (self):
 		return self.titulo
 
@@ -35,7 +36,7 @@ class tblReporte(models.Model):
 	estado = models.BooleanField()
 
 	def __unicode__ (self):
-		return self.fecha_reporte
+		return self.usuario.username
 
 class tblDenuncia(models.Model):
 	moderador = models.ForeignKey(User, related_name='moderador')
@@ -43,15 +44,21 @@ class tblDenuncia(models.Model):
 	fecha_denuncia = models.DateField('DD/MM/AAAA')
 	fecha_resuelto = models.DateField('DD/MM/AAAA')
 	estado = models.BooleanField()
+	def __unicode__ (self):
+		return self.usuario_reportado.username
 
-	
-	#def __unicode__ (self):
-	#	return self.get_usuario
 
+DOMINIO_CHOICES = (
+    ('1', '1'),
+    ('2', '2'),
+    ('3', '3'),
+    ('4', '4'),
+    ('5', '5'),
+)
 class tblHabilidad(models.Model):
 	usuario = models.ForeignKey(User)
 	tecnologia = models.ForeignKey(tblTecnologia)
-	dominio = models.IntegerField(max_length=1)
+	dominio = models.CharField(max_length=1, choices=DOMINIO_CHOICES)
 	def __unicode__ (self):
 		return self.tecnologia.nombre
 
@@ -65,25 +72,25 @@ class tblProyecto(models.Model):
 	nombre = models.CharField(max_length=50)
 	descripcion = models.TextField(max_length=200)
 	fecha = models.DateField('DD/MM/AAAA')
-	link_galeria = models.CharField(max_length=50)
-	link_proyecto = models.CharField(max_length=50)
-	link_organizacion = models.CharField(max_length=50)
+	Url_galeria = models.URLField()
+	Url_proyecto = models.URLField()
+	Url_organizacion = models.URLField()
 	def __unicode__(self):
 		return self.nombre
 		
 class tblUser_profile(models.Model):
 	usuario = models.ForeignKey(User)
-	#fotoPerfil = ProcessedImageField(upload_to='fotoPerfil',
-     #                                      processors=[ResizeToFill(90, 90)],
-      #                                     format='JPEG',
-       #                                    options={'quality': 60})
+	foto = ProcessedImageField(upload_to='foto_perfil',
+								processors=[ResizeToFill(90,90)],
+								format='JPEG',
+								options={'quality':60})
 	profesion = models.CharField(max_length=50)
 	intereses = models.CharField(max_length=50)
-	link_Facebook = models.CharField(max_length=50)
-	link_Twitter = models.CharField(max_length=50)
-	link_GooglePlus = models.CharField(max_length=50)
-	link_GitHub = models.CharField(max_length=50)
-	link_Web = models.CharField(max_length=50)
+	link_Facebook = models.URLField()
+	link_Twitter = models.URLField()
+	link_GooglePlus = models.URLField()
+	link_GitHub = models.URLField()
+	link_Web = models.URLField()
 	link_Localidad = models.CharField(max_length=50)
 	def __unicode__(self):
-		return self.profesion
+		return self.usuario.username
