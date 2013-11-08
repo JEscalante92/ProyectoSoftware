@@ -1,2 +1,0 @@
-usuario admin= devsocial
-pass= devsocial
