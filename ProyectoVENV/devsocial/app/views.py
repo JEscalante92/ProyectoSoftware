@@ -1,7 +1,6 @@
 from rest_framework.generics import ListCreateAPIView
 from django.contrib.auth.models import User
-from .models import tblTipo_evento, tblTecnologia,tblEvento, tblReporte,tblDenuncia, tblHabilidad,tblAsignacion_idioma, tblUser_profile, tblProyecto
-
+from .models import *
 class Tipo_evento(ListCreateAPIView):
 	model = tblTipo_evento
 	ordering=('-name',)
@@ -26,6 +25,12 @@ class Asignacion_idioma(ListCreateAPIView):
 
 class User_profile(ListCreateAPIView):
 	model = tblUser_profile
+
+class Galeria(ListCreateAPIView):
+	model = tblGaleria
+
+class Asignacion_habilidad(ListCreateAPIView):
+	model = tblAsignacion_habilidad
 
 class Proyecto(ListCreateAPIView):
 	model = tblProyecto

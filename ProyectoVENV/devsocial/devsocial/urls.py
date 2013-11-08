@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from app.views import Tipo_evento,Tecnologia,Evento,Reporte,Denuncia, Habilidad,Asignacion_idioma, User_profile, Proyecto,Usuario
+from app.views import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -25,5 +25,7 @@ urlpatterns = patterns('',
     url(r'^User_profile/$', User_profile.as_view(), name='User_profile'),
     url(r'^Proyecto/$', Proyecto.as_view(), name='Proyecto'),
     url(r'^Usuario/$', Usuario.as_view(), name='Usuario'),
-    
+    url(r'^Galeria/$', Galeria.as_view(), name='Galeria_Proyecto'),
+    url(r'^Asignacion_habilidad/$', Asignacion_habilidad.as_view(), name='Asignacion_habilidad'),
+       
 )
