@@ -7,7 +7,7 @@ from imagekit.processors import ResizeToFill
 EVENTO_CHOICES = (
     ('1', 'Primaria'),
     ('2', 'Nivel Medio'),
-    ('3', 'Universitadad'),
+    ('3', 'Universidad'),
     
 )
 class tblTipo_evento(models.Model):

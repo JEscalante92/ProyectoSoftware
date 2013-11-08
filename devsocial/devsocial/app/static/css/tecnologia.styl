@@ -1,0 +1,128 @@
+@import 'nib'
+@import 'iconos.styl'
+@import 'cajas.styl'
+body
+    background-color: #F0F0F0
+    color: #2C3E50
+    font-family: 'pt_sans'
+#contenido
+    background-color: #FFFFFF
+    border: 1px solid #CCCCCC
+    border-radius: 5px
+    margin: 20px auto
+    overflow: hidden
+    width: 960px   
+    #tecnologia-info
+        padding: 10px
+        margin-left: 100px
+        img
+            float: left
+            margin-left: -100px
+        b, h2, p
+            margin: 0
+    #tecnologia-proyectos
+        padding: 10px
+        h3
+            margin: 0px 0px 10px 0px
+        #mostrarmas
+            margin: 10px 0
+            display: block
+            float: right
+            text-decoration: none
+            text-align: right
+            color: #2C3E50
+        #mostrarmas:hover
+            text-decoration: underline
+        .item-proyecto
+            margin-bottom: 10px
+            .item-proyecto-content
+                margin-left: 50px
+                a
+                    color: #2C3E50
+                    text-decoration: none
+                a:hover
+                    cursor: pointer
+                    text-decoration: underline
+                p
+                    .icon-arrow-down
+                        color: #C0392B
+                    .icon-arrow-up
+                        color: #27AE60
+                p, a
+                    margin: 0
+                    font-size: 14px
+            .item-proyecto-header
+                margin-left: 50px
+                a
+                    color: #2C3E50
+                    text-decoration: none
+                    p
+                        margin: 0
+                        font-weight: bold 
+                        overflow: hidden
+                        text-overflow: ellipsis
+                        white-space: nowrap
+                    img
+                        float: left
+                        margin-left: -50px
+                a:hover
+                    cursor: pointer
+                    text-decoration: underline
+    #tecnologia-usuarios
+        padding: 10px
+        section
+            padding: 10px 0px
+            .item-usuario
+                border-bottom: 1px solid #CCCCCC
+                display: block
+                padding: 10px 0px
+                .item-usuario-header
+                    margin-left: 50px
+                    img
+                        margin-left: -50px
+                        float: left
+                .item-usuario-footer
+                    padding-left: 50px
+                    p
+                        margin: 0 0 0 5px
+                        i
+                            color: #F1C40F
+                            margin: 0px 0.5px
+                    a, p
+                        display: inline-block
+                .item-usuario-header, .item-usuario-footer
+                    padding-right: 5px
+                    a
+                        color: #2C3E50
+                        margin: 0
+                        text-decoration: none
+                    a:hover
+                        cursor: pointer
+                        text-decoration: underline
+
+        #usuarios-cabecera
+            border-bottom: 1px solid #CCCCCC
+            line-height: 48px
+            overflow: hidden
+            padding-bottom: 10px
+            h3
+                float: left
+                margin: 0 10px
+            .contenedor-icon
+                float: left
+        #usuarios-mas
+            display: block
+            height: 50px
+            line-height: 50px
+            margin: 10px auto
+            text-align: center
+            width: 50%
+.btn-aceptar
+    background-color: #0064AD
+    border: 1px solid #004B8B
+    border-radius: 2.5px
+    color: #FFFFFF
+    text-decoration: none
+.btn-aceptar:hover
+    background-color: #004B8B
+    text-decoration: underline

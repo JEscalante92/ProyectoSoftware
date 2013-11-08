@@ -1,0 +1,64 @@
+@import 'nib'
+footer
+	color: #FFFFFF
+	margin: 0 auto
+	position: relative
+	font-size: 16px
+	width: 960px
+	section
+		float: left
+		margin: 10px
+		ul
+			margin: 0
+			padding: 0
+		li
+			list-style: none
+			display: block
+			a
+				color: #FFFFFF
+				margin: 0
+				text-decoration: none
+			a:hover
+				text-decoration: underline
+	#footer-contacto
+		float: right
+	#info-web
+		clear: both
+		display: block
+		margin: 0 auto
+		padding: 20px 0px 10px 0px
+		text-align: center
+		width: 250px
+		p
+			margin: 0
+
+#wrapper-footer
+	background-color: #333333
+
+.contacto-tarjeta
+			float: left
+			margin: 0px 5px
+			div
+				background-color: #0064AD
+				display: inline-block
+				font-size: 16px
+				height: 32px				
+				line-height: 32px
+				width: 32px
+				i
+					color: #FFFFFF
+					margin: 0 8px
+.contacto-tarjeta:hover
+	cursor: pointer
+.contacto-tarjeta[data-contacto=twitter]
+	div
+		background-color: #5CC7EB
+.contacto-tarjeta[data-contacto=fb]
+	div
+		background-color: #4D639C
+.contacto-tarjeta[data-contacto=gplus]
+	div
+		background-color: #DA2128
+.contacto-tarjeta[data-contacto=mail]
+	div
+		background-color: #2C3E50

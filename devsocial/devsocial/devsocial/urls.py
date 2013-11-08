@@ -7,6 +7,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
+    url(r'^$', 'app.views.home', name='home'),
+    url(r'^registro/$', 'app.views.home', name='home'),
+    url(r'^login/$', 'app.views.ingreso', name='ingreso'),
+    url(r'^logout/$', 'app.views.salida', name='salida'),
+    url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
     # url(r'^$', 'devsocial.views.home', name='home'),
     # url(r'^devsocial/', include('devsocial.foo.urls')),
 

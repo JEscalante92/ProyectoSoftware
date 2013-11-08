@@ -1,0 +1,249 @@
+@import "nib"
+@import "iconos.styl"
+@import "main-header.styl"
+@import "cajas.styl"
+body
+	background-color: #F0F0F0
+	color: #2C3E50
+	font-family: 'pt_sans', sans-serif
+	
+#perfil, #portafolio
+	background-color: #FFFFFF
+	border: 1px solid #CCCCCC
+	border-radius: 5px
+	font-size: 0
+	margin: 20px auto
+	overflow: hidden
+	width: 940px
+#perfil-personal
+	// background-color: #555555
+	#personal-info
+		font-size: 16px
+		padding: 10px	
+		#info-cabecera
+			margin-left: 95px
+			img
+				float: left
+				margin-left: -95px
+			h2
+				font-size: 24px
+				margin: 0
+			span
+				font-weight: normal
+		#info-datos
+			margin-left: 95px
+			font-size: 0px
+			p
+				display: inline-block
+				font-size: 16px
+				margin: 0
+				vertical-align: top
+				width: 50%
+
+	#personal-contacto
+		border-top: 1px solid #CCCCCC
+		border-bottom: 1px solid #CCCCCC
+		margin-top: 30px
+		overflow: hidden
+		padding: 10px
+		.contacto-tarjeta
+			float: left
+			margin: 0px 5px
+			div
+				background-color: #0064AD
+				display: inline-block
+				font-size: 16px
+				height: 32px				
+				line-height: 32px
+				width: 32px
+				i
+					color: #FFFFFF
+					text-align: center
+					vertical-align: middle
+			a
+				color: #0064AD
+				font-size: 14px
+				text-decoration: none
+			a:hover
+				cursor: pointer
+				text-decoration: underline
+
+		.contacto-tarjeta[data-contacto=twitter]
+			div
+				background-color: #5CC7EB
+		.contacto-tarjeta[data-contacto=fb]
+			div
+				background-color: #4D639C
+		.contacto-tarjeta[data-contacto=gplus]
+			div
+				background-color: #DA2128
+		.contacto-tarjeta[data-contacto=mail]
+			div
+				background-color: #2C3E50
+	#personal-descripcion
+		border-bottom: 1px solid #CCCCCC
+		clear: both
+		font-size: 16px
+		overflow: hidden
+		padding: 10px
+		h3
+			margin: 0px 0px 10px 0px
+		p
+			margin: 0px 10px 0px 0px 
+#perfil-habilidades
+	// background-color: #888888
+	vertical-align: top
+	font-size: 16px
+	padding: 10px
+	section
+		clear: both
+		margin-top: 20px
+		.habilidad
+			margin: 10px 0px
+			overflow: hidden
+			p
+				display: block
+				margin: 0 0 0 58px
+				i
+					color: #F1C40F
+					margin: 0px 0.5px
+			.habilidad-header
+				margin-left: 58px
+				a
+					color: #2C3E50
+					text-decoration: none
+					img
+						float: left
+						margin-left: -58px
+				a:hover
+					cursor: pointer
+					text-decoration: underline
+	#habilidades-cabecera
+		line-height: 48px
+		overflow: hidden
+		h3
+			float: left
+			margin: 0px 10px
+			span
+				font-weight: normal
+		.contenedor-icon
+			float: left
+
+#perfil-logros
+	// background-color: #888888
+	font-size: 16px
+	overflow: hidden
+	padding: 10px
+	section
+		padding: 10px 0px
+		overflow: hidden
+		.logro
+			border-top: 1px solid #CCCCCC
+			display: block
+			padding: 10px 0px
+			overflow: hidden
+			p
+				color: #777777
+			b, p
+				margin: 0
+			.logro-header
+				.logro-fecha
+					float: right
+			.logro-descripcion, .logro-header
+				margin-left: 55px
+			.contenedor-icon
+				border-radius: 0px
+				float: left
+
+	#logros-cabecera
+		line-height: 48px
+		overflow: hidden
+		h3
+			float: left
+			margin: 0px 10px
+		p
+			color: #777777
+			float: right
+			margin: 0px 10px
+		.contenedor-icon
+			float: left
+#portafolio
+	section
+		border-top: 1px solid #CCCCCC
+		font-size: 16px
+		padding: 10px
+		text-align: left
+		.proyecto
+			border: 1px solid #CCCCCC
+			border-radius: 5px
+			display: inline-block
+			margin: 10px
+			vertical-align: top
+			width: 30%
+			a
+				color: #2C3E50
+				text-decoration: none
+			a:hover
+				cursor: pointer
+				text-decoration: underline
+			p
+				color: #777777
+				margin: 0
+			.proyecto-content
+				overflow: hidden
+				img
+					float: left
+					margin: 10px
+				a
+					clear: both
+					display: block
+					float: right
+					margin-right: 10px
+					margin-bottom: 10px
+					text-align: right
+				p
+					height: 90px
+					overflow: hidden
+					text-overflow: ellipsis;
+					margin-top: 10px
+					margin-right: 10px
+
+			.proyecto-header
+				border-bottom: 1px solid #CCCCCC
+				overflow: hidden
+				padding: 5px 10px
+				a
+					font-weight: bold
+				p
+					float: right
+	#portafolio-cabecera
+		font-size: 16px
+		line-height: 48px
+		overflow: hidden
+		padding: 10px
+		h3
+			float: left
+			margin: 0px 10px
+		p
+			color: #777777
+			float: right
+			margin: 0
+		.contenedor-icon
+			float: left
+.contenedor-icon
+	background-color: #0064AD
+	border-radius: 5px
+	line-height: 48px
+	height: 48px
+	font-size: 32px
+	width: 48px
+	span
+		color: #FFFFFF
+		text-align: center
+		vertical-align: middle
+.perfil-left
+	border-right: 1px solid #CCCCCC
+	display: inline-block
+	vertical-align: top
+	width: 69.80%
+@import 'main-footer.styl'

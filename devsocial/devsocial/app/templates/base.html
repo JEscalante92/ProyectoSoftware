@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        {% block head %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
+        {% block style_css %}{% endblock%}
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        {% include "header.html" %}
+        {% block body %}{% endblock%}
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="{{STATIC_URL}}js/main-header.js"></script>
+
+        <script src="{{STATIC_URL}}js/main.js"></script>
+    </body>
+</html>

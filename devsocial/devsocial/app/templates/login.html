@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Devsocial | Login</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/login.css" />
+{% endblock %}
+{% block body %}
+<section id="contenido">
+	<img src="/static/img/icono382x125.png" height="62.5" width="191"/>
+	<form method='post' action=''>
+		{% csrf_token %}
+		{{formulario.as_p}}
+		<input type="submit" value="Ingresar">
+	</form>
+</section>
+{% endblock %}
