@@ -4,8 +4,14 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
 
+EVENTO_CHOICES = (
+    ('1', 'Primaria'),
+    ('2', 'Nivel Medio'),
+    ('3', 'Universitadad'),
+    
+)
 class tblTipo_evento(models.Model):
-	nombre = models.CharField(max_length=140,blank=False,unique=True)
+	nombre = models.CharField(max_length=2,choices=EVENTO_CHOICES,blank=False,unique=True)
 	def __unicode__(self):
 			return self.nombre
 
@@ -27,7 +33,7 @@ class tblEvento (models.Model):
 	usuario = models.ForeignKey(User,blank=False)
 	tipo_evento = models.ForeignKey(tblTipo_evento,blank=False)
 	def __unicode__ (self):
-		return self.titulo
+		return '%s %s' % (self.usuario.username, self.titulo)
 
 class tblReporte(models.Model):
 	tecnologia = models.ForeignKey(tblTecnologia,blank=False)
@@ -37,7 +43,7 @@ class tblReporte(models.Model):
 	estado = models.BooleanField()
 
 	def __unicode__ (self):
-		return self.usuario.username
+		return '%s %s' % (self.usuario.username, self.tecnologia.nombre)
 
 class tblDenuncia(models.Model):
 	moderador = models.ForeignKey(User, related_name='moderador',blank=False)
@@ -46,7 +52,7 @@ class tblDenuncia(models.Model):
 	fecha_resuelto = models.DateField(blank=True,null=True)
 	estado = models.BooleanField()
 	def __unicode__ (self):
-		return self.usuario_reportado.username
+		return '%s %s' % (self.moderador.username, self.usuario_reportado.username)
 
 
 DOMINIO_CHOICES = (
@@ -61,13 +67,13 @@ class tblHabilidad(models.Model):
 	tecnologia = models.ForeignKey(tblTecnologia,blank=False)
 	dominio = models.CharField(max_length=1, choices=DOMINIO_CHOICES,blank=False)
 	def __unicode__ (self):
-		return self.tecnologia.nombre
+		return '%s %s' % (self.usuario.username, self.tecnologia.nombre)
 
 class tblAsignacion_idioma(models.Model):
 	idioma = models.CharField(max_length=50,blank=False)
 	usuario = models.ForeignKey(User,blank=False)
 	def __unicode__ (self):
-		return self.idioma
+		return '%s %s' % (self.usuario.username, self.idioma)
 
 
 class tblProyecto(models.Model):
@@ -81,7 +87,7 @@ class tblProyecto(models.Model):
 	like= models.IntegerField(blank=True,null=True)
 	unlike= models.IntegerField(blank=True,null=True)
 	def __unicode__(self):
-		return self.nombre
+		return '%s %s' % (self.usuario.username, self.nombre) 
 
 class tblGaleria(models.Model):
 	foto = ProcessedImageField(upload_to='foto_galeria',
@@ -97,11 +103,11 @@ class tblAsignacion_habilidad(models.Model):
 	proyecto = models.ForeignKey(tblProyecto,blank=False)
 	habilidad = models.ForeignKey(tblHabilidad,blank=False)
 	def __unicode__ (self):
-		return self.proyecto.nombre
+		return '%s %s' % (self.proyecto.nombre, self.habilidad.tecnologia.nombre)
 
 		
 class tblUser_profile(models.Model):
-	usuario = models.ForeignKey(User,blank=True)
+	usuario = models.OneToOneField(User,blank=True,unique=True)
 	foto = ProcessedImageField(upload_to='foto_perfil',
 								default='foto_default/user-settings.png',
 								processors=[ResizeToFill(90,90)],
@@ -116,4 +122,4 @@ class tblUser_profile(models.Model):
 	link_Web = models.URLField(blank=True)
 	link_Localidad = models.CharField(max_length=50,blank=True)
 	def __unicode__(self):
-		return self.usuario.username
+		return '%s %s' % (self.usuario.username, self.profesion)
