@@ -1,5 +1,8 @@
+# -*- encoding: utf-8 -*-
 from django.conf.urls import patterns, include, url
+from rest_framework.urlpatterns import format_suffix_patterns
 from app.views import *
+from app import views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -32,5 +35,6 @@ urlpatterns = patterns('',
     url(r'^Usuario/$', Usuario.as_view(), name='Usuario'),
     url(r'^Galeria/$', Galeria.as_view(), name='Galeria_Proyecto'),
     url(r'^Asignacion_habilidad/$', Asignacion_habilidad.as_view(), name='Asignacion_habilidad'),
-       
+    
+    url(r'^usuarios/$', views.UsersList.as_view()),
 )

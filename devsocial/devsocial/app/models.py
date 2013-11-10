@@ -54,24 +54,29 @@ class tblDenuncia(models.Model):
 	def __unicode__ (self):
 		return '%s %s' % (self.moderador.username, self.usuario_reportado.username)
 
-
-DOMINIO_CHOICES = (
-    ('1', '1'),
-    ('2', '2'),
-    ('3', '3'),
-    ('4', '4'),
-    ('5', '5'),
-)
 class tblHabilidad(models.Model):
+	PRINCIPIANTE = 1
+	NOVATO = 2
+	INTERMEDIO = 3
+	AVANZADO = 4
+	EXPERTO = 5
+	DOMINIO_CHOICES = (
+		(PRINCIPIANTE, 'Principiante'),
+		(NOVATO, 'Novato'),
+		(INTERMEDIO, 'Intermedio'),
+		(AVANZADO, 'Avanzado'),
+		(EXPERTO, 'Experto'),
+	)
+
 	usuario = models.ForeignKey(User,blank=False)
 	tecnologia = models.ForeignKey(tblTecnologia,blank=False)
-	dominio = models.CharField(max_length=1, choices=DOMINIO_CHOICES,blank=False)
+	dominio = models.IntegerField(choices=DOMINIO_CHOICES, default=PRINCIPIANTE)
 	def __unicode__ (self):
 		return '%s %s' % (self.usuario.username, self.tecnologia.nombre)
 
 class tblAsignacion_idioma(models.Model):
 	idioma = models.CharField(max_length=50,blank=False)
-	usuario = models.ForeignKey(User,blank=False)
+	usuario = models.ForeignKey(User,blank=False, related_name='idiomas')
 	def __unicode__ (self):
 		return '%s %s' % (self.usuario.username, self.idioma)
 
@@ -107,18 +112,17 @@ class tblAsignacion_habilidad(models.Model):
 
 		
 class tblUser_profile(models.Model):
-	usuario = models.OneToOneField(User,blank=True,unique=True)
+	usuario = models.OneToOneField(User,blank=True,unique=True, related_name='perfil')
 	foto = ProcessedImageField(upload_to='foto_perfil',
 								default='foto_default/user-settings.png',
 								processors=[ResizeToFill(90,90)],
 								format='JPEG',
 								options={'quality':60})
 	profesion = models.CharField(max_length=50,blank=True)
-	intereses = models.CharField(max_length=50,blank=True)
+	intereses = models.CharField(max_length=140,blank=True)
 	link_Facebook = models.URLField(blank=True)
 	link_Twitter = models.URLField(blank=True)
 	link_GooglePlus = models.URLField(blank=True)
-	link_GitHub = models.URLField(blank=True)
 	link_Web = models.URLField(blank=True)
 	link_Localidad = models.CharField(max_length=50,blank=True)
 	def __unicode__(self):
