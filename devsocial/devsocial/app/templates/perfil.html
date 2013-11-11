@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Jorge Escalante</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/main-perfil.css" />
+{% endblock%}
+{% block body %}
+	<div id="contenido-wrapper">
+		<section id="perfil">
+			<section class="contenido-left">
+				<section id="perfil-logros">
+					<div id="logros-cabecera">
+	                    <div class="contenedor-icon">
+	                        <span class="icon-trophy"></span>
+	                    </div>
+	                    <h3>Logros</h3>
+	                    <p>3 logros</p>
+	                </div>
+	                <section>
+	                	<p>El usuario aun no tiene logros</p>
+	                </section>
+				</section>
+			</section>
+			<section class="contenido-right">
+				<section id="perfil-habilidades">
+					<div id="habilidades-cabecera">
+	                    <div class="contenedor-icon">
+	                        <span class="icon-console"></span>
+	                    </div>
+	                    <h3>Habilidades<span> (5)</span></h3>
+	                </div>
+	                <section>
+	                	<p>No hay habilidades que mostrar</p>
+	                </section>
+				</section>
+			</section>
+		</section>
+	</div>
+{% endblock %}
+{% block js_files %}
+	<script src="{{STATIC_URL}}js/vendor/underscore.js"></script>
+	<script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
+	<script src="{{STATIC_URL}}js/init.js"></script>
+	<script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
+	<script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
+	<script src="{{STATIC_URL}}js/main-perfil.js"></script>
+{% endblock %}

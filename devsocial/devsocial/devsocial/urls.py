@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^login/$', 'app.views.ingreso', name='ingreso'),
     url(r'^logout/$', 'app.views.salida', name='salida'),
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
+
+    url(r'^usuarios/(?P<slug>[-\w]+)/$', 'app.views.perfil', name='perfil'),
     # url(r'^$', 'devsocial.views.home', name='home'),
     # url(r'^devsocial/', include('devsocial.foo.urls')),
 

@@ -75,6 +75,11 @@ class UsersList(APIView):
 def home(request):
     template = "inicio.html"
     return render(request, template)
+
+def perfil(request, slug):
+    template = "perfil.html"
+    return render(request, template)
+
 def ingreso(request):
     template = "login.html"
     if request.method=='POST':
