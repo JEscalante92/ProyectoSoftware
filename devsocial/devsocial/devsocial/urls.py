@@ -8,7 +8,7 @@ from app import views
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('app.views',
     # Examples:
     url(r'^$', 'app.views.home', name='home'),
     url(r'^registro/$', 'app.views.home', name='home'),
@@ -39,4 +39,8 @@ urlpatterns = patterns('',
     url(r'^Asignacion_habilidad/$', Asignacion_habilidad.as_view(), name='Asignacion_habilidad'),
     
     url(r'^usuarios/$', views.UsersList.as_view()),
+
+    url(r'^tecnologiasLista/$', 'tecnologias', name='tecnologiasLista'),
+    url(r'^tecnologiasUsuario/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),
+    url(r'^tecnologiasNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),
 )

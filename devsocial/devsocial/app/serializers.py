@@ -1,9 +1,18 @@
 # -*- encoding: utf-8 -*-
+from django.forms import widgets
+
 from rest_framework import serializers
 
 from django.contrib.auth.models import User
 
 from .models import tblUser_profile, tblAsignacion_idioma
+
+from app.models import tblTecnologia
+
+class TecnologiaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = tblTecnologia
+        fields = ('nombre', 'descripcion', 'foto_tecnologia')
 
 class User_profileSerializer(serializers.ModelSerializer):
 	class Meta:

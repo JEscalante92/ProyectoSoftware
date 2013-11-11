@@ -17,6 +17,14 @@ from .models import *
 from .forms import LoginForm
 from .serializers import UserSerializer
 from .filters import UserFilter
+from app.serializers import TecnologiaSerializer
+from django.core import serializers
+from app.models import tblTecnologia
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view
 
 class Tipo_evento(ListCreateAPIView):
     model = tblTipo_evento
@@ -103,3 +111,56 @@ def ingreso(request):
 def salida(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
+
+"""
+Vistas para Tecnologia
+"""
+def tecnoNombre(request, **kwargs):
+    tecno = tblTecnologia.objects.filter(nombre = kwargs['nombre'])
+    serializer = TecnologiaSerializer(tecno, many=True)
+    return HttpResponse(serializer.data, mimetype='application/json')
+
+def tecnoUsuario(request, **kwargs):
+    persona = User.objects.get(username = kwargs['nombre'])
+    habilidad = tblHabilidad.objects.filter(usuario = persona).order_by('dominio')
+    tecno = tblTecnologia.objects.filter(nombre=habilidad.tecnologia.nombre)
+    serializer = TecnologiaSerializer(tecno, many=True)
+    return HttpResponse(serializer.data, mimetype='application/json')
+
+@api_view(['GET', 'POST'])
+def tecnologias(request):
+    """
+    Lista las tecnologias registradas y registra una nueva tecnologia
+    """
+    if request.method == 'GET':
+        tecno = tblTecnologia.objects.all()
+        serializer = TecnologiaSerializer(tecno, many=True)
+        return HttpResponse(serializer.data, mimetype='application/json')
+    elif request.method == 'POST':
+        serializer = TecnologiaSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT', 'DELETE'])
+def tecnologiaMetodos(request, pk): 
+    """
+    metodos borrar y modificar
+    """          
+    try:
+        tecno = tblTecnologia.objects.get(pk=pk)
+    except Snippet.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'PUT':
+        serializer = TecnologiaSerializer(tecno, data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        tecno.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
