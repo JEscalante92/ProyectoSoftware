@@ -1,6 +1,5 @@
 from django.contrib import admin
 from models import *
-admin.site.register(tblTipo_evento)
 admin.site.register(tblTecnologia)
 admin.site.register(tblEvento)
 admin.site.register(tblReporte)

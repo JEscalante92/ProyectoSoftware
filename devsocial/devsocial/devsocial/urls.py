@@ -8,7 +8,7 @@ from app import views
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('app.views',
+urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'app.views.home', name='home'),
     url(r'^registro/$', 'app.views.home', name='home'),
@@ -25,7 +25,6 @@ urlpatterns = patterns('app.views',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^Tipo_evento/$', Tipo_evento.as_view(), name='Tipo_evento'),
     url(r'^Tecnologia/$', Tecnologia.as_view(), name='Tecnologia'),
     url(r'^Evento/$', Evento.as_view(), name='Evento'),
     url(r'^Reporte/$', Reporte.as_view(), name='Reporte'),
@@ -40,7 +39,7 @@ urlpatterns = patterns('app.views',
     
     url(r'^usuarios/$', views.UsersList.as_view()),
 
-    url(r'^tecnologiasLista/$', 'tecnologias', name='tecnologiasLista'),
-    url(r'^tecnologiasUsuario/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),
-    url(r'^tecnologiasNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),
+    url(r'^tecnologiasLista/$', 'app.views.tecnologias', name='tecnologiasLista'),
+    url(r'^tecnologiasUsuario/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'app.views.tecnoUsuario', name='tecnoUsuario'),
+    url(r'^tecnologiasNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'app.views.tecnoNombre', name='tecnoNombre'),
 )

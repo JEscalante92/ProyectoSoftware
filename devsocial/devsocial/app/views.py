@@ -16,7 +16,6 @@ from django.http import HttpResponseRedirect
 from .models import *
 from .forms import LoginForm
 from .serializers import UserSerializer
-from .filters import UserFilter
 from app.serializers import TecnologiaSerializer
 from django.core import serializers
 from app.models import tblTecnologia
@@ -25,10 +24,6 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
-
-class Tipo_evento(ListCreateAPIView):
-    model = tblTipo_evento
-    ordering=('-name',)
 
 class Tecnologia(ListCreateAPIView):
     model = tblTecnologia

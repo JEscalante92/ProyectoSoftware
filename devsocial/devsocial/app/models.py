@@ -3,18 +3,6 @@ from django.contrib.auth.models import User
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
-
-EVENTO_CHOICES = (
-    ('1', 'Primaria'),
-    ('2', 'Nivel Medio'),
-    ('3', 'Universidad'),
-    
-)
-class tblTipo_evento(models.Model):
-	nombre = models.CharField(max_length=2,choices=EVENTO_CHOICES,blank=False,unique=True)
-	def __unicode__(self):
-			return self.nombre
-
 class tblTecnologia(models.Model):
 	nombre = models.CharField(max_length=50,blank=False,unique=True)
 	descripcion = models.TextField(max_length=200,blank=True)
@@ -27,11 +15,20 @@ class tblTecnologia(models.Model):
 		return self.nombre
 
 class tblEvento (models.Model):
+
 	fecha = models.DateField(null=False,blank=False)
 	titulo = models.CharField(max_length=140,blank=False)
 	organizacion = models.CharField(max_length=140,blank=True)
 	usuario = models.ForeignKey(User,blank=False)
-	tipo_evento = models.ForeignKey(tblTipo_evento,blank=False)
+	CURSO = 1
+	LOGRO = 2
+	CONFERENCIA = 3
+	EVENTO_CHOICES = (
+		(CURSO, 'Curso'),
+		(LOGRO, 'Logro'),
+		(CONFERENCIA, 'Conferencia'),
+	)
+	tipo_evento = models.IntegerField(choices=EVENTO_CHOICES, default=CURSO)
 	def __unicode__ (self):
 		return '%s %s' % (self.usuario.username, self.titulo)
 
@@ -68,8 +65,8 @@ class tblHabilidad(models.Model):
 		(EXPERTO, 'Experto'),
 	)
 
-	usuario = models.ForeignKey(User,blank=False)
-	tecnologia = models.ForeignKey(tblTecnologia,blank=False)
+	usuario = models.ForeignKey(User,blank=False, related_name='habilidades')
+	tecnologia = models.ForeignKey(tblTecnologia,blank=False, related_name='tecnologia')
 	dominio = models.IntegerField(choices=DOMINIO_CHOICES, default=PRINCIPIANTE)
 	def __unicode__ (self):
 		return '%s %s' % (self.usuario.username, self.tecnologia.nombre)

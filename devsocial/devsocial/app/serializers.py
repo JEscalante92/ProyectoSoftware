@@ -7,12 +7,24 @@ from django.contrib.auth.models import User
 
 from .models import tblUser_profile, tblAsignacion_idioma
 
-from app.models import tblTecnologia
+from app.models import tblTecnologia, tblHabilidad
+
+
+class TecnologiaHypSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = tblTecnologia
+        fields = ('nombre', 'descripcion', 'foto_tecnologia')
 
 class TecnologiaSerializer(serializers.ModelSerializer):
     class Meta:
         model = tblTecnologia
         fields = ('nombre', 'descripcion', 'foto_tecnologia')
+
+class HabilidadSerializer(serializers.ModelSerializer):
+	tecnologia = TecnologiaSerializer(many=False)
+	class Meta:
+		model = tblHabilidad
+		fields = ('dominio','tecnologia')
 
 class User_profileSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -26,7 +38,7 @@ class IdiomaSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
 	perfil = User_profileSerializer(many=False)
 	idiomas = IdiomaSerializer(many=True)
-
+	habilidades = HabilidadSerializer(many=True)
 	class Meta:
 		model = User
-		fields = ('username','email','first_name','last_name','perfil','idiomas')
+		fields = ('username','email','first_name','last_name','perfil','idiomas','habilidades')
