@@ -38,6 +38,7 @@ urlpatterns = patterns('',
     url(r'^Asignacion_habilidad/$', Asignacion_habilidad.as_view(), name='Asignacion_habilidad'),
     
     url(r'^usuarios/$', views.UsersList.as_view()),
+    url(r'^tecnologias/$', views.TecnologiasList.as_view()),
 
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene

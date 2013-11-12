@@ -9,16 +9,10 @@ from .models import tblUser_profile, tblAsignacion_idioma
 
 from app.models import tblTecnologia, tblHabilidad
 
-
-class TecnologiaHypSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = tblTecnologia
-        fields = ('nombre', 'descripcion', 'foto_tecnologia')
-
 class TecnologiaSerializer(serializers.ModelSerializer):
     class Meta:
         model = tblTecnologia
-        fields = ('nombre', 'descripcion', 'foto_tecnologia')
+        fields = ('id','nombre', 'descripcion', 'foto_tecnologia')
 
 class HabilidadSerializer(serializers.ModelSerializer):
 	tecnologia = TecnologiaSerializer(many=False)
@@ -41,4 +35,4 @@ class UserSerializer(serializers.ModelSerializer):
 	habilidades = HabilidadSerializer(many=True)
 	class Meta:
 		model = User
-		fields = ('username','email','first_name','last_name','perfil','idiomas','habilidades')
+		fields = ('id','username','email','first_name','last_name','perfil','idiomas','habilidades')

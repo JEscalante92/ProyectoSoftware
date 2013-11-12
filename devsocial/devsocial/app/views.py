@@ -57,6 +57,10 @@ class Proyecto(ListCreateAPIView):
 
 class Usuario(ListCreateAPIView):
     model = User
+
+"""
+Vistas para API REST
+"""
 class UsersList(APIView):
     def get(self, request, format='json'):
         queryset = User.objects.all()
@@ -74,6 +78,26 @@ class UsersList(APIView):
         
         serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
+
+class TecnologiasList(APIView):
+    def get(self, request, format='json'):
+        queryset = tblTecnologia.objects.all()
+        username = self.request.QUERY_PARAMS.get('username', None)
+        search = self.request.QUERY_PARAMS.get('search', None)
+        if username is not None:
+            try:
+                user = User.objects.get(username=username)
+                queryset = queryset.filter(tecnologia__usuario=user)
+            except User.DoesNotExist:
+                queryset = tblTecnologia.objects.none()  
+        
+        if search is not None:
+            queryset = queryset.filter(Q(nombre__istartswith=search))
+        serializer = TecnologiaSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class HabilidadDetail(APIView):
+    pass
 
 def home(request):
     template = "inicio.html"
