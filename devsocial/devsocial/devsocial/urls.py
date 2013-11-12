@@ -39,7 +39,7 @@ urlpatterns = patterns('',
     
     url(r'^usuarios/$', views.UsersList.as_view()),
 
-    url(r'^tecnologiasLista/$', 'app.views.tecnologias', name='tecnologiasLista'),
-    url(r'^tecnologiasUsuario/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'app.views.tecnoUsuario', name='tecnoUsuario'),
-    url(r'^tecnologiasNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'app.views.tecnoNombre', name='tecnoNombre'),
+    url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
+    url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene
+    url(r'^tecnoNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),#en el nombre da los datos de la tecnologia
 )

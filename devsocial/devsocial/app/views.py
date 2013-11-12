@@ -116,14 +116,16 @@ def tecnoNombre(request, **kwargs):
     return HttpResponse(serializer.data, mimetype='application/json')
 
 def tecnoUsuario(request, **kwargs):
-    persona = User.objects.get(username = kwargs['nombre'])
+    persona = User.objects.get(username = kwargs['username'])
     habilidad = tblHabilidad.objects.filter(usuario = persona).order_by('dominio')
-    tecno = tblTecnologia.objects.filter(nombre=habilidad.tecnologia.nombre)
+    tecno = []
+    for i in habilidad:
+        tecno.append(tblTecnologia.objects.get(nombre=i))
     serializer = TecnologiaSerializer(tecno, many=True)
     return HttpResponse(serializer.data, mimetype='application/json')
 
 @api_view(['GET', 'POST'])
-def tecnologias(request):
+def tecnoLista(request):
     """
     Lista las tecnologias registradas y registra una nueva tecnologia
     """
@@ -138,24 +140,3 @@ def tecnologias(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['PUT', 'DELETE'])
-def tecnologiaMetodos(request, pk): 
-    """
-    metodos borrar y modificar
-    """          
-    try:
-        tecno = tblTecnologia.objects.get(pk=pk)
-    except Snippet.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'PUT':
-        serializer = TecnologiaSerializer(tecno, data=request.DATA)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        tecno.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
