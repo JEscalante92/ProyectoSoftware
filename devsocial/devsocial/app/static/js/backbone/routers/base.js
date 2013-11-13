@@ -1,7 +1,7 @@
-CVitae.Routers.BaseRouter = Backbone.Router.extend({
+devsocial.Routers.BaseRouter = Backbone.Router.extend({
 	routes: {
 		"" :  "root",
-		"tecnologia/:nombre" : "tecnologiaSingle"
+		"usuarios/:nombre" : "perfil"
 	},
 	initialize : function(){
 		var self = this;
@@ -12,9 +12,9 @@ CVitae.Routers.BaseRouter = Backbone.Router.extend({
 		window.app.state = "root";
 		console.log("root");
 	},
-	tecnologiaSingle: function(nombre){
-		console.log("tecnologiaSingle",nombre);
-		window.app.state = "tecnologiaSingle";
-		window.app.tecnologia = nombre;
+	perfil: function(nombre){
+		console.log("perfil",nombre);
+		window.app.state = "perfil";
+		window.app.perfil = nombre;
 	}
 });

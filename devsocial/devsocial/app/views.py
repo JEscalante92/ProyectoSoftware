@@ -102,13 +102,17 @@ class HabilidadList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        habilidad = {'dominio': request.DATA['dominio'], 'tecnologia': request.DATA['tecnologia']} 
-        habilidad['usuario'] = request.user.id
-        serializer = HabilidadEditSerializer(data=habilidad)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if not request.user.is_anonymous():
+            habilidad = {'dominio': request.DATA['dominio'], 'tecnologia': request.DATA['tecnologia']} 
+            habilidad['usuario'] = request.user.id
+            serializer = HabilidadEditSerializer(data=habilidad)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response("SESIÓN NO INICIADA", status=status.HTTP_400_BAD_REQUEST)
+            
 
 def home(request):
     template = "inicio.html"
