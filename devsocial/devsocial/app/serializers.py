@@ -18,7 +18,12 @@ class HabilidadSerializer(serializers.ModelSerializer):
 	tecnologia = TecnologiaSerializer(many=False)
 	class Meta:
 		model = tblHabilidad
-		fields = ('dominio','tecnologia')
+		fields = ('usuario','dominio','tecnologia')
+
+class HabilidadEditSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = tblHabilidad
+		fields = ('usuario','dominio','tecnologia')
 
 class User_profileSerializer(serializers.ModelSerializer):
 	class Meta:

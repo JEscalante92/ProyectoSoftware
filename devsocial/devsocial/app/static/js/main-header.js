@@ -20,6 +20,5 @@ var funcion_header = function(){
 	$($('#header-search').parent()).on("click", activar_Busqueda);
 	$($('#header-usuario').parent()).on("mouseenter", activar_menu);
 	$($('#header-usuario').parent()).on("mouseleave", desactivar_menu);
-	$.get("/usuarios/");
 }
 $(window).on("ready", funcion_header);

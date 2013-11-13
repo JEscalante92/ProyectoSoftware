@@ -15,8 +15,7 @@ from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import LoginForm
-from .serializers import UserSerializer
-from app.serializers import TecnologiaSerializer
+from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer
 from django.core import serializers
 from app.models import tblTecnologia
 from django.http import HttpResponse
@@ -96,8 +95,20 @@ class TecnologiasList(APIView):
         serializer = TecnologiaSerializer(queryset, many=True)
         return Response(serializer.data)
 
-class HabilidadDetail(APIView):
-    pass
+class HabilidadList(APIView):
+    def get(self, request, format=None):
+        habilidades = tblHabilidad.objects.all()
+        serializer = HabilidadEditSerializer(habilidades, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        habilidad = {'dominio': request.DATA['dominio'], 'tecnologia': request.DATA['tecnologia']} 
+        habilidad['usuario'] = request.user.id
+        serializer = HabilidadEditSerializer(data=habilidad)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def home(request):
     template = "inicio.html"

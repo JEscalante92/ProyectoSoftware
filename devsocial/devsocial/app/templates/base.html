@@ -13,6 +13,7 @@
         {% block body %}{% endblock %}
         {% include "footer.html" %}
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="{{STATIC_URL}}js/vendor/jquery.cookie.js"></script>
         <script src="{{STATIC_URL}}js/main-header.js"></script>
         {% block js_files %} {% endblock %}
         <script src="{{STATIC_URL}}js/main.js"></script>
