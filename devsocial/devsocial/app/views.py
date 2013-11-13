@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,CambiarPassForm
 from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer
 from django.core import serializers
 from app.models import tblTecnologia
@@ -179,3 +179,107 @@ def tecnoLista(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def registroUsuario(request):
+    form = RegistroUserForm()
+    if request.method =='POST':
+        form = RegistroUserForm(request.POST)
+        if form.is_valid():
+            usuario = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password_one = form.cleaned_data['password_one']
+            password_two = form.cleaned_data['password_two']
+            Localidad = form.cleaned_data['link_Localidad']
+            usuariocreate = User.objects.create_user(username=usuario,email=email,password=password_one)
+            usuariocreate.save()
+            perfil = tblUser_profile()
+            perfil.usuario = usuariocreate
+            perfil.link_Localidad = Localidad
+            perfil.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response('prueba_registro.html',{'form':form},context_instance=RequestContext(request))
+    elif request.method == 'GET':
+        
+        form = RegistroUserForm(initial={
+                                    #'link_Localidad':geolocalizacion(request),
+            })        
+    return render_to_response('prueba_registro.html',{'form':form},context_instance=RequestContext(request))
+
+@login_required
+def modificarUsuario(request):
+    usuario = request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    perfil = tblUser_profile.objects.get(id=usuario.id)
+    if request.method == 'POST':
+        form = ModificarPerfilForm(request.POST,request.FILES)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            
+            profesion = form.cleaned_data['profesion']
+            link_Web = form.cleaned_data['link_Web']
+            intereses = form.cleaned_data['intereses']
+            link_Localidad = form.cleaned_data['link_Localidad']
+
+            usuarioactual.first_name = first_name
+            usuarioactual.last_name = last_name
+            usuarioactual.email = email
+            perfil.profesion = profesion
+            perfil.link_Web = link_Web
+            perfil.intereses = intereses
+            perfil.link_Localidad = link_Localidad
+            usuarioactual.save()
+            perfil.save()  
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response('prueba_modificar.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+
+    elif request.method == 'GET':
+        form = ModificarPerfilForm(initial={
+                                    'first_name': usuarioactual.first_name,
+                                    'last_name': usuarioactual.last_name,
+                                    'email':usuarioactual.email,
+                                    'profesion':perfil.profesion,
+                                    'link_Web':perfil.link_Web,
+                                    'intereses':perfil.intereses,
+                                    'link_Localidad':perfil.link_Localidad,
+
+
+            })
+                
+    return render_to_response('prueba_modificar.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+
+@login_required
+def CambiarPassword(request):
+    form = CambiarPassForm()
+    usuario = request.user
+    usuarioactual = User.objects.get(id=usuario.id)    
+    if request.method == 'POST':
+        form = CambiarPassForm(request.POST)
+        if form.is_valid():
+            password_one = form.cleaned_data['password_old']
+            password_one = form.cleaned_data['password_one']
+            password_two = form.cleaned_data['password_two']
+            usuarioactual.set_password = password_one
+            usuarioactual.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))    
+        else:
+             return render_to_response('prueba_cambiopass.html',{'form':form},context_instance=RequestContext(request))
+    return render_to_response('prueba_cambiopass.html',{'form':form},context_instance=RequestContext(request))
+
+def geolocalizacion(request):
+    from django_geoip.models import IpRange
+    ip = request.META['REMOTE_ADDR']
+    
+    try:
+        ubicacion = IpRange.objects.by_ip(ip)
+
+        return ubicacion.city
+        #ubicacion.region
+        #ubicacion.country
+    
+    except IpRange.DoesNotExist:
+        return ' Se desconoce la Ubicacion'
+        

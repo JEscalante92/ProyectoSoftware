@@ -19,7 +19,10 @@ urlpatterns = patterns('',
     url(r'^usuarios/(?P<slug>[-\w]+)/$', 'app.views.perfil', name='perfil'),
     # url(r'^$', 'devsocial.views.home', name='home'),
     # url(r'^devsocial/', include('devsocial.foo.urls')),
-
+    url(r'^prueba_registrarse/$', 'app.views.registroUsuario', name='registrarse'),
+    url(r'^prueba_modificar/$', 'app.views.modificarUsuario', name='modificar'),
+    url(r'^prueba_cambiopass/$', 'app.views.CambiarPassword', name='cambiar password'),
+       
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
