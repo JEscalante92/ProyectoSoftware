@@ -19,7 +19,7 @@ class tblEvento (models.Model):
 	fecha = models.DateField(null=False,blank=False)
 	titulo = models.CharField(max_length=140,blank=False)
 	organizacion = models.CharField(max_length=140,blank=True)
-	usuario = models.ForeignKey(User,blank=False)
+	usuario = models.ForeignKey(User,blank=False, related_name='logros')
 	CURSO = 1
 	LOGRO = 2
 	CONFERENCIA = 3

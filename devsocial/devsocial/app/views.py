@@ -113,6 +113,9 @@ class HabilidadList(APIView):
         else:
             return Response("SESIÓN NO INICIADA", status=status.HTTP_400_BAD_REQUEST)
             
+def tperfil(request):
+    template = "templates_swig/perfil.html"
+    return render(request, template)
 
 def home(request):
     template = "inicio.html"

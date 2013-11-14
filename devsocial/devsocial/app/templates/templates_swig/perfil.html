@@ -1,0 +1,64 @@
+{% verbatim %}
+    <section class="contenido-left">
+        <section id="perfil-personal">
+            <div id="personal-info">
+                <div id="info-cabecera">
+                    <img src="img/usuario.png" height="90" width="90"/>
+                    <h2>{{ post.first_name }} {{ post.last_name }} </h2>
+                </div>
+                <div id="info-datos">
+                    <p><i class="icon-graduate"></i>{% if not post.perfil.profesion %} No existe descripción. {% else %}{{post.perfil.profesion}}{% endif %}</p>
+                    <p><i class="icon-location"></i>{% if not post.perfil.link_Localidad %} No existe aun localidad. {% else %}{{post.perfil.link_Localidad}}{% endif %}</p>
+                    <p><i class="icon-language"></i>{% if not post.idiomas %} No hay idiomas asignados.{% else %} {{ post.idiomas_join }}{% endif %}</p>
+                    <p><i class="icon-web"></i>{% if not post.perfil.link_Web %} No posee sitio web. {% else %}{{post.perfil.link_Web}}{% endif %}</p>
+                </div>
+            </div>
+            <div id="personal-contacto">
+                <div class="contacto-tarjeta" data-contacto="twitter">
+                    <div ><i class="icon-twitter"></i></div>
+                    <a>@JEscalante92</a>
+                </div>
+                <div class="contacto-tarjeta" data-contacto="fb">
+                    <div ><i class="icon-facebook"></i></div>
+                    <a>/JEscalante92</a>
+                </div>
+                <div class="contacto-tarjeta" data-contacto="gplus">
+                    <div ><i class="icon-google-plus"></i></div>
+                    <a>+JEscalante92</a>
+                </div>
+                <div class="contacto-tarjeta" data-contacto="mail">
+                    <div ><i class="icon-mail"></i></div>
+                    <a>{{ post.email }}</a>
+                </div>
+            </div>
+            <div id="personal-descripcion">
+                <h3>Acerca de mi: </h3>
+                <p>{% if post.perfil.intereses == "" %} No existe descripción. {% else %}{{post.perfil.intereses}}{% endif %}</p>
+            </div>
+        </section>
+        <section id="perfil-logros">
+            <div id="logros-cabecera">
+                <div class="contenedor-icon">
+                    <span class="icon-trophy"></span>
+                </div>
+                <h3>Logros</h3>
+                <p>{{post.logros|length}} logros</p>
+            </div>
+            <section>
+
+            </section>
+        </section>
+    </section>
+    <section class="contenido-right">
+        <section id="perfil-habilidades">
+            <div id="habilidades-cabecera">
+                <div class="contenedor-icon">
+                    <span class="icon-console"></span>
+                </div>
+                <h3>Habilidades<span> ({{post.habilidades|length}})</span></h3>
+            </div>
+            <section>
+            </section>
+        </section>
+    </section>
+{% endverbatim %}
