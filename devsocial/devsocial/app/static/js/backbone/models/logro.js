@@ -1,4 +1,4 @@
-CVitae.Models.TecnologiaModel = Backbone.Model.extend({
+devsocial.Models.LogroModel = Backbone.Model.extend({
 	url:"",
 	defaults:{
 
@@ -17,4 +17,4 @@ CVitae.Models.TecnologiaModel = Backbone.Model.extend({
 		}
 	}
 });
-CVitae.Models.Tecnologia = CVitae.Models.TecnologiaModel;
+devsocial.Models.Logro = devsocial.Models.LogroModel;

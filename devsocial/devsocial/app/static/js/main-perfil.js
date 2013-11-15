@@ -1,3 +1,6 @@
+var agregarTecnologia = function(){
+
+};
 $(function () {
 	var csrftoken = $.cookie('csrftoken');
 	$.ajaxSetup({

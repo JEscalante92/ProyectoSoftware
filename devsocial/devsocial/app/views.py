@@ -15,7 +15,7 @@ from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm
-from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer
+from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer, LogroSerializer
 from django.core import serializers
 from app.models import tblTecnologia
 from django.http import HttpResponse
@@ -99,6 +99,24 @@ class TecnologiasList(APIView):
             queryset = queryset.filter(Q(nombre__istartswith=search))
         serializer = TecnologiaSerializer(queryset, many=True)
         return Response(serializer.data)
+
+class LogrosList(APIView):
+    def get(self, request, format='json'):
+        start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
+        if start_index == 0:
+            start_index = 1
+        username = self.request.QUERY_PARAMS.get('username', None)
+        if username is not None:
+            try:
+                user = User.objects.get(username=username)
+                queryset = tblEvento.objects.all().filter(usuario=user)[int(start_index)-1 : int(start_index)+5]
+            except User.DoesNotExist:
+                queryset = tblEvento.objects.none() 
+        else:
+            queryset = tblEvento.objects.all()[int(start_index)-1 : int(start_index)+5] 
+        serializer = LogroSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class HabilidadList(APIView):
     def get(self, request, format=None):

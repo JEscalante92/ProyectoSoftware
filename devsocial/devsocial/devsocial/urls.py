@@ -43,8 +43,10 @@ urlpatterns = patterns('',
     url(r'^Galeria/$', Galeria.as_view(), name='Galeria_Proyecto'),
     url(r'^Asignacion_habilidad/$', Asignacion_habilidad.as_view(), name='Asignacion_habilidad'),
     
+    #url's para API REST
     url(r'^api/usuarios/$', views.UsersList.as_view()),
     url(r'^api/tecnologias/$', views.TecnologiasList.as_view()),
+    url(r'^api/logros/$', views.LogrosList.as_view()),
     url(r'^api/habilidad/$', views.HabilidadList.as_view()),
 
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas

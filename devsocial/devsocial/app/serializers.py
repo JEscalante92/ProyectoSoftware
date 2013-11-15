@@ -23,7 +23,7 @@ class HabilidadSerializer(serializers.ModelSerializer):
 class LogroSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = tblEvento
-		fields = ('fecha','titulo','organizacion','tipo_evento')
+		fields = ('id','fecha','titulo','organizacion','tipo_evento')
 
 class HabilidadEditSerializer(serializers.ModelSerializer):
 	class Meta:
