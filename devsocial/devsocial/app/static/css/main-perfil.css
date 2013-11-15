@@ -117,6 +117,8 @@ header nav ul li:hover{background:rgba(255,255,255,0.15)}
 .proyecto-editar .proyecto-opciones .opciones-datos p{margin:0;}
 .proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-down{color:#c0392b}
 .proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-up{color:#27ae60}
+.error{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;font-size:0;margin:20px auto;overflow:hidden;width:940px;padding:40px 0;text-align:center;}
+.error p{margin:10px 0;font-size:32px}
 body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans',sans-serif}
 #perfil,#portafolio{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;font-size:0;margin:20px auto;overflow:hidden;width:940px}
 #perfil-personal #personal-info{font-size:16px;padding:10px;}

@@ -121,6 +121,9 @@ class HabilidadList(APIView):
 def tperfil(request):
     template = "templates_swig/perfil.html"
     return render(request, template)
+def terror(request):
+    template = "templates_swig/error.html"
+    return render(request, template)
 
 def home(request):
     template = "inicio.html"
