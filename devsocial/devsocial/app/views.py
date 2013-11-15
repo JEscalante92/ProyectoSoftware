@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,CambiarPassForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm
 from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer
 from django.core import serializers
 from app.models import tblTecnologia
@@ -23,6 +23,11 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
+
+from django.views.decorators.debug import sensitive_post_parameters
+from django.views.decorators.csrf import csrf_protect
+from django.template.response import TemplateResponse
+from django.contrib.auth.forms import PasswordChangeForm
 
 class Tecnologia(ListCreateAPIView):
     model = tblTecnologia
@@ -201,13 +206,13 @@ def registroUsuario(request):
             perfil.save()
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
-            return render_to_response('prueba_registro.html',{'form':form},context_instance=RequestContext(request))
+            return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
     elif request.method == 'GET':
         
         form = RegistroUserForm(initial={
                                     #'link_Localidad':geolocalizacion(request),
             })        
-    return render_to_response('prueba_registro.html',{'form':form},context_instance=RequestContext(request))
+    return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
 
 @login_required
 def modificarUsuario(request):
@@ -237,7 +242,7 @@ def modificarUsuario(request):
             perfil.save()  
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
-            return render_to_response('prueba_modificar.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+            return render_to_response('prueba_form.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 
     elif request.method == 'GET':
         form = ModificarPerfilForm(initial={
@@ -252,25 +257,7 @@ def modificarUsuario(request):
 
             })
                 
-    return render_to_response('prueba_modificar.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
-
-@login_required
-def CambiarPassword(request):
-    form = CambiarPassForm()
-    usuario = request.user
-    usuarioactual = User.objects.get(id=usuario.id)    
-    if request.method == 'POST':
-        form = CambiarPassForm(request.POST)
-        if form.is_valid():
-            password_one = form.cleaned_data['password_old']
-            password_one = form.cleaned_data['password_one']
-            password_two = form.cleaned_data['password_two']
-            usuarioactual.set_password = password_one
-            usuarioactual.save()
-            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))    
-        else:
-             return render_to_response('prueba_cambiopass.html',{'form':form},context_instance=RequestContext(request))
-    return render_to_response('prueba_cambiopass.html',{'form':form},context_instance=RequestContext(request))
+    return render_to_response('prueba_form.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 
 def geolocalizacion(request):
     from django_geoip.models import IpRange
@@ -286,3 +273,21 @@ def geolocalizacion(request):
     except IpRange.DoesNotExist:
         return ' Se desconoce la Ubicacion'
         
+@sensitive_post_parameters()
+@csrf_protect
+@login_required
+def CambiarPassword(request,
+                    template_name='prueba_form.html',
+                    post_change_redirect=None,
+                    password_change_form=PasswordChangeForm,
+                    ):
+    
+    if request.method == "POST":
+        form = password_change_form(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))    
+    else:
+        form = password_change_form(user=request.user)
+    return TemplateResponse(request, template_name, {'form': form})
+

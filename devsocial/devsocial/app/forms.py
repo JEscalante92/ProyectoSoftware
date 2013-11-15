@@ -1,5 +1,6 @@
 from django import forms
 # -*- encoding: utf-8 -*-
+from django.contrib.auth.models import User
 class LoginForm(forms.Form):
 	username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Nombre de usuario'}))
 	password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña'}))
@@ -7,9 +8,9 @@ class LoginForm(forms.Form):
 class RegistroUserForm(forms.Form):	
 	username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'usuario'}) )
 	email = forms.EmailField(label='', widget=forms.TextInput(attrs={'placeholder': 'Correo'}) )
-	password_one = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Contrasena'}) )
-	password_two = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Confirmar Contrasena'}) )
-	link_Localidad = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Localidad','readonly':True}) )
+	password_one = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Contraseña'}) )
+	password_two = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Confirmar Contraseña'}) )
+	link_Localidad = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Localidad',}) )
 	# verificar si el usuario no ha sido utilizado o registrador anteriormente
 	def clean_username(self):
 		username = self.cleaned_data['username']
@@ -60,29 +61,3 @@ class ModificarPerfilForm(forms.Form):
 	#			return email
 	#		raise forms.ValidationError('Email ya existe para otro usuario')
 
-class CambiarPassForm(forms.Form):	
-	password_old = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Contrasena actual'}) )
-	password_one = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Contrasena nueva'}) )
-	password_two = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Confirmar Contrasena nueva'}) )
-		# verificar si pass actual ingreso es igual al del sistema
-	
-	#def clean_password_old(self):
-	#	password_old= self.cleaned_data['password_old']
-	#	usuarioactual = User()
-    #	usuarioactual = request.user
-    #	password = usuarioactual.password
-    #	if password_old == password:
-	#		pass
-     #   else:
-	#		raise forms.ValidationError('el password actual no coiciden con el del sistema')
-		
-	# validar los password nuevos, para ver si conciden
-	def clean_password_two(self):
-		password_one = self.cleaned_data['password_one']
-		password_two = self.cleaned_data['password_two']
-		if password_one == password_two:
-			pass
-		else:
-			raise forms.ValidationError('los password nuevos no coiciden')
-
-				
