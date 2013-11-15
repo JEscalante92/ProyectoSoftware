@@ -1,5 +1,28 @@
-var agregarTecnologia = function(){
-
+var cargarTemplateLogro= function(){
+	$.ajax({
+		type: "GET",
+		url: '../../templates/logro',
+		async: false,
+		success: function(template){
+			window.templates.logro = template;
+		}
+	});
+};
+var cargarTemplatePerfil= function(){
+	$.ajax({
+		type: "GET",
+		url: '../../templates/perfil',
+		async: false,
+		success: function(template){
+			window.templates.perfil = template;
+		}
+	});
+};
+var cargarTemplatePerfil= function(){
+	xhr_logros_template = $.get('../../templates/perfil');
+	xhr_logros_template.done(function(template){
+		window.templates.perfil = template;
+	});
 };
 $(function () {
 	var csrftoken = $.cookie('csrftoken');
@@ -9,16 +32,32 @@ $(function () {
 });
 var inicio = function(){
 	console.log('Starting app');
+	cargarTemplatePerfil();
+	cargarTemplateLogro();
 	usuario = window.location.pathname.split('/')[2];
+	
+	window.collections.logros = new devsocial.Collections.LogrosCollection();
+	window.collections.logros.on('add', function(model){
+		var view = new devsocial.Views.LogroView(model, window.templates.logro);
+		view.render();
+		view.$el.appendTo('#perfil-logros > section');
+	});
+
 	var xhr = $.get( "/api/usuarios/", {username: usuario, format: "json"} );
 	xhr.done(function(data){
 		modelo = new devsocial.Models.UsuarioModel(data[0]);
 		if(data[0]){
-			var xhr_perfil = $.get('../../templates/perfil');
-			xhr_perfil.done(function(data){
-				var view = new devsocial.Views.UsuarioView(modelo, data);
-				view.render();
-				view.$el.appendTo('#contenido-wrapper');
+			var view = new devsocial.Views.UsuarioView(modelo, window.templates.perfil);
+			view.render();
+			view.$el.appendTo('#contenido-wrapper');
+			var xhr_logros = $.get('/api/logros', {"start-index": window.collections.logros.length, username: usuario});
+			xhr_logros.done(function(data){
+				data.forEach(function(item){
+					window.collections.logros.add(item);
+				});
+				if(data.length == 0){
+					$('#perfil-logros > section').append('<p>No se han encontrado logros.</p>');
+				};
 			});
 		}
 		else{

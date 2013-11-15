@@ -9,4 +9,5 @@ window.app = {};
 window.routers = {};
 window.plugs = {};
 window.views = {};
-window.colecctions = {};
+window.collections = {};
+window.templates = {};

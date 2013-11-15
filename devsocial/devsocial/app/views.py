@@ -142,6 +142,9 @@ def tperfil(request):
 def terror(request):
     template = "templates_swig/error.html"
     return render(request, template)
+def tlogro(request):
+    template = "templates_swig/logro.html"
+    return render(request, template)
 
 def home(request):
     template = "inicio.html"
