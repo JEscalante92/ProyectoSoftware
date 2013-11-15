@@ -50,6 +50,7 @@ urlpatterns = patterns('',
     url(r'^api/tecnologias/$', views.TecnologiasList.as_view()),
     url(r'^api/logros/$', views.LogrosList.as_view()),
     url(r'^api/habilidad/$', views.HabilidadList.as_view()),
+    url(r'^api/habilidad-edit/$', views.HabilidadEditList.as_view()),
 
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene

@@ -15,7 +15,7 @@ from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm
-from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer, LogroSerializer
+from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer, LogroSerializer, TecnologiaUserSerializer
 from django.core import serializers
 from app.models import tblTecnologia
 from django.http import HttpResponse
@@ -103,6 +103,7 @@ class TecnologiasList(APIView):
 class LogrosList(APIView):
     def get(self, request, format='json'):
         start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
+        get_all = self.request.QUERY_PARAMS.get('get', None)
         if start_index == 0:
             start_index = 1
         username = self.request.QUERY_PARAMS.get('username', None)
@@ -110,15 +111,40 @@ class LogrosList(APIView):
             try:
                 user = User.objects.get(username=username)
                 queryset = tblEvento.objects.all().filter(usuario=user)[int(start_index)-1 : int(start_index)+4]
+                if get_all == 'all':
+                    queryset = tblEvento.objects.all().filter(usuario=user)
             except User.DoesNotExist:
                 queryset = tblEvento.objects.none() 
         else:
-            queryset = tblEvento.objects.all()[int(start_index)-1 : int(start_index)+4] 
+            queryset = tblEvento.objects.all()[int(start_index)-1 : int(start_index)+4]
+        if get_all == 'all':
+            queryset = tblEvento.objects.all()
         serializer = LogroSerializer(queryset, many=True)
         return Response(serializer.data)
 
-
 class HabilidadList(APIView):
+    def get(self , request, format='json'):
+        start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
+        get_all = self.request.QUERY_PARAMS.get('get', None)
+        if start_index == 0:
+            start_index= 1
+        username = self.request.QUERY_PARAMS.get('username', None)
+        if username is not None:
+            try:
+                user = User.objects.get(username=username)
+                queryset = tblHabilidad.objects.all().filter(usuario=user)[int(start_index)-1 : int(start_index)+4]
+                if get_all == 'all':
+                    queryset = tblHabilidad.objects.all().filter(usuario=user)
+            except User.DoesNotExist:
+                queryset = tblHabilidad.objects.none() 
+        else:
+            queryset = tblHabilidad.objects.all()[int(start_index)-1 : int(start_index)+4]
+        if get_all == 'all':
+            queryset = tblHabilidad.objects.all()
+        serializer = HabilidadSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class HabilidadEditList(APIView):
     def get(self, request, format=None):
         habilidades = tblHabilidad.objects.all()
         serializer = HabilidadEditSerializer(habilidades, many=True)

@@ -47,3 +47,9 @@ class UserSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = User
 		fields = ('username','email','first_name','last_name','perfil','idiomas','habilidades', 'logros')
+
+class TecnologiaUserSerializer(serializers.ModelSerializer):
+	habilidades = HabilidadSerializer(many=True)
+	class Meta:
+		model = User
+		fields = ('habilidades',)

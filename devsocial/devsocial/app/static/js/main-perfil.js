@@ -71,6 +71,16 @@ var inicio = function(){
 				};
 				$('#cargar-users').on('click', cargar_users);
 			});
+			// var xhr_habilidades = $.get('/api/tecnologiasusers', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});
+			// xhr_habilidades.done(function(data){
+			// 	data.forEach(function(item){
+			// 		window.collections.logros.add(item);
+			// 	});
+			// 	if(data.length == 0){
+			// 		$('#perfil-logros > section').append('<p>No se han encontrado logros.</p>');
+			// 	};
+			// 	$('#cargar-users').on('click', cargar_users);
+			// });
 		}
 		else{
 			var xhr_perfil = $.get('../../templates/error');
