@@ -18,10 +18,14 @@ var cargarTemplatePerfil= function(){
 		}
 	});
 };
-var cargarTemplatePerfil= function(){
-	xhr_logros_template = $.get('../../templates/perfil');
-	xhr_logros_template.done(function(template){
-		window.templates.perfil = template;
+var cargarTemplateHabilidad= function(){
+	$.ajax({
+		type: "GET",
+		url: '../../templates/habilidad',
+		async: false,
+		success: function(template){
+			window.templates.habilidad = template;
+		}
 	});
 };
 var cargar_users = function(){
@@ -36,6 +40,18 @@ var cargar_users = function(){
 		}
 	});
 };
+var cargar_habilidades = function(){
+	var cantidad_habilidades = window.collections.habilidades.length;
+	var xhr_habilidades = $.get('/api/habilidad', {"start-index": window.collections.habilidades.length, username: usuario, format: 'json'});
+	xhr_habilidades.done(function(data){
+		data.forEach(function(item){
+			window.collections.habilidades.add(item);
+		});
+		if(cantidad_habilidades == window.collections.habilidades.length){
+			$('#cargar-habilidades').hide();
+		}
+	});
+};
 $(function () {
 	var csrftoken = $.cookie('csrftoken');
 	$.ajaxSetup({
@@ -46,6 +62,7 @@ var inicio = function(){
 	console.log('Starting app');
 	cargarTemplatePerfil();
 	cargarTemplateLogro();
+	cargarTemplateHabilidad();
 	usuario = window.location.pathname.split('/')[2];
 	
 	window.collections.logros = new devsocial.Collections.LogrosCollection();
@@ -54,6 +71,13 @@ var inicio = function(){
 		view.render();
 		view.$el.insertBefore('#perfil-logros > section > #cargar-users');
 	});
+	window.collections.habilidades = new devsocial.Collections.TecnologiasCollection();
+	window.collections.habilidades.on('add', function(model){
+		var view = new devsocial.Views.TecnologiaView(model, window.templates.habilidad);
+		view.render();
+		view.$el.insertBefore('#perfil-habilidades > section > #cargar-habilidades');
+	});
+
 	var xhr = $.get( "/api/usuarios/", {username: usuario, format: "json"} );
 	xhr.done(function(data){
 		modelo = new devsocial.Models.UsuarioModel(data[0]);
@@ -67,20 +91,22 @@ var inicio = function(){
 					window.collections.logros.add(item);
 				});
 				if(data.length == 0){
-					$('#perfil-logros > section').append('<p>No se han encontrado logros.</p>');
+					$('#perfil-logros > section').prepend('<p>No se han encontrado logros.</p>');
+					$('#cargar-users').hide();
 				};
 				$('#cargar-users').on('click', cargar_users);
 			});
-			// var xhr_habilidades = $.get('/api/tecnologiasusers', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});
-			// xhr_habilidades.done(function(data){
-			// 	data.forEach(function(item){
-			// 		window.collections.logros.add(item);
-			// 	});
-			// 	if(data.length == 0){
-			// 		$('#perfil-logros > section').append('<p>No se han encontrado logros.</p>');
-			// 	};
-			// 	$('#cargar-users').on('click', cargar_users);
-			// });
+			var xhr_habilidades = $.get('/api/habilidad', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});
+			xhr_habilidades.done(function(data){
+				data.forEach(function(item){
+					window.collections.habilidades.add(item);
+				});
+				if(data.length == 0){
+					$('#perfil-habilidades > section').prepend('<p>No se han encontrado habilidades.</p>');
+					$('#cargar-habilidades').hide();
+				};
+				$('#cargar-habilidades').on('click', cargar_habilidades);
+			});
 		}
 		else{
 			var xhr_perfil = $.get('../../templates/error');

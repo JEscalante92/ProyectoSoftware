@@ -165,11 +165,14 @@ class HabilidadEditList(APIView):
 def tperfil(request):
     template = "templates_swig/perfil.html"
     return render(request, template)
-def terror(request):
-    template = "templates_swig/error.html"
-    return render(request, template)
 def tlogro(request):
     template = "templates_swig/logro.html"
+    return render(request, template)
+def thabilidad(request):
+    template = "templates_swig/habilidad.html"
+    return render(request, template)
+def terror(request):
+    template = "templates_swig/error.html"
     return render(request, template)
 
 def home(request):
