@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
 from app.views import *
 from app import views
-
+from django.conf import settings
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -57,3 +57,9 @@ urlpatterns = patterns('',
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene
     url(r'^tecnoNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),#en el nombre da los datos de la tecnologia
 )
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    
+        #url(r'^media_admin/(?P<path>.*)$', 'django.views.static.serve', {'document_root'= settings.MEDIA_ROOT}),
+   )
