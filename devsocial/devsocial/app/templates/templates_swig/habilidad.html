@@ -2,10 +2,10 @@
 <article class="habilidad">
     <div class="habilidad-header">
         <a href="#">
-            <img src="img/backbone_logo.png" height="48" width="48"/>
-            <b>Backbone.js</b>
+            <img src="/media/{{ post.tecnologia.foto_tecnologia }}" height="48" width="48"/>
+            <b>{{ post.tecnologia.nombre }}</b>
         </a>
     </div>
-    <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+    <p>Dominio: {% for star in post.arreglo %}<i class="icon-star"></i>{% endfor %}</p>
 </article>
 {% endverbatim %}
