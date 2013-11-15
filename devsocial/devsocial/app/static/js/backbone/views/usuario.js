@@ -26,7 +26,6 @@ devsocial.Views.UsuarioView = Backbone.View.extend({
 					locals.post.idiomas_join += locals.post.idiomas[i].idioma;	
 				}
 			};
-			console.log(locals.post);
 			this.$el.html(this.template(locals));
 		}
 		// this.$el.html(this.template(locals));

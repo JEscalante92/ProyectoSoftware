@@ -109,11 +109,11 @@ class LogrosList(APIView):
         if username is not None:
             try:
                 user = User.objects.get(username=username)
-                queryset = tblEvento.objects.all().filter(usuario=user)[int(start_index)-1 : int(start_index)+5]
+                queryset = tblEvento.objects.all().filter(usuario=user)[int(start_index)-1 : int(start_index)+4]
             except User.DoesNotExist:
                 queryset = tblEvento.objects.none() 
         else:
-            queryset = tblEvento.objects.all()[int(start_index)-1 : int(start_index)+5] 
+            queryset = tblEvento.objects.all()[int(start_index)-1 : int(start_index)+4] 
         serializer = LogroSerializer(queryset, many=True)
         return Response(serializer.data)
 

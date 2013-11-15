@@ -24,6 +24,18 @@ var cargarTemplatePerfil= function(){
 		window.templates.perfil = template;
 	});
 };
+var cargar_users = function(){
+	var cantidad_logros = window.collections.logros.length;
+	var xhr_logros = $.get('/api/logros', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});
+	xhr_logros.done(function(data){
+		data.forEach(function(item){
+			window.collections.logros.add(item);
+		});
+		if(cantidad_logros == window.collections.logros.length){
+			$('#cargar-users').hide();
+		}
+	});
+};
 $(function () {
 	var csrftoken = $.cookie('csrftoken');
 	$.ajaxSetup({
@@ -40,9 +52,8 @@ var inicio = function(){
 	window.collections.logros.on('add', function(model){
 		var view = new devsocial.Views.LogroView(model, window.templates.logro);
 		view.render();
-		view.$el.appendTo('#perfil-logros > section');
+		view.$el.insertBefore('#perfil-logros > section > #cargar-users');
 	});
-
 	var xhr = $.get( "/api/usuarios/", {username: usuario, format: "json"} );
 	xhr.done(function(data){
 		modelo = new devsocial.Models.UsuarioModel(data[0]);
@@ -50,7 +61,7 @@ var inicio = function(){
 			var view = new devsocial.Views.UsuarioView(modelo, window.templates.perfil);
 			view.render();
 			view.$el.appendTo('#contenido-wrapper');
-			var xhr_logros = $.get('/api/logros', {"start-index": window.collections.logros.length, username: usuario});
+			var xhr_logros = $.get('/api/logros', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});
 			xhr_logros.done(function(data){
 				data.forEach(function(item){
 					window.collections.logros.add(item);
@@ -58,6 +69,7 @@ var inicio = function(){
 				if(data.length == 0){
 					$('#perfil-logros > section').append('<p>No se han encontrado logros.</p>');
 				};
+				$('#cargar-users').on('click', cargar_users);
 			});
 		}
 		else{
