@@ -15,7 +15,7 @@ from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm
-from .serializers import UserSerializer, TecnologiaSerializer, HabilidadSerializer, HabilidadEditSerializer, LogroSerializer, TecnologiaUserSerializer
+from .serializers import *
 from django.core import serializers
 from app.models import tblTecnologia
 from django.http import HttpResponse
@@ -57,6 +57,7 @@ class TecnologiasList(APIView):
         queryset = tblTecnologia.objects.all()
         username = self.request.QUERY_PARAMS.get('username', None)
         search = self.request.QUERY_PARAMS.get('search', None)
+        tecnologia = self.request.QUERY_PARAMS.get('tecnologia', None)
         if username is not None:
             try:
                 user = User.objects.get(username=username)
@@ -66,6 +67,10 @@ class TecnologiasList(APIView):
         
         if search is not None:
             queryset = queryset.filter(Q(nombre__istartswith=search))
+        
+        if tecnologia is not None:
+            queryset = queryset.filter(nombre=tecnologia)
+
         serializer = TecnologiaSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -89,6 +94,23 @@ class LogrosList(APIView):
         if get_all == 'all':
             queryset = tblEvento.objects.all()
         serializer = LogroSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class TecnologiaHabilidadList(APIView):
+    def get(self , request, format='json'):
+        start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
+        get_all = self.request.QUERY_PARAMS.get('get', None)
+        tecnologia = self.request.QUERY_PARAMS.get('tecnologia', None)
+        if start_index == 0:
+            start_index= 1
+        if tecnologia is not None:
+            QueryTecnologia = tblTecnologia.objects.all().filter(Q(nombre__istartswith=tecnologia))[0]
+            queryset = User.objects.all().filter(habilidades__tecnologia=QueryTecnologia)
+        else:
+            queryset = tblHabilidad.objects.all()[int(start_index)-1 : int(start_index)+4]
+        if get_all == 'all':
+            queryset = tblHabilidad.objects.all()
+        serializer = UserHabilidadSerializer(queryset, many=True)
         return Response(serializer.data)
 
 class HabilidadList(APIView):
@@ -140,6 +162,9 @@ def tlogro(request):
 def thabilidad(request):
     template = "templates_swig/habilidad.html"
     return render(request, template)
+def ttecnologia(request):
+    template = "templates_swig/tecnologia.html"
+    return render(request, template)
 def terror(request):
     template = "templates_swig/error.html"
     return render(request, template)
@@ -150,6 +175,10 @@ def home(request):
 
 def perfil(request, slug):
     template = "perfil.html"
+    return render(request, template)
+
+def tecnologias(request, slug):
+    template = "tecnologias.html"
     return render(request, template)
 
 def ingreso(request):

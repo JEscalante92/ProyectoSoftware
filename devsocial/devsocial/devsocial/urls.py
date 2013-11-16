@@ -15,9 +15,9 @@ urlpatterns = patterns('',
     url(r'^login/$', 'app.views.ingreso', name='ingreso'),
     url(r'^logout/$', 'app.views.salida', name='salida'),
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
-    url(r'setip/$', 'app.views.setip', name='setip'),
     
     url(r'^usuarios/(?P<slug>[-\w]+)/$', 'app.views.perfil', name='perfil'),
+    url(r'^tecnologias/(?P<slug>[-\w]+)/$', 'app.views.tecnologias', name='tecnologias'),
     # url(r'^$', 'devsocial.views.home', name='home'),
     # url(r'^devsocial/', include('devsocial.foo.urls')),
 
@@ -26,10 +26,20 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
+    #Templates - solicitudes AJAX
+    url(r'^templates/perfil$', 'app.views.tperfil', name='tperfil'),
+    url(r'^templates/logro$', 'app.views.tlogro', name='tlogro'),
+    url(r'^templates/habilidad$', 'app.views.thabilidad', name='thabilidad'),
+    url(r'^templates/tecnologia$', 'app.views.ttecnologia', name='ttecnologia'),
+    url(r'^templates/error$', 'app.views.terror', name='terror'),
     
+    #API - rutas para los datos
     url(r'^api/usuarios/$', views.UsersList.as_view()),
     url(r'^api/tecnologias/$', views.TecnologiasList.as_view()),
     url(r'^api/habilidad/$', views.HabilidadList.as_view()),
+    url(r'^api/tecnologia-habilidad/$', views.TecnologiaHabilidadList.as_view()),
+    url(r'^api/logros/$', views.LogrosList.as_view()),
 
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene

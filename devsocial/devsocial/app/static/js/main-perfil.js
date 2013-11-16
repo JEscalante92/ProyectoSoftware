@@ -65,7 +65,7 @@ var inicio = function(){
 	cargarTemplateLogro();
 	cargarTemplateHabilidad();
 	usuario = window.location.pathname.split('/')[2];
-	
+	document.title = "Perfil de "+ usuario;
 	window.collections.logros = new devsocial.Collections.LogrosCollection();
 	window.collections.logros.on('add', function(model){
 		var view = new devsocial.Views.LogroView(model, window.templates.logro);
