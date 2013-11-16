@@ -24,6 +24,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 
+import pygeoip
+import re, urllib2
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.csrf import csrf_protect
 from django.template.response import TemplateResponse
@@ -266,6 +268,24 @@ def registroUsuario(request):
                                     #'link_Localidad':geolocalizacion(request),
             })        
     return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+def get_client_ip():
+    ip = urllib2.urlopen('http://api.wipmania.com').read()
+    ip = re.match(r"(.*)<br>(\w+)", ip)
+    return ip.group(1)
+
+def setip(request):
+    g = pygeoip.GeoIP('GeoLiteCity.dat')
+    localidad = g.country_name_by_addr(get_client_ip())
+    if not request.user.is_anonymous():
+        perfil = tblUser_profile.objects.get(usuario=user)
+        perfil.link_Localidad = localidad
+        serializer = User_profileSerializer(data=perfil)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response("SESIÓN NO INICIADA", status=status.HTTP_400_BAD_REQUEST)
 
 @login_required
 def modificarUsuario(request):

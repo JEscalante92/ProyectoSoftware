@@ -10,6 +10,7 @@ oauth2==1.5.211
 pilkit==1.1.5
 pillow==2.2.1
 progressbar==2.3dev
+pygeoip==0.3.0
 python-openid==2.2.5
 requests==1.0.4
 six==1.4.1
