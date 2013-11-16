@@ -31,39 +31,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.template.response import TemplateResponse
 from django.contrib.auth.forms import PasswordChangeForm
 
-class Tecnologia(ListCreateAPIView):
-    model = tblTecnologia
-
-class Evento (ListCreateAPIView):
-    model = tblEvento 
-
-class Reporte(ListCreateAPIView):
-    model = tblReporte
-
-class Denuncia(ListCreateAPIView):
-    model = tblDenuncia
-
-class Habilidad(ListCreateAPIView):
-    model = tblHabilidad
-
-class Asignacion_idioma(ListCreateAPIView):
-    model = tblAsignacion_idioma 
-
-class User_profile(ListCreateAPIView):
-    model = tblUser_profile
-
-class Galeria(ListCreateAPIView):
-    model = tblGaleria
-
-class Asignacion_habilidad(ListCreateAPIView):
-    model = tblAsignacion_habilidad
-
-class Proyecto(ListCreateAPIView):
-    model = tblProyecto
-
-class Usuario(ListCreateAPIView):
-    model = User
-
 """
 Vistas para API REST
 """
@@ -276,16 +243,7 @@ def get_client_ip():
 def setip(request):
     g = pygeoip.GeoIP('GeoLiteCity.dat')
     localidad = g.country_name_by_addr(get_client_ip())
-    if not request.user.is_anonymous():
-        perfil = tblUser_profile.objects.get(usuario=user)
-        perfil.link_Localidad = localidad
-        serializer = User_profileSerializer(data=perfil)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    else:
-        return Response("SESIÓN NO INICIADA", status=status.HTTP_400_BAD_REQUEST)
+    return localidad
 
 @login_required
 def modificarUsuario(request):
