@@ -48,14 +48,9 @@ class UserSerializer(serializers.ModelSerializer):
 		model = User
 		fields = ('username','email','first_name','last_name','perfil','idiomas',)
 
-class UserHabilidadSerializer(serializers.ModelSerializer):
-	perfil = User_profileSerializer(many=False)
-	class Meta:
-		model = User
-		fields = ('username','first_name','last_name', 'perfil')
-
 class TecnologiaUserSerializer(serializers.ModelSerializer):
-	habilidades = HabilidadSerializer(many=True)
+	usuario = UserSerializer(many=False)
+	tecnologia = TecnologiaSerializer(many=False)
 	class Meta:
-		model = User
-		fields = ('habilidades',)
+		model = tblHabilidad
+		fields = ('usuario','dominio','tecnologia')

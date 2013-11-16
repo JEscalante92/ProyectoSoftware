@@ -8,6 +8,16 @@ var cargarTemplateTecnologia= function(){
 		}
 	});
 };
+var cargarTemplateUsuario= function(){
+	$.ajax({
+		type: "GET",
+		url: '../../templates/usuario',
+		async: false,
+		success: function(template){
+			window.templates.usuario = template;
+		}
+	});
+};
 var cargarTemplateHabilidad= function(){
 	$.ajax({
 		type: "GET",
@@ -19,14 +29,15 @@ var cargarTemplateHabilidad= function(){
 	});
 };
 var cargar_users = function(){
-	var cantidad_logros = window.collections.logros.length;
-	var xhr_logros = $.get('/api/logros', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});
-	xhr_logros.done(function(data){
+	var cantidad_usuarios = window.collections.usuarios.length;
+	console.log(cantidad_usuarios);
+	var xhr_usuarios = $.get('/api/tecnologia-user', {"start-index": window.collections.usuarios.length+1, tecnologia: tecnologia, format: 'json'});
+	xhr_usuarios.done(function(data){
 		data.forEach(function(item){
-			window.collections.logros.add(item);
+			window.collections.usuarios.add(item);
 		});
-		if(cantidad_logros == window.collections.logros.length){
-			$('#cargar-users').hide();
+		if(cantidad_usuarios == window.collections.usuarios.length){
+			$('#usuarios-mas').hide();
 		}
 	});
 };
@@ -52,8 +63,15 @@ $(function () {
 var inicio = function(){
 	console.log('Starting app');
 	cargarTemplateTecnologia();
+	cargarTemplateUsuario();
 	tecnologia = window.location.pathname.split('/')[2];
 	document.title = "Devsocial - "+ tecnologia;
+	window.collections.usuarios = new devsocial.Collections.UsuariosCollection();
+	window.collections.usuarios.on('add', function(model){
+		var view = new devsocial.Views.UsuarioView(model, window.templates.usuario);
+		view.render();
+		view.$el.prependTo('#tecnologia-usuarios > section');
+	});
 	var xhr = $.get( "/api/tecnologias/", {search: tecnologia, format: "json"} );
 	xhr.done(function(data){
 		modelo = new devsocial.Models.TecnologiaModel(data[0]);
@@ -61,10 +79,22 @@ var inicio = function(){
 			var view = new devsocial.Views.TecnologiaView(modelo, window.templates.tecnologia);
 			view.render();
 			view.$el.prependTo('#contenido-left');
+			var xhr_usuarios = $.get('/api/tecnologia-user', {"start-index": window.collections.usuarios.length, tecnologia: tecnologia, format: 'json'});
+			xhr_usuarios.done(function(data){
+				data.forEach(function(item){
+					item.arreglo = new Array(item.dominio);
+					window.collections.usuarios.add(item);
+				});
+				if(data.length == 0){
+					$('#tecnologia-usuarios > section').prepend('<p>No se han encontrado usuarios.</p>');
+					$('#usuarios-mas').hide();
+				};
+				$('#usuarios-mas').on('click', cargar_users);
+			});
 		}
 		else{
-			var xhr_perfil = $.get('../../templates/error');
-			xhr_perfil.done(function(data){
+			var xhr_error = $.get('../../templates/error');
+			xhr_error.done(function(data){
 				$('#contenido').html('');
 				$('#contenido').append(data);
 			});

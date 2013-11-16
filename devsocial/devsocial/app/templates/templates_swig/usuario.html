@@ -1,0 +1,13 @@
+{% verbatim %}
+    <article class="item-usuario">
+        <div class="item-usuario-header">
+            <a href="/usuarios/{{post.usuario.username}}">
+            <img src="img/usuario_thumb.png" height="40" widht="40"/>
+            <b>{{ post.usuario.first_name }} {{ post.usuario.last_name }} </b></a>
+        </div>
+        <div class="item-usuario-footer">
+            <a href="#"><i class="icon-location"></i>{{ post.usuario.perfil.link_Localidad}}</a>
+            <p>Dominio: {% for star in post.arreglo %}<i class="icon-star"></i>{% endfor %}</p>
+        </div>
+    </article>
+{% endverbatim %}

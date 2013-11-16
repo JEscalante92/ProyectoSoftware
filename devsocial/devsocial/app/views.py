@@ -96,30 +96,15 @@ class LogrosList(APIView):
         serializer = LogroSerializer(queryset, many=True)
         return Response(serializer.data)
 
-class TecnologiaHabilidadList(APIView):
+class TecnologiaUserList(APIView):
     def get(self , request, format='json'):
         start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
         get_all = self.request.QUERY_PARAMS.get('get', None)
         tecnologia = self.request.QUERY_PARAMS.get('tecnologia', None)
         if start_index == 0:
             start_index= 1
-        if tecnologia is not None:
-            QueryTecnologia = tblTecnologia.objects.all().filter(Q(nombre__istartswith=tecnologia))[0]
-            queryset = User.objects.all().filter(habilidades__tecnologia=QueryTecnologia)
-        else:
-            queryset = tblHabilidad.objects.all()[int(start_index)-1 : int(start_index)+4]
-        if get_all == 'all':
-            queryset = tblHabilidad.objects.all()
-        serializer = UserHabilidadSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-class HabilidadList(APIView):
-    def get(self , request, format='json'):
-        start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
-        get_all = self.request.QUERY_PARAMS.get('get', None)
-        if start_index == 0:
-            start_index= 1
         username = self.request.QUERY_PARAMS.get('username', None)
+        
         if username is not None:
             try:
                 user = User.objects.get(username=username)
@@ -130,6 +115,40 @@ class HabilidadList(APIView):
                 queryset = tblHabilidad.objects.none() 
         else:
             queryset = tblHabilidad.objects.all()[int(start_index)-1 : int(start_index)+4]
+        
+        if tecnologia is not None:
+            QueryTecnologia = tblTecnologia.objects.all().filter(Q(nombre__istartswith=tecnologia))[0]
+            queryset = tblHabilidad.objects.all().filter(tecnologia=QueryTecnologia)[int(start_index)-1 : int(start_index)+4]
+        
+        if get_all == 'all':
+            queryset = tblHabilidad.objects.all()
+        serializer = TecnologiaUserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class HabilidadList(APIView):
+    def get(self , request, format='json'):
+        start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
+        get_all = self.request.QUERY_PARAMS.get('get', None)
+        tecnologia = self.request.QUERY_PARAMS.get('tecnologia', None)
+        if start_index == 0:
+            start_index= 1
+        username = self.request.QUERY_PARAMS.get('username', None)
+        
+        if username is not None:
+            try:
+                user = User.objects.get(username=username)
+                queryset = tblHabilidad.objects.all().filter(usuario=user)[int(start_index)-1 : int(start_index)+4]
+                if get_all == 'all':
+                    queryset = tblHabilidad.objects.all().filter(usuario=user)
+            except User.DoesNotExist:
+                queryset = tblHabilidad.objects.none() 
+        else:
+            queryset = tblHabilidad.objects.all()[int(start_index)-1 : int(start_index)+4]
+        
+        if tecnologia is not None:
+            QueryTecnologia = tblTecnologia.objects.all().filter(Q(nombre__istartswith=tecnologia))[0]
+            queryset = tblHabilidad.objects.all().filter(tecnologia=QueryTecnologia)[int(start_index)-1 : int(start_index)+4]
+        
         if get_all == 'all':
             queryset = tblHabilidad.objects.all()
         serializer = HabilidadSerializer(queryset, many=True)
@@ -164,6 +183,9 @@ def thabilidad(request):
     return render(request, template)
 def ttecnologia(request):
     template = "templates_swig/tecnologia.html"
+    return render(request, template)
+def tusuario(request):
+    template = "templates_swig/usuario.html"
     return render(request, template)
 def terror(request):
     template = "templates_swig/error.html"

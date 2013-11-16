@@ -32,13 +32,14 @@ urlpatterns = patterns('',
     url(r'^templates/logro$', 'app.views.tlogro', name='tlogro'),
     url(r'^templates/habilidad$', 'app.views.thabilidad', name='thabilidad'),
     url(r'^templates/tecnologia$', 'app.views.ttecnologia', name='ttecnologia'),
+    url(r'^templates/usuario$', 'app.views.tusuario', name='tusuario'),
     url(r'^templates/error$', 'app.views.terror', name='terror'),
     
     #API - rutas para los datos
     url(r'^api/usuarios/$', views.UsersList.as_view()),
     url(r'^api/tecnologias/$', views.TecnologiasList.as_view()),
     url(r'^api/habilidad/$', views.HabilidadList.as_view()),
-    url(r'^api/tecnologia-habilidad/$', views.TecnologiaHabilidadList.as_view()),
+    url(r'^api/tecnologia-user/$', views.TecnologiaUserList.as_view()),
     url(r'^api/logros/$', views.LogrosList.as_view()),
 
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
