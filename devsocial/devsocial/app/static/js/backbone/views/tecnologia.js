@@ -6,7 +6,6 @@ devsocial.Views.TecnologiaView = Backbone.View.extend({
 	className:"",
 	initialize : function(model, template){
 		this.model = model;
-		self = this;
 		this.template = swig.compile(template);
 	},
 	render: function(data) {
@@ -14,6 +13,7 @@ devsocial.Views.TecnologiaView = Backbone.View.extend({
 		var locals = {
 			post: this.model.toJSON()
 		};
+		console.log(locals.post);
 		this.$el.html(this.template(locals));
 		return this;
 	}

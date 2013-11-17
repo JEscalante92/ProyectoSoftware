@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     url(r'^templates/habilidad$', 'app.views.thabilidad', name='thabilidad'),
     url(r'^templates/tecnologia$', 'app.views.ttecnologia', name='ttecnologia'),
     url(r'^templates/usuario$', 'app.views.tusuario', name='tusuario'),
+    url(r'^templates/usuario-search$', 'app.views.tusuariosearch', name='tusuariosearch'),
     url(r'^templates/error$', 'app.views.terror', name='terror'),
     
     #API - rutas para los datos

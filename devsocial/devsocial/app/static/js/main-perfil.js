@@ -42,7 +42,7 @@ var cargar_users = function(){
 };
 var cargar_habilidades = function(){
 	var cantidad_habilidades = window.collections.habilidades.length;
-	var xhr_habilidades = $.get('/api/habilidad', {"start-index": window.collections.habilidades.length, username: usuario, format: 'json'});
+	var xhr_habilidades = $.get('/api/habilidad', {"start-index": window.collections.habilidades.length + 1, username: usuario, format: 'json'});
 	xhr_habilidades.done(function(data){
 		data.forEach(function(item){
 			item.arreglo = new Array(item.dominio);

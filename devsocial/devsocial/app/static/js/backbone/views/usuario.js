@@ -25,6 +25,7 @@ devsocial.Views.UsuarioView = Backbone.View.extend({
 			};
 			this.$el.html(this.template(locals));
 		}
+		console.log(locals);
 		this.$el.html(this.template(locals));
 		return this;
 	}

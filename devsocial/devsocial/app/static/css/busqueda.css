@@ -80,7 +80,7 @@ header nav ul li:hover{background:rgba(255,255,255,0.15)}
 .usuario,.tecnologia{border-top:1px solid #ccc;padding:10px 0;}
 .usuario a,.tecnologia a{color:#2c3e50;text-decoration:none}
 .usuario a:hover,.tecnologia a:hover{text-decoration:underline}
-.usuario p,.tecnologia p{height:50px;margin:0 0 10px 50px;overflow:hidden;padding:0}
+.usuario p,.tecnologia p{margin:0 0 10px 50px;overflow:hidden;padding:0}
 .usuario .usuario-header,.tecnologia .usuario-header,.usuario .tecnologia-header,.tecnologia .tecnologia-header{margin-left:50px;}
 .usuario .usuario-header a img,.tecnologia .usuario-header a img,.usuario .tecnologia-header a img,.tecnologia .tecnologia-header a img{float:left;margin-left:-50px}
 .usuario .usuario-footer a:last-child,.tecnologia .usuario-footer a:last-child,.usuario .tecnologia-footer a:last-child,.tecnologia .tecnologia-footer a:last-child{float:right}
@@ -124,9 +124,9 @@ header nav ul li:hover{background:rgba(255,255,255,0.15)}
 .btn-aceptar:hover{background-color:#004b8b;text-decoration:underline}
 body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;margin:20px auto;overflow:hidden;width:960px;}
-#contenido .contenido-right #contenido-general{padding:10px;overflow:hidden;}
-#contenido .contenido-right #contenido-general #general-cabecera h3,#contenido .contenido-right #contenido-general #general-cabecera p{margin:0;padding:0}
-#contenido .contenido-right #contenido-general #general-resultados h3{margin:20px 0 10px 0}
+#contenido .contenido-right .contenido-style{padding:10px;overflow:hidden;}
+#contenido .contenido-right .contenido-style .cabecera h3,#contenido .contenido-right .contenido-style .cabecera p{margin:0;padding:0}
+#contenido .contenido-right .contenido-style .resultados h3{margin:20px 0 10px 0}
 .contenido-left{border:0;width:30%}
 .contenido-right{border-left:1px solid #ccc;width:69.5%}
 .btn-aceptar{background-color:#0064ad;border:1px solid #004b8b;-webkit-border-radius:2.5px;border-radius:2.5px;color:#fff;text-decoration:none}

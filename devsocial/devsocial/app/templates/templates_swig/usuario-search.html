@@ -1,0 +1,14 @@
+{% verbatim %}
+    <div class="usuario-header">
+        <a href="/usuarios/{{post.username}}">
+            <img src="/media/{{ post.perfil.foto }}" height="40" width="40"/>
+            <b>{{ post.first_name }} {{ post.last_name }}</b>
+        </a>
+    </div>
+    <p>{{ post.perfil.intereses }}</p>
+    <div class="usuario-footer">
+        <i class="icon-location"></i>
+        <a href="#">{{ post.perfil.link_Localidad}}</a>
+        <a href="/usuarios/{{post..username}}">Ver más</a>
+    </div>
+{% endverbatim %}

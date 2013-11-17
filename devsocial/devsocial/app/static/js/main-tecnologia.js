@@ -30,7 +30,6 @@ var cargarTemplateHabilidad= function(){
 };
 var cargar_users = function(){
 	var cantidad_usuarios = window.collections.usuarios.length;
-	console.log(cantidad_usuarios);
 	var xhr_usuarios = $.get('/api/tecnologia-user', {"start-index": window.collections.usuarios.length+1, tecnologia: tecnologia, format: 'json'});
 	xhr_usuarios.done(function(data){
 		data.forEach(function(item){

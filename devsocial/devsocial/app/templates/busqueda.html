@@ -10,21 +10,36 @@
     <section id="contenido">
         <section class="contenido-left sub-menu">
             <ul>
-                <li><a href="#">General</a></li>
-                <li><a href="#">Usuarios</a></li>
-                <li><a href="#">Tecnologías</a></li>
+                <li id="general"><a href="#">General</a></li>
+                <li id="usuarios"><a href="#">Usuarios</a></li>
+                <li id="tecnologias"><a href="#">Tecnologías</a></li>
             </ul>
         </section>
         <section class="contenido-right">
-            <section id="contenido-general">
-                <div id="general-cabecera">
+            <section id="contenido-general" class='contenido-style'>
+                <div class="cabecera">
                     <h3>Resultados de la busqueda:</h3>
                     <p>Se han encontrado aproximadamente 6 resultados.</p>
                 </div>
-                <section id="general-resultados">
+                <section id="general-resultados" class='resultado'>
                 </section>
             </section>
-            
+            <section id="contenido-usuarios" class='contenido-style'>
+                <div class="cabecera">
+                    <h3>Resultados de la busqueda:</h3>
+                    <p>Se han encontrado aproximadamente 3 resultados.</p>
+                </div>
+                <section id="usuarios-resultados" class='resultado'>
+                </section>
+            </section>
+            <section id="contenido-tecnologias" class='contenido-style'>
+                <div class="cabecera">
+                    <h3>Resultados de la busqueda:</h3>
+                    <p>Se han encontrado aproximadamente <span>4</span> resultados.</p>
+                </div>
+                <section id="tecnologias-resultados" class='resultado'>
+                </section>
+            </section>
         </section>
     </section>
 {% endblock %}
@@ -33,14 +48,12 @@
     <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
     <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
     <script src="{{STATIC_URL}}js/init.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/search-menu.js"></script>
     <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
-    <script src="{{STATIC_URL}}js/backbone/views/logro.js"></script>
     <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
     <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
-    <script src="{{STATIC_URL}}js/backbone/models/logro.js"></script>
     <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
     <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
-    <script src="{{STATIC_URL}}js/backbone/collections/logros.js"></script>
     <script src="{{STATIC_URL}}js/backbone/collections/tecnologias.js"></script>
     <script src="{{STATIC_URL}}js/main-search.js"></script>
 {% endblock %}
