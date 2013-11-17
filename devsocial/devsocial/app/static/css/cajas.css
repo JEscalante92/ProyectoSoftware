@@ -1,0 +1,263 @@
+.contenedor-icon {
+  background-color: #0064ad;
+  border-radius: 5px;
+  line-height: 48px;
+  height: 48px;
+  font-size: 32px;
+  width: 48px;
+}
+.contenedor-icon span {
+  color: #fff;
+  margin: 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+.contenido-left {
+  border-right: 1px solid #ccc;
+  float: left;
+  width: 69.5%;
+}
+.contenido-right {
+  display: inline-block;
+  width: 30%;
+}
+.sub-menu ul {
+  margin: 0;
+  padding: 0;
+}
+.sub-menu ul li {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+}
+.sub-menu ul li a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+.sub-menu ul li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+.mostrarmas {
+  margin: 10px 0px;
+  display: block;
+  float: right;
+  text-decoration: none;
+  text-align: right;
+  color: #2c3e50;
+}
+.mostrarmas:hover {
+  text-decoration: underline;
+}
+.usuario,
+.tecnologia {
+  border-top: 1px solid #ccc;
+  padding: 10px 0px;
+}
+.usuario a,
+.tecnologia a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+.usuario a:hover,
+.tecnologia a:hover {
+  text-decoration: underline;
+}
+.usuario p,
+.tecnologia p {
+  height: 50px;
+  margin: 0px 0px 10px 50px;
+  overflow: hidden;
+  padding: 0;
+}
+.usuario .usuario-header,
+.tecnologia .usuario-header,
+.usuario .tecnologia-header,
+.tecnologia .tecnologia-header {
+  margin-left: 50px;
+}
+.usuario .usuario-header a img,
+.tecnologia .usuario-header a img,
+.usuario .tecnologia-header a img,
+.tecnologia .tecnologia-header a img {
+  float: left;
+  margin-left: -50px;
+}
+.usuario .usuario-footer a:last-child,
+.tecnologia .usuario-footer a:last-child,
+.usuario .tecnologia-footer a:last-child,
+.tecnologia .tecnologia-footer a:last-child {
+  float: right;
+}
+.btn-aceptar,
+background-color: #0064AD,
+border: 1pxsolid #004B8B,
+border-radius: 3px,
+color: #FFFFFF,
+text-decoration: none,
+.btn-aceptar:hover {
+  background-color: #004b8b;
+  text-decoration: underline;
+}
+.idioma {
+  background-color: #0064ad;
+  color: #fff;
+  overflow: hidden;
+  padding: 5px;
+  display: inline-block;
+  border-radius: 5px;
+}
+.idioma button {
+  margin-left: 5px !important;
+  color: #fff;
+  border: 0px;
+  background-color: transparent;
+}
+.idioma p,
+.idioma button {
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+.idioma:hover {
+  background-color: #004b8b;
+}
+.logro {
+  border-top: 1px solid #ccc;
+  display: block;
+  padding: 10px 0px;
+  overflow: hidden;
+}
+.logro p {
+  color: #777;
+}
+.logro b,
+.logro p {
+  margin: 0;
+}
+.logro .logro-header .logro-fecha {
+  float: right;
+}
+.logro .logro-descripcion,
+.logro .logro-header {
+  margin-left: 55px;
+}
+.logro .contenedor-icon {
+  border-radius: 0px;
+  float: left;
+}
+.logro .logro-opciones {
+  float: right;
+  margin-top: -19px;
+}
+.logro .logro-opciones a {
+  margin-left: 5px;
+}
+.habilidad-editar {
+  margin: 10px 10px 10px 0px;
+  overflow: hidden;
+  display: inline-block;
+}
+.habilidad-editar p {
+  display: block;
+  margin: 0 0 0 58px;
+}
+.habilidad-editar p i {
+  color: #f1c40f;
+  margin: 0px 0.5px;
+}
+.habilidad-editar .habilidad-header {
+  margin-left: 58px;
+}
+.habilidad-editar .habilidad-header img {
+  float: left;
+  margin-left: -58px;
+}
+.habilidad-editar .habilidad-opciones a {
+  margin-right: 5px;
+}
+.proyecto-editar {
+  border-top: 1px solid #ccc;
+  overflow: hidden;
+  margin: 10px 0px;
+}
+.proyecto-editar .proyecto-content {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.proyecto-editar .proyecto-content img {
+  float: left;
+}
+.proyecto-editar .proyecto-content > p {
+  margin-left: 100px;
+  margin-top: 0px;
+}
+.proyecto-editar .proyecto-header {
+  overflow: hidden;
+}
+.proyecto-editar .proyecto-header b {
+  float: left;
+}
+.proyecto-editar .proyecto-header p {
+  float: right;
+  color: #777;
+}
+.proyecto-editar .proyecto-header b,
+.proyecto-editar .proyecto-header p {
+  margin: 10px 0px;
+}
+.proyecto-editar .proyecto-opciones .opciones-ajustes {
+  float: right;
+}
+.proyecto-editar .proyecto-opciones .opciones-ajustes a {
+  margin-left: 5px;
+}
+.proyecto-editar .proyecto-opciones .opciones-datos {
+  float: left;
+}
+.proyecto-editar .proyecto-opciones .opciones-datos p {
+  margin: 0;
+}
+.proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-down {
+  color: #c0392b;
+}
+.proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-up {
+  color: #27ae60;
+}
+.error {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0;
+  margin: 20px auto;
+  overflow: hidden;
+  width: 940px;
+  padding: 40px 0px;
+  text-align: center;
+}
+.error p {
+  margin: 10px 0px;
+  font-size: 32px;
+}
+.usuarios-mas {
+  display: block;
+  text-decoration: none;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px auto;
+  text-align: center;
+  width: 50%;
+}
+.btn-aceptar {
+  background-color: #0064ad;
+  border: 1px solid #004b8b;
+  border-radius: 2.5px;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-aceptar:hover {
+  background-color: #004b8b;
+  text-decoration: underline;
+}

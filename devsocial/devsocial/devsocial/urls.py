@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     
     url(r'^usuarios/(?P<slug>[-\w]+)/$', 'app.views.perfil', name='perfil'),
     url(r'^tecnologias/(?P<slug>[-\w]+)/$', 'app.views.tecnologias', name='tecnologias'),
+    url(r'^search/$', 'app.views.search', name='search'),
     # url(r'^$', 'devsocial.views.home', name='home'),
     # url(r'^devsocial/', include('devsocial.foo.urls')),
 

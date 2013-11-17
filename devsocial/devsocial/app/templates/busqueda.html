@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Busqueda - Devsocial</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/busqueda.css" />
+{% endblock%}
+{% block body %}
+    <section id="contenido">
+        <section class="contenido-left sub-menu">
+            <ul>
+                <li><a href="#">General</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="#">Tecnologías</a></li>
+            </ul>
+        </section>
+        <section class="contenido-right">
+            <section id="contenido-general">
+                <div id="general-cabecera">
+                    <h3>Resultados de la busqueda:</h3>
+                    <p>Se han encontrado aproximadamente 6 resultados.</p>
+                </div>
+                <section id="general-resultados">
+                </section>
+            </section>
+            
+        </section>
+    </section>
+{% endblock %}
+{% block js_files %}
+    <script src="{{STATIC_URL}}js/vendor/underscore.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
+    <script src="{{STATIC_URL}}js/init.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/logro.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/logro.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/logros.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/tecnologias.js"></script>
+    <script src="{{STATIC_URL}}js/main-search.js"></script>
+{% endblock %}

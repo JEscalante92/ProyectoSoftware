@@ -202,6 +202,9 @@ def perfil(request, slug):
 def tecnologias(request, slug):
     template = "tecnologias.html"
     return render(request, template)
+def search(request):
+    template = "busqueda.html"
+    return render(request, template)
 
 def ingreso(request):
     template = "login.html"
