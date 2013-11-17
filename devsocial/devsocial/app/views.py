@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm
 from .serializers import *
 from django.core import serializers
 from app.models import tblTecnologia
@@ -311,6 +311,7 @@ def modificarUsuario(request):
     if request.method == 'POST':
         form = ModificarPerfilForm(request.POST,request.FILES)
         if form.is_valid():
+            foto = form.cleaned_data['foto']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             profesion = form.cleaned_data['profesion']
@@ -324,10 +325,14 @@ def modificarUsuario(request):
             perfil.intereses = intereses
             perfil.link_Localidad = link_Localidad
             usuarioactual.save()
+            if foto:
+                perfil.foto=foto
+            usuarioactual.save()
+            perfil.save()  
             perfil.save()  
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
-            return render_to_response('prueba_form.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+            return render_to_response('prueba_formfoto.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 
     elif request.method == 'GET':
         form = ModificarPerfilForm(initial={
@@ -341,7 +346,7 @@ def modificarUsuario(request):
 
             })
                 
-    return render_to_response('prueba_form.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+    return render_to_response('prueba_formfoto.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 
 @sensitive_post_parameters()
 @csrf_protect
@@ -367,17 +372,23 @@ def registroProyecto(request):
     usuarioactual = User.objects.get(id=usuario.id)
     form = RegistroProyectoForm()
     if request.method =='POST':
-        form = RegistroProyectoForm(request.POST)
+        form = RegistroProyectoForm(request.POST,request.FILES)
         if form.is_valid():
             nombre = form.cleaned_data['nombre']
             fecha = form.cleaned_data['fecha']
             descripcion = form.cleaned_data['descripcion']
+            foto = form.cleaned_data['foto']
             proyecto= tblProyecto()
             proyecto.usuario= usuarioactual
             proyecto.nombre = nombre
             proyecto.fecha =fecha
             proyecto.descripcion = descripcion
             proyecto.save()
+            galeria = tblGaleria()
+            if foto:
+                galeria.foto = foto
+            galeria.proyecto = proyecto
+            galeria.save()
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
             return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
@@ -418,3 +429,22 @@ def ModificarProyecto(request,idproyecto):
                                         'url_organizacion':proyecto.Url_organizacion,
                 })        
         return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+@login_required
+def ModificarFoto(request):
+    usuario= request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    perfil = tblUser_profile.objects.get(id=usuario.id)
+    form = CambiarFotoForm()
+    if request.method =='POST':
+        form = CambiarFotoForm(request.POST, request.FILES)
+        if form.is_valid():    
+            foto = form.cleaned_data['foto']
+            print (foto)
+            if foto:
+                perfil.foto = foto
+            perfil.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response('prueba_formfoto.html',{'form':form},context_instance=RequestContext(request))
+           
+    return render_to_response('prueba_formfoto.html',{'form':form,'perfil':perfil},context_instance=RequestContext(request))

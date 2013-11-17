@@ -62,5 +62,5 @@ urlpatterns += patterns('',
     url(r'^prueba_password/$', 'app.views.CambiarPassword',name='registrase'),
     url(r'^proyecto/registrar/$', 'app.views.registroProyecto',name='registrase'),
     url(r'^proyecto/modificar/(?P<idproyecto>[a-zA-Z0-9\s\+]+)$', 'app.views.ModificarProyecto',name='registrase'),
-    #url(r'^proyecto/registrar/$', 'app.views.registroUsuario',name='registrase'),
+    url(r'^cambiar_foto/$', 'app.views.ModificarFoto',name='foto'),
 )       

@@ -91,7 +91,11 @@ class tblProyecto(models.Model):
 		return '%s %s' % (self.usuario.username, self.nombre) 
 
 class tblGaleria(models.Model):
-	foto = ProcessedImageField(upload_to='foto_galeria',
+	def url(self,filename):
+		if filename :
+			ruta = "foto_galeria/%s/%s"%(self.proyecto.usuario.username,self.proyecto.nombre +' - '+str(filename))
+		return ruta
+	foto = ProcessedImageField(upload_to=url,
 								default='foto_default/Responsive_Device.png',
 								processors=[ResizeToFill(90,90)],
 								format='JPEG',
@@ -108,8 +112,12 @@ class tblAsignacion_habilidad(models.Model):
 
 		
 class tblUser_profile(models.Model):
+	def url(self,filename):
+		if filename :
+			ruta = "foto_perfil/%s/%s"%(self.usuario.username,self.usuario.username +' - '+filename)
+		return ruta
 	usuario = models.OneToOneField(User,blank=True,unique=True, related_name='perfil')
-	foto = ProcessedImageField(upload_to='foto_perfil',
+	foto = ProcessedImageField(upload_to=url,
 								default='foto_default/user-settings.png',
 								processors=[ResizeToFill(90,90)],
 								format='JPEG',
