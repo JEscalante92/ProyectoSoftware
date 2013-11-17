@@ -448,3 +448,23 @@ def ModificarFoto(request):
             return render_to_response('prueba_formfoto.html',{'form':form},context_instance=RequestContext(request))
            
     return render_to_response('prueba_formfoto.html',{'form':form,'perfil':perfil},context_instance=RequestContext(request))
+
+@login_required
+def AgregarGaleriaProyecto(request,idproyecto):
+    usuario= request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    proyecto = tblProyecto.objects.get(id=idproyecto)
+    if proyecto.usuario == usuarioactual:
+        form = CambiarFotoForm()
+        if request.method =='POST':
+            form = CambiarFotoForm(request.POST,request.FILES)
+            if form.is_valid():
+                foto = form.cleaned_data['foto']
+                galeria = tblGaleria()
+                if foto:
+                    galeria.foto = foto
+                    galeria.proyecto = proyecto
+                    return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+            else:
+                return render_to_response('prueba_formfoto.html',{'form':form},context_instance=RequestContext(request))
+        return render_to_response('prueba_formfoto.html',{'form':form},context_instance=RequestContext(request))
