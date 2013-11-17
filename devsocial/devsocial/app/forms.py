@@ -8,6 +8,9 @@ class LoginForm(forms.Form):
 
 class RegistroUserForm(forms.Form):	
 	username = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'usuario'}) )
+	first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Nombres'}) )
+	last_name = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Apellidos'}) )
+	
 	email = forms.EmailField(label='', widget=forms.TextInput(attrs={'placeholder': 'Correo'}) )
 	password_one = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Contraseña'}) )
 	password_two = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Confirmar Contraseña'}) )
