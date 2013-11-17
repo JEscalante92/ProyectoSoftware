@@ -73,8 +73,8 @@ var inicio = function(){
 		view.$el.insertBefore('#perfil-logros > section > #cargar-users');
 	});
 	window.collections.habilidades = new devsocial.Collections.TecnologiasCollection();
-	window.collections.habilidades.on('add', function(model){
-		var view = new devsocial.Views.TecnologiaView(model, window.templates.habilidad);
+	window.collections.habilidades.on('add', function(data){
+		var view = new devsocial.Views.TecnologiaView({model: data, template: window.templates.habilidad});
 		view.render();
 		view.$el.insertBefore('#perfil-habilidades > section > #cargar-habilidades');
 	});

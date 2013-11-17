@@ -190,6 +190,9 @@ def tusuario(request):
 def tusuariosearch(request):
     template = "templates_swig/usuario-search.html"
     return render(request, template)
+def ttecnologiasearch(request):
+    template = "templates_swig/tecnologia-search.html"
+    return render(request, template)
 def terror(request):
     template = "templates_swig/error.html"
     return render(request, template)

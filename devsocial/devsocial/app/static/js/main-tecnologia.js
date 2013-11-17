@@ -75,7 +75,7 @@ var inicio = function(){
 	xhr.done(function(data){
 		modelo = new devsocial.Models.TecnologiaModel(data[0]);
 		if(data[0]){
-			var view = new devsocial.Views.TecnologiaView(modelo, window.templates.tecnologia);
+			var view = new devsocial.Views.TecnologiaView({model: modelo, template: window.templates.tecnologia});
 			view.render();
 			view.$el.prependTo('#contenido-left');
 			var xhr_usuarios = $.get('/api/tecnologia-user', {"start-index": window.collections.usuarios.length, tecnologia: tecnologia, format: 'json'});

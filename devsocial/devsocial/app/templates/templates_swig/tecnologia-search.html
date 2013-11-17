@@ -1,0 +1,12 @@
+{% verbatim %}
+    <div class="tecnologia-header">
+        <a href="/tecnologias/{{ post.nombre }}">
+            <img src="/media/{{ post.foto_tecnologia }}" height="40" width="40"/>
+            <b>{{ post.nombre }}</b>
+        </a>
+    </div>
+    <p>{{ post.descripcion }}</p>
+    <div class="tecnologia-footer">
+        <a href="/tecnologias/{{ post.nombre }}">Ver más</a>
+    </div>
+{% endverbatim %}

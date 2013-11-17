@@ -4,16 +4,14 @@ devsocial.Views.TecnologiaView = Backbone.View.extend({
 		"show" : "show"
 	},
 	className:"",
-	initialize : function(model, template){
-		this.model = model;
-		this.template = swig.compile(template);
+	initialize : function(data){
+		this.template = swig.compile(data.template);
 	},
 	render: function(data) {
 		var self = this
 		var locals = {
 			post: this.model.toJSON()
 		};
-		console.log(locals.post);
 		this.$el.html(this.template(locals));
 		return this;
 	}

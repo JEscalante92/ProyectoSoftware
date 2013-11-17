@@ -12,6 +12,7 @@ devsocial.Views.SearchMenuView = Backbone.View.extend({
 		$usuarios = this.$el.find('#contenido-usuarios');
 		$tecnologias = this.$el.find('#contenido-tecnologias');
 		this.templateUsuario();
+		this.templateTecnologia();
 		this.general();
 	},
 	templateUsuario : function(){
@@ -27,10 +28,10 @@ devsocial.Views.SearchMenuView = Backbone.View.extend({
 	templateTecnologia : function(){
 		$.ajax({
 			type: "GET",
-			url: '../../templates/usuario',
+			url: '../../templates/tecnologia-search',
 			async: false,
 			success: function(template){
-				window.templates.usuario = template;
+				window.templates.tecnologia = template;
 			}
 		});
 	},
@@ -46,11 +47,25 @@ devsocial.Views.SearchMenuView = Backbone.View.extend({
 			view.render();
 			view.$el.prependTo('#general-resultados');
 		});
+		
+		window.collections.tecnologias = new devsocial.Collections.TecnologiasCollection();
+		window.collections.tecnologias.on('add', function(data){
+			var view = new devsocial.Views.TecnologiaView({model: data, className: 'tecnologia', template: window.templates.tecnologia});
+			view.render();
+			view.$el.prependTo('#general-resultados');
+		});
+		
 		var xhr_usuarios = $.get('/api/usuarios', {"start-index": window.collections.usuarios.length, search: input_search, format: 'json'});
 		xhr_usuarios.done(function(data){
 			data.forEach(function(item){
 				item.perfil.intereses = item.perfil.intereses.substring(0,140)+"...";;
 				window.collections.usuarios.add(item);
+			});
+		});
+		var xhr_tecnologias= $.get('/api/tecnologias', {"start-index": window.collections.tecnologias.length, search: input_search, format: 'json'});
+		xhr_tecnologias.done(function(data){
+			data.forEach(function(item){
+				window.collections.tecnologias.add(item);
 			});
 		});
 	},
