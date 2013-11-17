@@ -48,28 +48,14 @@ class ModificarPerfilForm(forms.Form):
 class RegistroProyectoForm(forms.Form):	
 	nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Nombre proyecto'}) )
 	fecha = forms.DateField(label='', widget=forms.DateInput(attrs={'type':'date'})) 
-	descripcion = forms.DateField(label='', widget=forms.Textarea(attrs={'placeholder': 'descripcion'}) )
-	def clean_fecha(self):  	 	
-  		fecha = datetime.strptime(fecha,"%d/%m/%Y")
+	descripcion = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'descripcion'}) )
+	
+	
+
 class ModificarProyectoForm(forms.Form):	
 	nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Nombre proyecto'}) )
 	fecha = forms.DateField(label='', widget=forms.DateInput(attrs={'type': 'date'}) )
 	descripcion = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'descripcion'}) )
-	Url_proyecto = forms.URLField(label='', widget=forms.TextInput(attrs={'placeholder': 'Sitio Web proyecto'}) )
-	Url_organizacion = forms.URLField(label='', widget=forms.TextInput(attrs={'placeholder': 'Sitio Web organizacion'}) )
-	def clean_fecha(self):  	 	
-  		fecha = datetime.strptime(fecha,"%d/%m/%Y")
-
-	#def clean_email(self):				
-	#	email = self.cleaned_data['email']
-	#	emailactual = request.COOKIES['email']
-
-	#	if email == self.emailactual:
-	#		pass
-	#	else:
-	#		try:
-	#			u = User.objects.get(email=email)
-	#		except User.DoesNotExist:
-	#			return email
-	#		raise forms.ValidationError('Email ya existe para otro usuario')
-
+	url_proyecto = forms.URLField(label='', widget=forms.TextInput(attrs={'placeholder': 'Sitio Web proyecto'}) )
+	url_organizacion = forms.URLField(label='', widget=forms.TextInput(attrs={'placeholder': 'Sitio Web organizacion'}) )
+	

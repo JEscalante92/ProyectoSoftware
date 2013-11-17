@@ -283,6 +283,7 @@ def registroUsuario(request):
         else:
             return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
     return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+
 def get_client_ip():
     ip = urllib2.urlopen('http://api.wipmania.com').read()
     ip = re.match(r"(.*)<br>(\w+)", ip)
@@ -307,7 +308,6 @@ def modificarUsuario(request):
             link_Web = form.cleaned_data['link_Web']
             intereses = form.cleaned_data['intereses']
             link_Localidad = form.cleaned_data['link_Localidad']
-
             usuarioactual.first_name = first_name
             usuarioactual.last_name = last_name
             perfil.profesion = profesion
@@ -387,25 +387,25 @@ def ModificarProyecto(request,idproyecto):
                 nombre = form.cleaned_data['nombre']
                 fecha = form.cleaned_data['fecha']
                 descripcion = form.cleaned_data['descripcion']
-                url_proyecto = form.cleaned_data['Url_proyecto']
-                url_organizacion = form.cleaned_data['Url_organizacion']
+                url_proyecto = form.cleaned_data['url_proyecto']
+                url_organizacion = form.cleaned_data['url_organizacion']
                 
                 proyecto.nombre = nombre
                 proyecto.fecha =fecha
                 proyecto.descripcion = descripcion
-                Proyecto.Url_proyecto=url_proyecto
-                Proyecto.Url_organizacion = url_organizacion
+                proyecto.Url_proyecto=url_proyecto
+                proyecto.Url_organizacion = url_organizacion
                 proyecto.save()
                 return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
             else:
                 return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
         elif request.method == 'GET':
             
-            form = RegistroProyectoForm(initial={
+            form = ModificarProyectoForm(initial={
                                         'nombre':proyecto.nombre,
                                         'fecha':proyecto.fecha,
                                         'descripcion':proyecto.descripcion,
-                                        'Url_proyecto':proyecto.Url_proyecto,
-                                        'Url_organizacion':proyecto.Url_organizacion,
+                                        'url_proyecto':proyecto.Url_proyecto,
+                                        'url_organizacion':proyecto.Url_organizacion,
                 })        
         return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
