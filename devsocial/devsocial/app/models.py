@@ -79,7 +79,6 @@ class tblAsignacion_idioma(models.Model):
 
 
 class tblProyecto(models.Model):
-	habilidad = models.ForeignKey(tblHabilidad,blank=False)
 	usuario = models.ForeignKey(User,blank=False)
 	nombre = models.CharField(max_length=50,blank=False)
 	descripcion = models.TextField(max_length=200,blank=False)

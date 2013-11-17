@@ -164,3 +164,9 @@ LOGGING = {
 REST_FRAMEWORK =  { 
     'DEFAULT_FILTER_BACKENDS' :  ( 'rest_framework.filters.DjangoFilterBackend' ,) 
 }
+
+# formato para fechar
+USE_L10N = False
+DATE_INPUT_FORMATS = ('%d/%m/%y', '%d/%m/%Y', '%d/%m/%y', '%d %b %Y',
+                      '%d %b, %Y', '%d %b %Y', '%d %b, %Y', '%d %B, %Y',
+                      '%d %B %Y')

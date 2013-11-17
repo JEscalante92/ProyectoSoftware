@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm
 from .serializers import *
 from django.core import serializers
 from app.models import tblTecnologia
@@ -267,24 +267,21 @@ def registroUsuario(request):
         form = RegistroUserForm(request.POST)
         if form.is_valid():
             usuario = form.cleaned_data['username']
+            nombres = form.cleaned_data['first_name']
+            apellidos = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
             password_one = form.cleaned_data['password_one']
             password_two = form.cleaned_data['password_two']
-            Localidad = form.cleaned_data['link_Localidad']
-            usuariocreate = User.objects.create_user(username=usuario,email=email,password=password_one)
+            profesion= form.cleaned_data['profesion']
+            usuariocreate = User.objects.create_user(username=usuario,email=email,first_name=nombres,last_name=apellidos,password=password_one)
             usuariocreate.save()
             perfil = tblUser_profile()
             perfil.usuario = usuariocreate
-            perfil.link_Localidad = Localidad
+            perfil.profesion = profesion
             perfil.save()
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
             return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
-    elif request.method == 'GET':
-        
-        form = RegistroUserForm(initial={
-                                    #'link_Localidad':geolocalizacion(request),
-            })        
     return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
 def get_client_ip():
     ip = urllib2.urlopen('http://api.wipmania.com').read()
@@ -306,8 +303,6 @@ def modificarUsuario(request):
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            
             profesion = form.cleaned_data['profesion']
             link_Web = form.cleaned_data['link_Web']
             intereses = form.cleaned_data['intereses']
@@ -315,7 +310,6 @@ def modificarUsuario(request):
 
             usuarioactual.first_name = first_name
             usuarioactual.last_name = last_name
-            usuarioactual.email = email
             perfil.profesion = profesion
             perfil.link_Web = link_Web
             perfil.intereses = intereses
@@ -330,7 +324,6 @@ def modificarUsuario(request):
         form = ModificarPerfilForm(initial={
                                     'first_name': usuarioactual.first_name,
                                     'last_name': usuarioactual.last_name,
-                                    'email':usuarioactual.email,
                                     'profesion':perfil.profesion,
                                     'link_Web':perfil.link_Web,
                                     'intereses':perfil.intereses,
@@ -341,20 +334,6 @@ def modificarUsuario(request):
                 
     return render_to_response('prueba_form.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 
-def geolocalizacion(request):
-    from django_geoip.models import IpRange
-    ip = request.META['REMOTE_ADDR']
-    
-    try:
-        ubicacion = IpRange.objects.by_ip(ip)
-
-        return ubicacion.city
-        #ubicacion.region
-        #ubicacion.country
-    
-    except IpRange.DoesNotExist:
-        return ' Se desconoce la Ubicacion'
-        
 @sensitive_post_parameters()
 @csrf_protect
 @login_required
@@ -373,3 +352,60 @@ def CambiarPassword(request,
         form = password_change_form(user=request.user)
     return TemplateResponse(request, template_name, {'form': form})
 
+@login_required
+def registroProyecto(request):
+    usuario = request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    form = RegistroProyectoForm()
+    if request.method =='POST':
+        form = RegistroProyectoForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            fecha = form.cleaned_data['fecha']
+            descripcion = form.cleaned_data['descripcion']
+            proyecto= tblProyecto()
+            proyecto.usuario= usuarioactual
+            proyecto.nombre = nombre
+            proyecto.fecha =fecha
+            proyecto.descripcion = descripcion
+            proyecto.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+    return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+
+@login_required
+def ModificarProyecto(request,idproyecto):
+    usuario= request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    proyecto = tblProyecto.objects.get(id=idproyecto)
+    if proyecto.usuario == usuarioactual:
+        form = ModificarProyectoForm()
+        if request.method =='POST':
+            form = ModificarProyectoForm(request.POST)
+            if form.is_valid():
+                nombre = form.cleaned_data['nombre']
+                fecha = form.cleaned_data['fecha']
+                descripcion = form.cleaned_data['descripcion']
+                url_proyecto = form.cleaned_data['Url_proyecto']
+                url_organizacion = form.cleaned_data['Url_organizacion']
+                
+                proyecto.nombre = nombre
+                proyecto.fecha =fecha
+                proyecto.descripcion = descripcion
+                Proyecto.Url_proyecto=url_proyecto
+                Proyecto.Url_organizacion = url_organizacion
+                proyecto.save()
+                return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+            else:
+                return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+        elif request.method == 'GET':
+            
+            form = RegistroProyectoForm(initial={
+                                        'nombre':proyecto.nombre,
+                                        'fecha':proyecto.fecha,
+                                        'descripcion':proyecto.descripcion,
+                                        'Url_proyecto':proyecto.Url_proyecto,
+                                        'Url_organizacion':proyecto.Url_organizacion,
+                })        
+        return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))

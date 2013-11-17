@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from rest_framework.urlpatterns import format_suffix_patterns
 from app.views import *
 from app import views
-
+from django.conf import settings
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -46,3 +46,18 @@ urlpatterns = patterns('',
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene
     url(r'^tecnoNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),#en el nombre da los datos de la tecnologia
 )
+# servidores de medios para acceder a las imagenes.
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    )   
+# url para pruebas
+urlpatterns += patterns('',
+        
+    url(r'^prueba_registrarse/$', 'app.views.registroUsuario',name='registrase'),
+    url(r'^prueba_modificar/$', 'app.views.modificarUsuario',name='registrase'),
+    url(r'^prueba_password/$', 'app.views.CambiarPassword',name='registrase'),
+    url(r'^proyecto/registrar/$', 'app.views.registroProyecto',name='registrase'),
+    url(r'^proyecto/modificar/(?P<idproyecto>[a-zA-Z0-9\s\+]+)$', 'app.views.ModificarProyecto',name='registrase'),
+    #url(r'^proyecto/registrar/$', 'app.views.registroUsuario',name='registrase'),
+)       
