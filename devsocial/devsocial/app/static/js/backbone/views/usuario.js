@@ -1,14 +1,11 @@
 devsocial.Views.UsuarioView = Backbone.View.extend({
-	id: "perfil",
-	tagName: "section",
 	events:{
 		"show" : "show"
 	},
 	className:"",
-	initialize : function(model, template){
-		this.model = model;
+	initialize : function(data){
 		self = this;
-		this.template = swig.compile(template);
+		this.template = swig.compile(data.template);
 	},
 	render: function(data) {
 		var self = this

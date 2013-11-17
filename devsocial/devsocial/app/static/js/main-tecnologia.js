@@ -67,8 +67,8 @@ var inicio = function(){
 	tecnologia = window.location.pathname.split('/')[2];
 	document.title = "Devsocial - "+ tecnologia;
 	window.collections.usuarios = new devsocial.Collections.UsuariosCollection();
-	window.collections.usuarios.on('add', function(model){
-		var view = new devsocial.Views.UsuarioView(model, window.templates.usuario);
+	window.collections.usuarios.on('add', function(item){
+		var view = new devsocial.Views.UsuarioView({ model: item, tagName: "article", template: window.templates.usuario});
 		view.render();
 		view.$el.prependTo('#tecnologia-usuarios > section');
 	});

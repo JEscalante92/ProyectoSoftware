@@ -14,7 +14,6 @@ devsocial.Views.TecnologiaView = Backbone.View.extend({
 		var locals = {
 			post: this.model.toJSON()
 		};
-		console.log(locals.post);
 		this.$el.html(this.template(locals));
 		return this;
 	}

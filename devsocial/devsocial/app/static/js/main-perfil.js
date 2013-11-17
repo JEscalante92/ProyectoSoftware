@@ -83,7 +83,7 @@ var inicio = function(){
 	xhr.done(function(data){
 		modelo = new devsocial.Models.UsuarioModel(data[0]);
 		if(data[0]){
-			var view = new devsocial.Views.UsuarioView(modelo, window.templates.perfil);
+			var view = new devsocial.Views.UsuarioView({ model: modelo, tagName: 'section', id: 'perfil', template: window.templates.perfil });
 			view.render();
 			view.$el.appendTo('#contenido-wrapper');
 			var xhr_logros = $.get('/api/logros', {"start-index": window.collections.logros.length, username: usuario, format: 'json'});

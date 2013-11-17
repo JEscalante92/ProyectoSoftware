@@ -9,7 +9,7 @@
                 <div id="info-datos">
                     <p><i class="icon-graduate"></i>{% if not post.perfil.profesion %} No existe descripción. {% else %}{{post.perfil.profesion}}{% endif %}</p>
                     <p><i class="icon-location"></i>{% if not post.perfil.link_Localidad %} No existe aun localidad. {% else %}{{post.perfil.link_Localidad}}{% endif %}</p>
-                    <p><i class="icon-language"></i>{% if not post.idiomas %} No hay idiomas asignados.{% else %} {{ post.idiomas_join }}{% endif %}</p>
+                    <p><i class="icon-language"></i>{% if post.idiomas_join == "" %} No hay idiomas asignados.{% else %} {{ post.idiomas_join }}{% endif %}</p>
                     <p><i class="icon-web"></i>{% if not post.perfil.link_Web %} No posee sitio web. {% else %}{{post.perfil.link_Web}}{% endif %}</p>
                 </div>
             </div>
