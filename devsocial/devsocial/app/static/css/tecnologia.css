@@ -77,10 +77,10 @@ header nav ul li:hover{background:rgba(255,255,255,0.15)}
 .sub-menu ul li:hover{background-color:#f0f0f0;cursor:pointer}
 .mostrarmas{margin:10px 0;display:block;float:right;text-decoration:none;text-align:right;color:#2c3e50}
 .mostrarmas:hover{text-decoration:underline}
-.usuario,.tecnologia{border-top:1px solid #ccc;padding:10px 0;}
+.usuario,.tecnologia{border-top:1px solid #ccc;padding:10px 0;overflow:hidden;}
 .usuario a,.tecnologia a{color:#2c3e50;text-decoration:none}
 .usuario a:hover,.tecnologia a:hover{text-decoration:underline}
-.usuario p,.tecnologia p{height:50px;margin:0 0 10px 50px;overflow:hidden;padding:0}
+.usuario p,.tecnologia p{margin:0 0 10px 50px;overflow:hidden;padding:0}
 .usuario .usuario-header,.tecnologia .usuario-header,.usuario .tecnologia-header,.tecnologia .tecnologia-header{margin-left:50px;}
 .usuario .usuario-header a img,.tecnologia .usuario-header a img,.usuario .tecnologia-header a img,.tecnologia .tecnologia-header a img{float:left;margin-left:-50px}
 .usuario .usuario-footer a:last-child,.tecnologia .usuario-footer a:last-child,.usuario .tecnologia-footer a:last-child,.tecnologia .tecnologia-footer a:last-child{float:right}

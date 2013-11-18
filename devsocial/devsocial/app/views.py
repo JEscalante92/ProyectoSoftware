@@ -54,6 +54,10 @@ class UsersList(APIView):
 
 class TecnologiasList(APIView):
     def get(self, request, format='json'):
+        start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
+        get_all = self.request.QUERY_PARAMS.get('get', None)
+        if start_index == 0:
+            start_index = 1
         queryset = tblTecnologia.objects.all()
         username = self.request.QUERY_PARAMS.get('username', None)
         search = self.request.QUERY_PARAMS.get('search', None)
@@ -66,7 +70,7 @@ class TecnologiasList(APIView):
                 queryset = tblTecnologia.objects.none()  
         
         if search is not None:
-            queryset = queryset.filter(Q(nombre__istartswith=search))
+            queryset = tblTecnologia.objects.all().filter(Q(nombre__istartswith=search))[int(start_index)-1 : int(start_index)+4]
         
         if tecnologia is not None:
             queryset = queryset.filter(nombre=tecnologia)
