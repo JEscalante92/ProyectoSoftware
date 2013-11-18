@@ -100,7 +100,7 @@ class tblGaleria(models.Model):
 								processors=[ResizeToFill(90,90)],
 								format='JPEG',
 								options={'quality':60})
-	proyecto = models.ForeignKey(tblProyecto,blank=False)
+	proyecto = models.ForeignKey(tblProyecto,blank=False, related_name='proyectos')
 	def __unicode__ (self):
 		return self.proyecto.nombre
 	

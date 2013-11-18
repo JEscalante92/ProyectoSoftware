@@ -5,7 +5,7 @@ from rest_framework import serializers
 
 from django.contrib.auth.models import User
 
-from .models import tblUser_profile, tblAsignacion_idioma
+from .models import tblUser_profile, tblAsignacion_idioma, tblProyecto, tblGaleria
 
 from app.models import tblTecnologia, tblHabilidad, tblEvento
 
@@ -54,3 +54,14 @@ class TecnologiaUserSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = tblHabilidad
 		fields = ('usuario','dominio','tecnologia')
+
+class GaleriaSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = tblGaleria
+		fields = ('id','foto')
+
+class ProyectoSerializer(serializers.ModelSerializer):
+	proyectos = GaleriaSerializer(many=True)
+	class Meta:
+		model = tblProyecto
+		fields = ('id', 'nombre', 'descripcion', 'fecha', 'Url_proyecto', 'Url_organizacion', 'proyectos')

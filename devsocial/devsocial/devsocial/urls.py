@@ -44,7 +44,8 @@ urlpatterns = patterns('',
     url(r'^api/habilidad/$', views.HabilidadList.as_view()),
     url(r'^api/tecnologia-user/$', views.TecnologiaUserList.as_view()),
     url(r'^api/logros/$', views.LogrosList.as_view()),
-
+    url(r'^api/proyectos/$', views.ProyectosList.as_view()),
+    
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene
     url(r'^tecnoNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),#en el nombre da los datos de la tecnologia

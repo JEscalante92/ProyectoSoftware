@@ -52,6 +52,20 @@ class UsersList(APIView):
         serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
 
+class ProyectosList(APIView):
+    def get(self, request, format='json'):
+        username = self.request.QUERY_PARAMS.get('username', None)
+        queryset = tblProyecto.objects.all()
+        if username is not None:
+            try:
+                user = User.objects.get(username=username)
+                queryset = queryset.filter(usuario=user)
+            except User.DoesNotExist:
+                queryset = tblProyecto.objects.none()
+
+        serializer = ProyectoSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 class TecnologiasList(APIView):
     def get(self, request, format='json'):
         start_index = int(self.request.QUERY_PARAMS.get('start-index', 1))
