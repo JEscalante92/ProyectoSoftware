@@ -68,10 +68,10 @@ if settings.DEBUG:
     )   
 # url para pruebas
 urlpatterns += patterns('',
+    url(r'', include('social_auth.urls')),
         
     url(r'^usuario/registrarse/twitter$', 'app.views.registroUsuarioSocial',name='registrase'),
     url(r'^usuario/registrarse/$', 'app.views.registroUsuario',name='registrase'),
-    url(r'', include('social_auth.urls')),
    
     #url(r'^usuario/modificar/$', 'app.views.modificarUsuario',name='registrase'),
     url(r'^usuario/cambiar_password/$', 'app.views.CambiarPassword',name='registrase'),

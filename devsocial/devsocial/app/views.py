@@ -432,7 +432,7 @@ def registroUsuarioSocial(request):
                 perfil.usuario = usuarioactual
                 perfil.link_Localidad = setip(request)
                 perfil.save()
-                return render_to_response('login.html', context_instance=RequestContext(request))
+                return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
             else:
                 return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
         return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
@@ -453,7 +453,7 @@ def registroUsuario(request):
                 perfil.usuario = usuariocreate
                 perfil.link_Localidad = setip(request)
                 perfil.save()
-                return render_to_response('login.html', context_instance=RequestContext(request))
+                return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
             else:
                 return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
         return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
