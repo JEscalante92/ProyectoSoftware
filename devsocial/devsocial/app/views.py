@@ -511,7 +511,7 @@ def AgregarGaleriaProyecto(request,idproyecto):
 
 @login_required
 def ingresoEvento(request):
-    template = "prueba.html"
+    template = "eventos.html"
     form = RegistroEventoForm()
     persona = request.user
     if request.method =='POST':

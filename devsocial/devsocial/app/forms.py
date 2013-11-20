@@ -69,7 +69,7 @@ class ModificarProyectoForm(forms.Form):
 class CambiarFotoForm(forms.Form):
     foto = forms.ImageField(label='', widget = forms.FileInput)
 
-class RegistroEventoForm(forms.Form):
+class EventoForm(forms.Form):
 	fecha = forms.DateField(label='',widget=forms.DateInput(attrs={'type': 'date'}))
 	titulo = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'titulo'}))
 	organizacion = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'organizacion'}))
