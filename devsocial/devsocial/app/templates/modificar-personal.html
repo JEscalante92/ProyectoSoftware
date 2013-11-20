@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block head %}
-    <title>Busqueda - Devsocial</title>
+    <title>{{ usuario.username }} - modificar perfil</title>
     <meta name="description" content="">
 {% endblock %}
 {% block style_css %}
@@ -48,8 +48,8 @@
                     </div>
                     <label>Localidad: </label>
                     <div>
-                        <input type="text" value='{{ perfil.link_Localidad }}' readonly/>
-                        <button><i class="icon-spinner"></i></button>
+                        <input id="txtLocalidad" type="text" value='{{ perfil.link_Localidad }}' readonly/>
+                        <a id="setLocalidad"><i class="icon-spinner"></i></a>
                     </div>
                     <label>Acerca de mi:</label>
                     <div>
@@ -80,4 +80,5 @@
     <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
     <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
     <script src="{{STATIC_URL}}js/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/modificar-personal.js"></script>
 {% endblock %}

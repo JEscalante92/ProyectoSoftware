@@ -189,6 +189,22 @@ class HabilidadEditList(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response("SESIÓN NO INICIADA", status=status.HTTP_400_BAD_REQUEST)
+
+class ipEdit(APIView):
+    def get(self, request, format=None):
+        habilidades = tblHabilidad.objects.all()
+        serializer = HabilidadEditSerializer(habilidades, many=True)
+        return Response(serializer.data)
+    
+    def put(self, request, format=None):
+        if not request.user.is_anonymous():
+            usuario = request.user
+            perfil = tblUser_profile.objects.get(id=usuario.id)    
+            perfil.link_Localidad = setip(request)
+            perfil.save();
+            return Response(perfil.link_Localidad)
+        else:
+            return Response("SESIÓN NO INICIADA", status=status.HTTP_400_BAD_REQUEST)
             
 def tperfil(request):
     template = "templates_swig/perfil.html"
@@ -257,8 +273,9 @@ def modificar_personal(request):
             if foto:
                 perfil.foto=foto
             usuarioactual.save()
-            perfil.save()  
-            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+            perfil.save()
+            url = '../usuarios/%s' % (usuario.username)
+            return HttpResponseRedirect('/')
         else:
             return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))        
     elif request.method == 'GET':
@@ -273,6 +290,16 @@ def modificar_personal(request):
 
             })
     return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+
+def modificar_ip(request):
+    usuario = request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    perfil = tblUser_profile.objects.get(id=usuario.id)    
+    template = 'modificar-personal.html'
+    if request.method == "POST":
+        perfil.link_Localidad = setip(request)
+        perfil.save();
+        return Response(perfil.link_Localidad)
 
 def tecnologias(request, slug):
     template = "tecnologias.html"
@@ -369,72 +396,7 @@ def get_client_ip():
 def setip(request):
     g = pygeoip.GeoIP('GeoLiteCity.dat')
     localidad = g.country_name_by_addr(get_client_ip())
-    return localidad
-
-@login_required
-def modificarUsuario(request):
-    usuario = request.user
-    usuarioactual = User.objects.get(id=usuario.id)
-    perfil = tblUser_profile.objects.get(id=usuario.id)
-    if request.method == 'POST':
-        form = ModificarPerfilForm(request.POST,request.FILES)
-        if form.is_valid():
-            foto = form.cleaned_data['foto']
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            profesion = form.cleaned_data['profesion']
-            link_Web = form.cleaned_data['link_Web']
-            intereses = form.cleaned_data['intereses']
-            link_Localidad = form.cleaned_data['link_Localidad']
-            usuarioactual.first_name = first_name
-            usuarioactual.last_name = last_name
-            perfil.profesion = profesion
-            perfil.link_Web = link_Web
-            perfil.intereses = intereses
-            perfil.link_Localidad = link_Localidad
-            usuarioactual.save()
-            if foto:
-                perfil.foto=foto
-            usuarioactual.save()
-            perfil.save()  
-            perfil.save()  
-            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
-        else:
-            return render_to_response('prueba_formfoto.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
-
-    elif request.method == 'GET':
-        form = ModificarPerfilForm(initial={
-                                    'first_name': usuarioactual.first_name,
-                                    'last_name': usuarioactual.last_name,
-                                    'profesion':perfil.profesion,
-                                    'link_Web':perfil.link_Web,
-                                    'intereses':perfil.intereses,
-                                    'link_Localidad':perfil.link_Localidad,
-
-
-            })
-                
-    return render_to_response('prueba_formfoto.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
-@login_required
-def CambiarLocalidad(request):
-    usuario = request.user
-    usuarioactual = User.objects.get(id=usuario.id)
-    perfil = tblUser_profile.objects.get(id=usuario.id)    
-    if request.method == "POST":
-        form = CambiarLocalidadForm(request.POST)
-        if form.is_valid():
-            perfil.link_Localidad = setip(request)
-            perfil.save();
-            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
-        else:
-            return render_to_response('prueba_form.html',{'form':form,'perfil':perfil},context_instance=RequestContext(request))
-    
-    if request.method =="GET":
-        form=CambiarLocalidadForm(initial={
-                                'link_Localidad':perfil.link_Localidad
-            })
-    return render_to_response('prueba_form.html',{'form':form,'perfil':perfil},context_instance=RequestContext(request))
-    
+    return localidad 
 
 @sensitive_post_parameters()
 @csrf_protect

@@ -5,7 +5,14 @@ $(function () {
 	});
 });
 var inicio = function(){
-	window.templates.menu_modificar = $('#menu').html();
-	window.menu_modificar = new devsocial.Views.MenuModificarView({$el: $('#menu')});
+	$('#setLocalidad').on('click', function(event){
+		$.ajax({
+		type: "PUT",
+		url: '../api/ipedit',
+		success: function(data){
+			$('txtLocalidad').val(data);
+		}
+	});
+	});
 };
 $(document).ready(inicio);

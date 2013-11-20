@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'^modificar/logros$', 'app.views.modificar', name='modificar'),
     url(r'^modificar/habilidades$', 'app.views.modificar', name='modificar'),
     url(r'^modificar/portafolio$', 'app.views.modificar', name='modificar'),
+    url(r'^modificar/ip$', 'app.views.modificar_ip', name='modificar_ip'),
+    
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
     
     
@@ -50,7 +52,8 @@ urlpatterns = patterns('',
     url(r'^api/tecnologia-user/$', views.TecnologiaUserList.as_view()),
     url(r'^api/logros/$', views.LogrosList.as_view()),
     url(r'^api/proyectos/$', views.ProyectosList.as_view()),
-    
+    url(r'^api/ipedit/$', views.ipEdit.as_view()),
+
     url(r'^tecnoLista/$', 'tecnoLista', name='tecnoLista'),#retorna una lista con todas las tecnologias registradas
     url(r'^tecnoUsuario/(?P<username>[a-zA-Z0-9\s\+]+)$', 'tecnoUsuario', name='tecnoUsuario'),#con el username da las tecnologias que tiene
     url(r'^tecnoNombre/(?P<nombre>[a-zA-Z0-9\s\+]+)$', 'tecnoNombre', name='tecnoNombre'),#en el nombre da los datos de la tecnologia
@@ -64,12 +67,12 @@ if settings.DEBUG:
 urlpatterns += patterns('',
         
     url(r'^usuario/registrarse/$', 'app.views.registroUsuario',name='registrase'),
-    url(r'^usuario/modificar/$', 'app.views.modificarUsuario',name='registrase'),
+    #url(r'^usuario/modificar/$', 'app.views.modificarUsuario',name='registrase'),
     url(r'^usuario/cambiar_password/$', 'app.views.CambiarPassword',name='registrase'),
     url(r'^proyecto/registrar/$', 'app.views.registroProyecto',name='registrase'),
     url(r'^proyecto/modificar/(?P<idproyecto>[a-zA-Z0-9\s\+]+)$', 'app.views.ModificarProyecto',name='registrase'),
     url(r'^proyecto/galeria/(?P<idproyecto>[a-zA-Z0-9\s\+]+)$', 'app.views.AgregarGaleriaProyecto',name='registrase'),
-    url(r'^usuario/cambiar_localidad/$', 'app.views.CambiarLocalidad',name='cambiar localidad'),
+    #url(r'^usuario/cambiar_localidad/$', 'app.views.CambiarLocalidad',name='cambiar localidad'),
     
     url(r'^cambiar_foto/$', 'app.views.ModificarFoto',name='foto'),
 )       
