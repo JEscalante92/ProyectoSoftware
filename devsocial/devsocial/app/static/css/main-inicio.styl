@@ -1,13 +1,56 @@
-@import 'main-header.styl'
-@import 'iconos.styl'
+@import "nib"
+@import "iconos.styl"
+@import "main-header.styl"
+@import "cajas.styl"
 body
   background-color: #F0F0F0
   color: #2C3E50
-  font-family: 'pt_sans'
-input
-  color: #000
-  text-align: left
-  border-radius: 5px
+  font-family: 'pt_sans', sans-serif
+#contenido
+  background: #fff
+  margin: 10px auto
+  border: 1px solid #CCCCCC
+  border-radius: 5px 
+  padding: 20px
+  width: 960px
+  #contenido-bienvenida
+    width: 60%
+    img
+      width: 50%
+      height: 150px
+      margin: 0 auto
+      display: block
+      margin-bottom: 20px
+    h2, h3
+      text-align: center
+      margin: 0
+  #contenido-formulario
+    float: right
+    width: 40%
+    form
+      margin: 0 auto
+      input
+        display: block
+        width: auto
+        margin: 10px 0px
+        width: 250px
+        border: 1px solid #2C3E50
+        height: 30px
+  #contenido-informacion
+    margin: 0 auto
+    width: auto
+    padding-top: 20px
+    article
+      background-color: #DDDDDD
+      border-radius: 5px
+      width: 20%
+      padding: 10px
+      text-align: center
+      display: inline-block
+      margin: 0 10px
+      vertical-align: top
+      height: 300px
+
 #input-nombre .icon-user
   color: #2C3E50 !important
   position: absolute
@@ -62,14 +105,6 @@ input
 #titulo h2
   color: #2C3E50
 
-#wrapper-contenido
-  width: 960px
-  background: #fff
-  margin: 10px auto
-  border: 1px solid #CCCCCC
-  border-radius: 5px 
-  padding: 10px
-
 #boton
   background: #0064AD
   color: #fff
@@ -80,19 +115,7 @@ input
   border: 0
   width: 281px !important
   height: 40px !important
-#opciones
-  clear: both
-  text-align: center
-  margin-top: 20px
-  section
-    margin-top: 10px
-    font-size: 11px
-    background: #DDDDDD
-    display: inline-block
-    width: 200px
-    text-align: center
-    border-radius: 5px
-    padding: 10px
+
 #contenido-cabecera
   overflow: hidden
   width: auto
@@ -101,14 +124,14 @@ input
 .contenedor-icon
   background-color: #0064AD
   border-radius: 50%
-  line-height: 48px
-  height: 48px
+  line-height: 64px
+  height: 64px
   font-size: 32px
-  width: 48px
+  width: 64px
   margin: 0 auto
   span
     color: #FFFFFF
-    margin: 8px
+    margin: 16px
 
 @import 'main-footer.styl'
 
