@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Busqueda - Devsocial</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/busqueda.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/editar.css" />
+{% endblock%}
+{% block body %}
+    <section id="contenido">
+        <section id="menu" class="contenido-left sub-menu">
+            <ul>
+                <li id="personales"><a href="#">Datos personales</a></li>
+                <li id="logros"><a href="#">Logros</a></li>
+                <li id="habilidades"><a href="#">Habilidades</a></li>
+                <li id="portafolio"><a href="#">Portafolio</a></li>
+                <li id="contacto"><a href="#">Contacto</a></li>
+                <li id="localidad"><a href="#">Localidad</a></li>
+            </ul>
+        </section>
+        <section class="contenido-right">
+            <section id="contenido-datos">
+                <h3>Datos personales: </h3>
+                <form method='post' enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <label>Foto de perfil:</label>
+                    <div>
+                        <img src="/media/{{perfil.foto}}" />
+                        {{ form.foto }}
+                    </div>
+                    <label>Nombre: </label>
+                    <div>
+                        {{ form.first_name }}
+                        {{ form.first_name.errors }}
+                        {{ form.last_name }}
+                        {{ form.last_name.errors }}
+                    </div>
+                    <label>Profesión: </label>
+                    <div>
+                        {{ form.profesion }}
+                        {{ form.profesion.errors }}
+                    </div>
+                    <label>Sitio web:</label>
+                    <div>
+                        {{ form.link_Web}}
+                        {{ form.link_Web.errors }}
+                    </div>
+                    <label>Localidad: </label>
+                    <div>
+                        <input type="text" value='{{ perfil.link_Localidad }}' readonly/>
+                        <button><i class="icon-spinner"></i></button>
+                    </div>
+                    <label>Acerca de mi:</label>
+                    <div>
+                        {{ form.intereses }}
+                        {{ form.intereses.errors }}
+                    </div>
+                    <label>Contraseña: </label>
+                    <div>
+                        <a href="#">Cambiar la contraseña</a>
+                    </div>
+                    <div>
+                        <input type="submit" value="Guardar cambios" />
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+{% block js_files %}
+    <script src="{{STATIC_URL}}js/vendor/underscore.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
+    <script src="{{STATIC_URL}}js/init.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
+    <script src="{{STATIC_URL}}js/menu-modificar.js"></script>
+{% endblock %}

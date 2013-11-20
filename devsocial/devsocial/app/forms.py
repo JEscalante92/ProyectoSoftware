@@ -40,13 +40,12 @@ class RegistroUserForm(forms.Form):
 		else:
 			raise forms.ValidationError('los password no coiciden')
 class ModificarPerfilForm(forms.Form):	
-	foto = forms.ImageField(label='', widget = forms.FileInput)
+	foto = forms.ImageField(label='', widget = forms.FileInput, required=False)
 	first_name = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Nombres'}) )
 	last_name = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Apellidos'}) )
 	profesion = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Profesion'}) )
 	link_Web = forms.URLField(label='', widget=forms.TextInput(attrs={'placeholder': 'Sitio Web'}) )
 	intereses = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'intereses'}) )
-	link_Localidad = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Localidad','readonly':True}) )
 	
 class CambiarLocalidadForm(forms.Form):
     link_Localidad = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Localidad','readonly':True}) )

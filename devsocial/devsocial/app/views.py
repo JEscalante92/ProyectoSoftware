@@ -232,6 +232,48 @@ def modificar(request):
     template = 'modificar.html'
     return render(request, template)
 
+def modificar_personal(request):
+    if request.user.is_anonymous():
+        return HttpResponseRedirect('/')
+    usuario = request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    perfil = tblUser_profile.objects.get(id=usuario.id)
+    template = 'modificar-personal.html'
+    if request.method == 'POST':
+        form = ModificarPerfilForm(request.POST,request.FILES)
+        if form.is_valid():
+            foto = form.cleaned_data['foto']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            profesion = form.cleaned_data['profesion']
+            link_Web = form.cleaned_data['link_Web']
+            intereses = form.cleaned_data['intereses']
+            usuarioactual.first_name = first_name
+            usuarioactual.last_name = last_name
+            perfil.profesion = profesion
+            perfil.link_Web = link_Web
+            perfil.intereses = intereses
+            usuarioactual.save()
+            if foto:
+                perfil.foto=foto
+            usuarioactual.save()
+            perfil.save()  
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))        
+    elif request.method == 'GET':
+        form = ModificarPerfilForm(initial={
+                                    'first_name': usuarioactual.first_name,
+                                    'last_name': usuarioactual.last_name,
+                                    'profesion':perfil.profesion,
+                                    'link_Web':perfil.link_Web,
+                                    'intereses':perfil.intereses,
+                                    'link_Localidad':perfil.link_Localidad,
+
+
+            })
+    return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+
 def tecnologias(request, slug):
     template = "tecnologias.html"
     return render(request, template)
