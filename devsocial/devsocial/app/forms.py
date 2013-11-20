@@ -14,7 +14,6 @@ class RegistroUserForm(forms.Form):
 	email = forms.EmailField(label='', widget=forms.TextInput(attrs={'placeholder': 'Correo'}) )
 	password_one = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Contraseña'}) )
 	password_two = forms.CharField(label='', widget=forms.PasswordInput(render_value=False,attrs={'placeholder': 'Confirmar Contraseña'}) )
-	profesion = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Profesion'}) )
 	# verificar si el usuario no ha sido utilizado o registrador anteriormente
 	def clean_username(self):
 		username = self.cleaned_data['username']
