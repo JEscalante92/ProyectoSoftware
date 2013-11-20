@@ -299,16 +299,17 @@ def registroUsuario(request):
             email = form.cleaned_data['email']
             password_one = form.cleaned_data['password_one']
             password_two = form.cleaned_data['password_two']
-            profesion= form.cleaned_data['profesion']
+            #link_Localidad= form.cleaned_data['link_Localidad']
             usuariocreate = User.objects.create_user(username=usuario,email=email,first_name=nombres,last_name=apellidos,password=password_one)
             usuariocreate.save()
             perfil = tblUser_profile()
             perfil.usuario = usuariocreate
-            perfil.profesion = profesion
+            perfil.link_Localidad = setip(request)
             perfil.save()
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
             return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+    
     return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
 
 def get_client_ip():
