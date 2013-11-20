@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm, CambiarLocalidadForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm, CambiarLocalidadForm,EventoForm
 from .serializers import *
 from django.core import serializers
 from app.models import tblTecnologia
