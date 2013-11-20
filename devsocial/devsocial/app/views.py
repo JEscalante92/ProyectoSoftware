@@ -291,15 +291,34 @@ def modificar_personal(request):
             })
     return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 
-def modificar_ip(request):
-    usuario = request.user
-    usuarioactual = User.objects.get(id=usuario.id)
-    perfil = tblUser_profile.objects.get(id=usuario.id)    
-    template = 'modificar-personal.html'
+def modificar_contrasenna(request, password_change_form=PasswordChangeForm,):
+    template = 'modificar-contraseña.html'
+    if request.user.is_anonymous():
+        return HttpResponseRedirect('/')
     if request.method == "POST":
-        perfil.link_Localidad = setip(request)
-        perfil.save();
-        return Response(perfil.link_Localidad)
+        form = password_change_form(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))    
+    else:
+        form = password_change_form(user=request.user)
+    return TemplateResponse(request, template, {'form': form})
+
+def CambiarPassword(request,
+                    template_name='prueba_form.html',
+                    post_change_redirect=None,
+                    password_change_form=PasswordChangeForm,
+                    ):
+    
+    if request.method == "POST":
+        form = password_change_form(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))    
+    else:
+        form = password_change_form(user=request.user)
+    return TemplateResponse(request, template_name, {'form': form})
+
 
 def tecnologias(request, slug):
     template = "tecnologias.html"
@@ -397,24 +416,6 @@ def setip(request):
     g = pygeoip.GeoIP('GeoLiteCity.dat')
     localidad = g.country_name_by_addr(get_client_ip())
     return localidad 
-
-@sensitive_post_parameters()
-@csrf_protect
-@login_required
-def CambiarPassword(request,
-                    template_name='prueba_form.html',
-                    post_change_redirect=None,
-                    password_change_form=PasswordChangeForm,
-                    ):
-    
-    if request.method == "POST":
-        form = password_change_form(user=request.user, data=request.POST)
-        if form.is_valid():
-            form.save()
-            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))    
-    else:
-        form = password_change_form(user=request.user)
-    return TemplateResponse(request, template_name, {'form': form})
 
 @login_required
 def registroProyecto(request):

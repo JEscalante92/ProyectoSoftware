@@ -22,43 +22,19 @@
         <section class="contenido-right">
             <section id="contenido-datos">
                 <h3>Datos personales: </h3>
-                <form method='post' enctype='multipart/form-data'>
+                <form method='post'>
                     {% csrf_token %}
-                    <label>Foto de perfil:</label>
+                    <label>Contraseña anterior:</label>
                     <div>
-                        <img src="/media/{{perfil.foto}}" />
-                        {{ form.foto }}
+                        {{ form.old_password}}
                     </div>
-                    <label>Nombre: </label>
+                    <label>Nueva contraseña:</label>
                     <div>
-                        {{ form.first_name }}
-                        {{ form.first_name.errors }}
-                        {{ form.last_name }}
-                        {{ form.last_name.errors }}
+                        {{ form.new_password1}}
                     </div>
-                    <label>Profesión: </label>
+                    <label>Repita contraseña:</label>
                     <div>
-                        {{ form.profesion }}
-                        {{ form.profesion.errors }}
-                    </div>
-                    <label>Sitio web:</label>
-                    <div>
-                        {{ form.link_Web}}
-                        {{ form.link_Web.errors }}
-                    </div>
-                    <label>Localidad: </label>
-                    <div>
-                        <input id="txtLocalidad" type="text" value='{{ perfil.link_Localidad }}' readonly/>
-                        <a id="setLocalidad"><i class="icon-spinner"></i></a>
-                    </div>
-                    <label>Acerca de mi:</label>
-                    <div>
-                        {{ form.intereses }}
-                        {{ form.intereses.errors }}
-                    </div>
-                    <label>Contraseña: </label>
-                    <div>
-                        <a href="../contrasenna">Cambiar la contraseña</a>
+                        {{ form.new_password1}}
                     </div>
                     <div>
                         <input type="submit" value="Guardar cambios" />

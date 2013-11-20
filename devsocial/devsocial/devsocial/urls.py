@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^modificar/habilidades$', 'app.views.modificar', name='modificar'),
     url(r'^modificar/portafolio$', 'app.views.modificar', name='modificar'),
     url(r'^modificar/ip$', 'app.views.modificar_ip', name='modificar_ip'),
-    
+    url(r'^modificar/contrasenna$', 'app.views.modificar_contrasenna', name='modificar_contrasenna'),
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
     
     
