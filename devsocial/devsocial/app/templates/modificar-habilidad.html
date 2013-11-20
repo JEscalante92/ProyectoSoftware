@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>{{ usuario.username }} - modificar perfil</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/busqueda.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/editar.css" />
+{% endblock%}
+{% block body %}
+    <section id="contenido">
+        <section id="menu" class="contenido-left sub-menu">
+            <ul>
+                <li id="personales"><a href="#">Datos personales</a></li>
+                <li id="logros"><a href="#">Logros</a></li>
+                <li id="habilidades"><a href="#">Habilidades</a></li>
+                <li id="portafolio"><a href="#">Portafolio</a></li>
+                <li id="contacto"><a href="#">Contacto</a></li>
+                <li id="localidad"><a href="#">Localidad</a></li>
+            </ul>
+        </section>
+        <section class="contenido-right">
+            <section id="contenido-habilidades">
+                    <h3>Habilidades:</h3>
+                    <p>Si desea agregar una nueva habilidad <a href="#">haz click aqui</a></p>
+                    <section>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="/media/foto_default/HTML5_Semantics.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="/media/foto_default/HTML5_Semantics.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="/media/foto_default/HTML5_Semantics.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                        <article class="habilidad-editar">
+                            <div class="habilidad-header">
+                                <img src="/media/foto_default/HTML5_Semantics.png" height="48" width="48"/>
+                                <b>Javascript</b>
+                            </div>
+                            <p>Dominio:<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></p>
+                            <p class="habilidad-opciones"><a href="#">Eliminar</a> <a href="#">Editar</a></p>
+                        </article>
+                    </section>
+                </section>
+                
+        </section>
+    </section>
+{% endblock %}
+{% block js_files %}
+    <script src="{{STATIC_URL}}js/vendor/underscore.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
+    <script src="{{STATIC_URL}}js/init.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
+    <script src="{{STATIC_URL}}js/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/modificar-personal.js"></script>
+{% endblock %}

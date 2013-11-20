@@ -251,6 +251,15 @@ def modificar(request):
         return HttpResponseRedirect('/')
     template = 'modificar.html'
     return render(request, template)
+def ayuda(request):
+    template = "ayuda.html"
+    return render(request, template)
+def portafolio(request):
+    template = "modificar-portafolio.html"
+    return render(request, template)
+def edit_Habilidades(request):
+    template = "modificar-habilidad.html"
+    return render(request, template)
 
 def modificar_personal(request):
     if request.user.is_anonymous():
@@ -391,27 +400,63 @@ def tecnoLista(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def registroUsuario(request):
-    form = RegistroUserForm()
-    if request.method =='POST':
-        form = RegistroUserForm(request.POST)
-        if form.is_valid():
-            usuario = form.cleaned_data['username']
-            nombres = form.cleaned_data['first_name']
-            apellidos = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            password_one = form.cleaned_data['password_one']
-            password_two = form.cleaned_data['password_two']
-            usuariocreate = User.objects.create_user(username=usuario,email=email,first_name=nombres,last_name=apellidos,password=password_one)
-            usuariocreate.save()
-            perfil = tblUser_profile()
-            perfil.usuario = usuariocreate
-            perfil.link_Localidad = setip(request)
-            perfil.save()
-            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
-        else:
+def registroUsuarioSocial(request):
+    if  User.is_authenticated:
+        form = RegistroUserForm()
+        usuario = request.user
+        usuarioactual= User.objects.get(id=usuario.id) 
+        if request.method =='GET':
+            form = RegistroUserForm(initial={
+                                                'username':usuario.username,
+                                                'first_name': usuario.first_name,
+                                                'last_name': usuario.last_name,
+                                                'email': usuario.email,
+                    })
             return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
-    return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+        if request.method =='POST':
+            form = RegistroUserForm(request.POST)
+            if form.is_valid():
+                usuario = form.cleaned_data['username']
+                nombres = form.cleaned_data['first_name']
+                apellidos = form.cleaned_data['last_name']
+                email = form.cleaned_data['email']
+                password_one = form.cleaned_data['password_one']
+                password_two = form.cleaned_data['password_two']
+                usuarioactual.username = cuenta
+                usuarioactual.first_name = nombres
+                usuarioactual.last_name =    apellidos
+                usuarioactual.email =email
+                usuarioactual.password = password_one
+                usuarioactual.save()
+                perfil = tblUser_profile()
+                perfil.usuario = usuarioactual
+                perfil.link_Localidad = setip(request)
+                perfil.save()
+                return render_to_response('login.html', context_instance=RequestContext(request))
+            else:
+                return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+        return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+def registroUsuario(request):
+        form = RegistroUserForm()
+        if request.method =='POST':
+            form = RegistroUserForm(request.POST)
+            if form.is_valid():
+                usuario = form.cleaned_data['username']
+                nombres = form.cleaned_data['first_name']
+                apellidos = form.cleaned_data['last_name']
+                email = form.cleaned_data['email']
+                password_one = form.cleaned_data['password_one']
+                password_two = form.cleaned_data['password_two']
+                usuariocreate = User.objects.create_user(username=usuario,email=email,first_name=nombres,last_name=apellidos,password=password_one)                
+                usuariocreate.save()
+                perfil = tblUser_profile()
+                perfil.usuario = usuariocreate
+                perfil.link_Localidad = setip(request)
+                perfil.save()
+                return render_to_response('login.html', context_instance=RequestContext(request))
+            else:
+                return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
+        return render_to_response('prueba_form.html',{'form':form},context_instance=RequestContext(request))
 
 def get_client_ip():
     ip = urllib2.urlopen('http://api.wipmania.com').read()

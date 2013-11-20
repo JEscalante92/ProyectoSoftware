@@ -128,8 +128,45 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'rest_framework',
+    'social_auth',
+)
+LOGIN_URL = '/login/'
+LOGIN_ERROR_URL = '/login-error/'
+
+LOGIN_REDIRECT_URL = '/usuario/registrarse/twitter'
+LOGOUT_URL = '/logout/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
+TWITTER_CONSUMER_KEY         = 'l2Ja2PpNgYYuprGjVXKTA'
+TWITTER_CONSUMER_SECRET      = '2W00pBjTp9nIuRSlq3dXQb4atb97z9yFAPZl84H2xI'
+#FACEBOOK_CONSUMER_KEY         = 'l2Ja2PpNgYYuprGjVXKTA'
+#FACEBOOK_CONSUMER_SECRET      = '2W00pBjTp9nIuRSlq3dXQb4atb97z9yFAPZl84H2xI'
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.user.get_username',
+    
+    #'social_auth.backends.pipeline.user.create_user',
+    #'social_auth.backends.pipeline.social.associate_user',
+    #'social_auth.backends.pipeline.social.load_extra_data',
+    #'social_auth.backends.pipeline.user.update_user_details',
+   #'devsocial.tasks.welcome_new_user'
+)
+
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('twitter')
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'social_auth.context_processors.social_auth_by_type_backends', # Twitter OAuth
+)
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # A sample logging configuration. The only tangible logging

@@ -11,8 +11,11 @@
 	<img src="/static/img/icono382x125.png" height="62.5" width="191"/>
 	<form method='post' action=''>
 		{% csrf_token %}
+		
 		{{form.as_p}}
 		<input type="submit" value="Registrar">
+		<a href="{% url 'socialauth_begin' 'twitter' %}"><input type="button" value="Ingresar con Twitter" style="height: 30px"></a>
+	
 	</form>
 </section>
 {% endblock %}

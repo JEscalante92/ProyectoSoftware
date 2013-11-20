@@ -16,11 +16,11 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'app.views.salida', name='salida'),
     url(r'^modificar/personal$', 'app.views.modificar_personal', name='modificar_personal'),
     url(r'^modificar/logros$', 'app.views.modificar_logros', name='modificar_logros'),
-    url(r'^modificar/habilidades$', 'app.views.modificar', name='modificar'),
-    url(r'^modificar/portafolio$', 'app.views.modificar', name='modificar'),
-    url(r'^modificar/ip$', 'app.views.modificar_ip', name='modificar_ip'),
+    url(r'^modificar/habilidades$', 'app.views.edit_Habilidades', name='edit_Habilidades'),
+    url(r'^modificar/portafolio$', 'app.views.portafolio', name='portafolio'),
+   #url(r'^modificar/ip$', 'app.views.modificar_ip', name='modificar_ip'),
     url(r'^modificar/contrasenna$', 'app.views.modificar_contrasenna', name='modificar_contrasenna'),
-    url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
+    url(r'^ayuda/$', 'app.views.ayuda', name='ingreso'),
     
     #Logros:
     url(r'^modificar/nuevologro$', 'app.views.nuevologro', name='nuevologro'),
@@ -69,7 +69,10 @@ if settings.DEBUG:
 # url para pruebas
 urlpatterns += patterns('',
         
+    url(r'^usuario/registrarse/twitter$', 'app.views.registroUsuarioSocial',name='registrase'),
     url(r'^usuario/registrarse/$', 'app.views.registroUsuario',name='registrase'),
+    url(r'', include('social_auth.urls')),
+   
     #url(r'^usuario/modificar/$', 'app.views.modificarUsuario',name='registrase'),
     url(r'^usuario/cambiar_password/$', 'app.views.CambiarPassword',name='registrase'),
     url(r'^proyecto/registrar/$', 'app.views.registroProyecto',name='registrase'),

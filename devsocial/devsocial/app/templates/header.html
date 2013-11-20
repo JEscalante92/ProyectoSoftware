@@ -20,7 +20,7 @@
                 {% if user.is_authenticated = False %}
                 <li>
                     <div id="header-registro">
-                        <a href="/login/">Inicia sesión</a> o <a href="#">Registrate</a>
+                        <a href="/login/">Inicia sesión</a> o <a href="/usuario/registrarse/">Registrate</a>
                     </div>
                 </li>
                 {% endif %}
@@ -28,7 +28,7 @@
                 <li>
                     <div id="header-usuario">
                         <a href="/usuarios/{{user.username}}">
-                            <img height="40" width="40" src="/static/img/usuario_thumb.png"/>
+                            <img height="40" width="40" src="/media/{{user.perfil.foto}}"/>
                             <b>{{ user.username }}</b>
                         </a>
                         <p>{{ user.email }}</p>

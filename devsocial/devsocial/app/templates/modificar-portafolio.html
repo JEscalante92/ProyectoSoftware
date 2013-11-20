@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>{{ usuario.username }} - modificar perfil</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/busqueda.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/editar.css" />
+{% endblock%}
+{% block body %}
+    <section id="contenido">
+        <section id="menu" class="contenido-left sub-menu">
+            <ul>
+                <li id="personales"><a href="#">Datos personales</a></li>
+                <li id="logros"><a href="#">Logros</a></li>
+                <li id="habilidades"><a href="#">Habilidades</a></li>
+                <li id="portafolio"><a href="#">Portafolio</a></li>
+                <li id="contacto"><a href="#">Contacto</a></li>
+                <li id="localidad"><a href="#">Localidad</a></li>
+            </ul>
+        </section>
+        <section class="contenido-right">
+            <section id="contenido-portafolio">
+                    <h3>Portafolio:</h3>
+                    <p>Si desea agregar un nuevo proyecto a su portafolio <a href="#">haz click aqui</a></p>
+                    <section>
+                        <article class="proyecto-editar">
+                            <div class="proyecto-header">
+                                <b>Proyecto I</b>
+                                <p>2012-12-09</p>
+                            </div>
+                            <div class="proyecto-content">
+                                <img src="img/usuario.png" height="90" width="90"/>
+                                <p>Descripción pequeña</p>
+                            </div>
+                            <div class="proyecto-opciones">
+                                <div class="opciones-datos">
+                                    <p><i class="icon-arrow-up"></i>192 <i class="icon-arrow-down"></i>192</p>
+                                </div>
+                                <div class="opciones-ajustes">
+                                    <a href="#">Eliminar</a>
+                                    <a href="#">Editar</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="proyecto-editar">
+                            <div class="proyecto-header">
+                                <b>Proyecto II</b>
+                                <p>2012-12-09</p>
+                            </div>
+                            <div class="proyecto-content">
+                                <img src="img/usuario.png" height="90" width="90"/>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="proyecto-opciones">
+                                <div class="opciones-datos">
+                                    <p><i class="icon-arrow-up"></i>192 <i class="icon-arrow-down"></i>192</p>
+                                </div>
+                                <div class="opciones-ajustes">
+                                    <a href="#">Eliminar</a>
+                                    <a href="#">Editar</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </section>
+
+        </section>
+    </section>
+{% endblock %}
+{% block js_files %}
+    <script src="{{STATIC_URL}}js/vendor/underscore.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
+    <script src="{{STATIC_URL}}js/init.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
+    <script src="{{STATIC_URL}}js/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/modificar-personal.js"></script>
+{% endblock %}
