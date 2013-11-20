@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm, CambiarLocalidadForm
 from .serializers import *
 from django.core import serializers
 from app.models import tblTecnologia
@@ -364,6 +364,26 @@ def modificarUsuario(request):
             })
                 
     return render_to_response('prueba_formfoto.html',{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
+@login_required
+def CambiarLocalidad(request):
+    usuario = request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    perfil = tblUser_profile.objects.get(id=usuario.id)    
+    if request.method == "POST":
+        form = CambiarLocalidadForm(request.POST)
+        if form.is_valid():
+            perfil.link_Localidad = setip(request)
+            perfil.save();
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response('prueba_form.html',{'form':form,'perfil':perfil},context_instance=RequestContext(request))
+    
+    if request.method =="GET":
+        form=CambiarLocalidadForm(initial={
+                                'link_Localidad':perfil.link_Localidad
+            })
+    return render_to_response('prueba_form.html',{'form':form,'perfil':perfil},context_instance=RequestContext(request))
+    
 
 @sensitive_post_parameters()
 @csrf_protect

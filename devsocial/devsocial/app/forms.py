@@ -48,6 +48,9 @@ class ModificarPerfilForm(forms.Form):
 	intereses = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder': 'intereses'}) )
 	link_Localidad = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Localidad','readonly':True}) )
 	
+class CambiarLocalidadForm(forms.Form):
+    link_Localidad = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Localidad','readonly':True}) )
+	  
 class RegistroProyectoForm(forms.Form):	
 	nombre = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Nombre proyecto'}) )
 	fecha = forms.DateField(label='', widget=forms.DateInput(attrs={'type':'date'})) 

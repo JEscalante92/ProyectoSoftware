@@ -58,12 +58,13 @@ if settings.DEBUG:
 # url para pruebas
 urlpatterns += patterns('',
         
-    url(r'^prueba_registrarse/$', 'app.views.registroUsuario',name='registrase'),
-    url(r'^prueba_modificar/$', 'app.views.modificarUsuario',name='registrase'),
-    url(r'^prueba_password/$', 'app.views.CambiarPassword',name='registrase'),
+    url(r'^usuario/registrarse/$', 'app.views.registroUsuario',name='registrase'),
+    url(r'^usuario/modificar/$', 'app.views.modificarUsuario',name='registrase'),
+    url(r'^usuario/cambiar_password/$', 'app.views.CambiarPassword',name='registrase'),
     url(r'^proyecto/registrar/$', 'app.views.registroProyecto',name='registrase'),
     url(r'^proyecto/modificar/(?P<idproyecto>[a-zA-Z0-9\s\+]+)$', 'app.views.ModificarProyecto',name='registrase'),
     url(r'^proyecto/galeria/(?P<idproyecto>[a-zA-Z0-9\s\+]+)$', 'app.views.AgregarGaleriaProyecto',name='registrase'),
+    url(r'^usuario/cambiar_localidad/$', 'app.views.CambiarLocalidad',name='cambiar localidad'),
     
     url(r'^cambiar_foto/$', 'app.views.ModificarFoto',name='foto'),
 )       
