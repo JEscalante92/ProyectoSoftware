@@ -536,5 +536,36 @@ def ingresoEvento(request):
             evento.save()
             return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
         else:
-            return render_to_response('prueba.html', {'form':form},context_instance=RequestContext(request))
-    return render_to_response('prueba.html', {'form':form}, context_instance=RequestContext(request))
+            return render_to_response('eventos.html', {'form':form},context_instance=RequestContext(request))
+    return render_to_response('eventos.html', {'form':form}, context_instance=RequestContext(request))
+
+@login_required
+def modificacionEventos(request,idEvento):
+    usuario= request.user
+    usuarioactual = User.objects.get(id=usuario.id)
+    evento = tblEvento.objects.get(id=idEvento)
+    if evento.usuario == usuarioactual:
+        form = EventoForm()
+        if request.method =='POST':
+            form = EventoForm(request.POST)
+            if form.is_valid():
+                fecha = form.cleaned_data['fecha']
+                titulo = form.cleaned_data['titulo']
+                organizacion = form.cleaned_data['organizacion']
+                tipo_evento = form.cleaned_data['tipo_evento']
+                
+                evento.titulo = titulo
+                evento.fecha =fecha
+                evento.organizacion = organizacion
+                evento.tipo_evento=tipo_evento
+                evento.save()
+                return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+            else:
+                return render_to_response('eventos.html',{'form':form},context_instance=RequestContext(request))
+        elif request.method == 'GET':
+            
+            form = EventoForm(initial={'titulo':evento.titulo,
+                                        'fecha':evento.fecha,
+                                        'organizacion':evento.organizacion,
+                                        'tipo_evento':evento.tipo_evento,})        
+        return render_to_response('eventos.html',{'form':form},context_instance=RequestContext(request))
