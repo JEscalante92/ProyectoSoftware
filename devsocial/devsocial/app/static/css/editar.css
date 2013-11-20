@@ -38,18 +38,18 @@
 .icon-arrow-down:before{content:"\e615"}
 .contenedor-icon{background-color:#0064ad;-webkit-border-radius:5px;border-radius:5px;line-height:48px;height:48px;font-size:32px;width:48px;}
 .contenedor-icon span{color:#fff;margin:8px;text-align:center;vertical-align:middle}
-.contenido-left{border-right:1px solid #ccc;float:left;width:69.5%}
-.contenido-right{display:inline-block;width:30%}
+.contenido-left{border-right:1px solid #ccc !important;float:left;width:69.5%}
+.contenido-right{margin-left:-1px;border-left:1px solid #ccc;display:inline-block;width:30%}
 .sub-menu ul{margin:0;padding:0;}
 .sub-menu ul li{margin:0;padding:10px;list-style:none;border-bottom:1px solid #ccc;}
 .sub-menu ul li a{color:#2c3e50;text-decoration:none}
 .sub-menu ul li:hover{background-color:#f0f0f0;cursor:pointer}
 .mostrarmas{margin:10px 0;display:block;float:right;text-decoration:none;text-align:right;color:#2c3e50}
 .mostrarmas:hover{text-decoration:underline}
-.usuario,.tecnologia{border-top:1px solid #ccc;padding:10px 0;}
+.usuario,.tecnologia{border-top:1px solid #ccc;padding:10px 0;overflow:hidden;}
 .usuario a,.tecnologia a{color:#2c3e50;text-decoration:none}
 .usuario a:hover,.tecnologia a:hover{text-decoration:underline}
-.usuario p,.tecnologia p{height:50px;margin:0 0 10px 50px;overflow:hidden;padding:0}
+.usuario p,.tecnologia p{margin:0 0 10px 50px;overflow:hidden;padding:0}
 .usuario .usuario-header,.tecnologia .usuario-header,.usuario .tecnologia-header,.tecnologia .tecnologia-header{margin-left:50px;}
 .usuario .usuario-header a img,.tecnologia .usuario-header a img,.usuario .tecnologia-header a img,.tecnologia .tecnologia-header a img{float:left;margin-left:-50px}
 .usuario .usuario-footer a:last-child,.tecnologia .usuario-footer a:last-child,.usuario .tecnologia-footer a:last-child,.tecnologia .tecnologia-footer a:last-child{float:right}
@@ -86,6 +86,11 @@
 .proyecto-editar .proyecto-opciones .opciones-datos p{margin:0;}
 .proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-down{color:#c0392b}
 .proyecto-editar .proyecto-opciones .opciones-datos p .icon-arrow-up{color:#27ae60}
+.error{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;font-size:0;margin:20px auto;overflow:hidden;width:940px;padding:40px 0;text-align:center;}
+.error p{margin:10px 0;font-size:32px}
+.usuarios-mas{display:block;text-decoration:none;height:50px;line-height:50px;margin:10px auto;text-align:center;width:50%}
+.btn-aceptar{background-color:#0064ad;border:1px solid #004b8b;-webkit-border-radius:2.5px;border-radius:2.5px;color:#fff;text-decoration:none}
+.btn-aceptar:hover{background-color:#004b8b;text-decoration:underline}
 body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido{background-color:#fff;border:1px solid #ccc;-webkit-border-radius:5px;border-radius:5px;margin:20px auto;overflow:hidden;width:960px;}
 #contenido a{color:#0064ad;text-decoration:none}
@@ -110,3 +115,4 @@ body{background-color:#f0f0f0;color:#2c3e50;font-family:'pt_sans'}
 #contenido-portafolio > p,#contenido-portafolio > h3{margin:10px 0}
 .contenido-left{border:0;width:30%}
 .contenido-right{border-left:1px solid #ccc;width:69.5%}
+.logro{margin-left:0 !important}

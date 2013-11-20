@@ -1,16 +1,26 @@
 {% verbatim %}
-     <article class="logro">
+        {% if post.tipo_evento == 1 %}
         <div class="contenedor-icon">
             <span class="icon-library"></span>
         </div>
-        <div class="logro-header">
-            <b class="logro-titulo">Ingenieria en informatica y sistemas</b>
-            <p class="logro-fecha">2013/08/10</p>
+        {% endif %}
+        {% if post.tipo_evento == 2 %}
+        <div class="contenedor-icon">
+            <span class="icon-medal"></span>
         </div>
-        <p class="logro-descripcion">Universidad Rafael Landivar</p>
+        {% endif %}
+        {% if post.tipo_evento == 3 %}
+        <div class="contenedor-icon">
+            <span class="icon-conference"></span>
+        </div>
+        {% endif %}
+        <div class="logro-header">
+            <b class="logro-titulo">{{ post.titulo }}</b>
+            <p class="logro-fecha">{{ post.fecha }}</p>
+        </div>
+        <p class="logro-descripcion">{{ post.organizacion }}</p>
         <div class="logro-opciones">
             <a href="#">Eliminar</a>
             <a href="#">Editar</a>
         </div>
-    </article>
 {% endverbatim %}

@@ -14,7 +14,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm, CambiarLocalidadForm,EventoForm
+from .forms import LoginForm,RegistroUserForm,ModificarPerfilForm,RegistroProyectoForm,ModificarProyectoForm,CambiarFotoForm, CambiarLocalidadForm, EventoForm
 from .serializers import *
 from django.core import serializers
 from app.models import tblTecnologia
@@ -296,7 +296,7 @@ def modificar_personal(request):
     return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
 def modificar_logros(request):
     template = "modificar-logros.html"
-    return render(request, template)
+    return render_to_response(template, {'usuario':request.user.username}, context_instance=RequestContext(request))
 def modificar_contrasenna(request, password_change_form=PasswordChangeForm,):
     template = 'modificar-contraseña.html'
     if request.user.is_anonymous():
@@ -549,6 +549,30 @@ def ingresoEvento(request):
         else:
             return render_to_response('eventos.html', {'form':form},context_instance=RequestContext(request))
     return render_to_response('eventos.html', {'form':form}, context_instance=RequestContext(request))
+
+@login_required
+def nuevologro(request):
+    template = "nuevo-evento.html"
+    form = EventoForm()
+    persona = request.user
+    if request.method =='POST':
+        form = EventoForm(request.POST)
+        if form.is_valid():
+            fecha = form.cleaned_data['fecha']
+            titulo = form.cleaned_data['titulo']
+            organizacion = form.cleaned_data['organizacion']
+            tipo_evento = form.cleaned_data['tipo_evento']
+            evento = tblEvento()
+            evento.usuario=User.objects.get(id=persona.id)
+            evento.fecha=fecha
+            evento.titulo=titulo
+            evento.organizacion=organizacion
+            evento.tipo_evento=tipo_evento
+            evento.save()
+            return HttpResponseRedirect('/modificar/logros')
+        else:
+            return render_to_response(template, {'form':form},context_instance=RequestContext(request))
+    return render_to_response(template, {'form':form}, context_instance=RequestContext(request))
 
 @login_required
 def modificacionEventos(request,idEvento):

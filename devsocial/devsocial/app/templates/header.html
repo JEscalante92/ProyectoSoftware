@@ -27,14 +27,14 @@
                 {% if user.is_authenticated %}
                 <li>
                     <div id="header-usuario">
-                        <a href="#">
+                        <a href="/usuarios/{{user.username}}">
                             <img height="40" width="40" src="/static/img/usuario_thumb.png"/>
                             <b>{{ user.username }}</b>
                         </a>
                         <p>{{ user.email }}</p>
                     </div>
                     <ul id="header-menu">
-                        <li><a href="#">Editar perfil</a></li>
+                        <li><a href="/modificar/personal">Editar perfil</a></li>
                         <li><a href="/ayuda/">Ayuda</a></li>
                         <li><a href="/logout/">Cerrar sesión</a></li>
                     </ul>

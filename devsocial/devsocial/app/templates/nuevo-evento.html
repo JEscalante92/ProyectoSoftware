@@ -21,11 +21,12 @@
         </section>
         <section class="contenido-right">
             <section id="contenido-datos">
-                <h3>Logros obtenidos: </h3>
-                    <p>Si desea agregar un nuevo logro <a href="/modificar/nuevologro">haz click aqui</a></p>
-                <section id='contenido-logros'>
-
-                </section>
+                <h3>Datos personales: </h3>
+                <form method='post' >
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value="Registrar">
+                </form>
             </section>
         </section>
     </section>
@@ -35,18 +36,12 @@
     <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
     <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
     <script src="{{STATIC_URL}}js/init.js"></script>
-    <script>
-        $(document).ready(function(){
-            window.usuarioactual = "{{ usuario}}";
-        });
-    </script>
     <script src="{{STATIC_URL}}js/backbone/views/menu-modificar.js"></script>
     <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
-    <script src="{{STATIC_URL}}js/backbone/views/logro.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
     <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
-    <script src="{{STATIC_URL}}js/backbone/models/logro.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
     <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
-    <script src="{{STATIC_URL}}js/backbone/collections/logros.js"></script>
     <script src="{{STATIC_URL}}js/menu-modificar.js"></script>
-    <script src="{{STATIC_URL}}js/modificar-logros.js"></script>
+    <script src="{{STATIC_URL}}js/modificar-personal.js"></script>
 {% endblock %}

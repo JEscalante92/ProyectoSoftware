@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     url(r'^modificar/contrasenna$', 'app.views.modificar_contrasenna', name='modificar_contrasenna'),
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
     
+    #Logros:
+    url(r'^modificar/nuevologro$', 'app.views.nuevologro', name='nuevologro'),
     
     url(r'^usuarios/(?P<slug>[-\w]+)/$', 'app.views.perfil', name='perfil'),
     url(r'^tecnologias/(?P<slug>[-\w]+)/$', 'app.views.tecnologias', name='tecnologias'),
