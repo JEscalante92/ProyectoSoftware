@@ -226,6 +226,12 @@ def perfil(request, slug):
     template = "perfil.html"
     return render(request, template)
 
+def modificar(request):
+    if request.user.is_anonymous():
+        return HttpResponseRedirect('/')
+    template = 'modificar.html'
+    return render(request, template)
+
 def tecnologias(request, slug):
     template = "tecnologias.html"
     return render(request, template)

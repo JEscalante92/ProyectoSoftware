@@ -14,6 +14,10 @@ urlpatterns = patterns('',
     url(r'^registro/$', 'app.views.home', name='home'),
     url(r'^login/$', 'app.views.ingreso', name='ingreso'),
     url(r'^logout/$', 'app.views.salida', name='salida'),
+    url(r'^modificar/personal$', 'app.views.modificar', name='modificar'),
+    url(r'^modificar/logros$', 'app.views.modificar', name='modificar'),
+    url(r'^modificar/habilidades$', 'app.views.modificar', name='modificar'),
+    url(r'^modificar/portafolio$', 'app.views.modificar', name='modificar'),
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
     
     
