@@ -212,6 +212,10 @@ def tperfil(request):
 def tlogro(request):
     template = "templates_swig/logro.html"
     return render(request, template)
+def tlogro_edit(request):
+    template = "templates_swig/logro-edit.html"
+    return render(request, template)
+
 def thabilidad(request):
     template = "templates_swig/habilidad.html"
     return render(request, template)
@@ -290,7 +294,9 @@ def modificar_personal(request):
 
             })
     return render_to_response(template,{'form':form,'usuario':usuarioactual,'perfil':perfil},context_instance=RequestContext(request))
-
+def modificar_logros(request):
+    template = "modificar-logros.html"
+    return render(request, template)
 def modificar_contrasenna(request, password_change_form=PasswordChangeForm,):
     template = 'modificar-contraseña.html'
     if request.user.is_anonymous():

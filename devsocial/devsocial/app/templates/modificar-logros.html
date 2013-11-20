@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>{{ usuario.username }} - modificar perfil</title>
+    <meta name="description" content="">
+{% endblock %}
+{% block style_css %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/busqueda.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/editar.css" />
+{% endblock%}
+{% block body %}
+    <section id="contenido">
+        <section id="menu" class="contenido-left sub-menu">
+            <ul>
+                <li id="personales"><a href="#">Datos personales</a></li>
+                <li id="logros"><a href="#">Logros</a></li>
+                <li id="habilidades"><a href="#">Habilidades</a></li>
+                <li id="portafolio"><a href="#">Portafolio</a></li>
+                <li id="contacto"><a href="#">Contacto</a></li>
+                <li id="localidad"><a href="#">Localidad</a></li>
+            </ul>
+        </section>
+        <section class="contenido-right">
+            <section id="contenido-datos">
+                <h3>Logros obtenidos: </h3>
+                    <p>Si desea agregar un nuevo logro <a href="#">haz click aqui</a></p>
+                <section id='contenido-logros'>
+
+                </section>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+{% block js_files %}
+    <script src="{{STATIC_URL}}js/vendor/underscore.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/backbone.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/swig.js"></script>
+    <script src="{{STATIC_URL}}js/init.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/views/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/usuario.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/models/tecnologia.js"></script>
+    <script src="{{STATIC_URL}}js/backbone/collections/usuarios.js"></script>
+    <script src="{{STATIC_URL}}js/menu-modificar.js"></script>
+    <script src="{{STATIC_URL}}js/modificar-logros.js"></script>
+{% endblock %}
