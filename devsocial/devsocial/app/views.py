@@ -508,3 +508,27 @@ def AgregarGaleriaProyecto(request,idproyecto):
             else:
                 return render_to_response('prueba_formfoto.html',{'form':form},context_instance=RequestContext(request))
         return render_to_response('prueba_formfoto.html',{'form':form},context_instance=RequestContext(request))
+
+@login_required
+def ingresoEvento(request):
+    template = "prueba.html"
+    form = RegistroEventoForm()
+    persona = request.user
+    if request.method =='POST':
+        form = RegistroEventoForm(request.POST)
+        if form.is_valid():
+            fecha = form.cleaned_data['fecha']
+            titulo = form.cleaned_data['titulo']
+            organizacion = form.cleaned_data['organizacion']
+            tipo_evento = form.cleaned_data['tipo_evento']
+            evento = tblEvento()
+            evento.usuario=User.objects.get(id=persona.id)
+            evento.fecha=fecha
+            evento.titulo=titulo
+            evento.organizacion=organizacion
+            evento.tipo_evento=tipo_evento
+            evento.save()
+            return render_to_response('prueba-gracias.html', context_instance=RequestContext(request))
+        else:
+            return render_to_response('prueba.html', {'form':form},context_instance=RequestContext(request))
+    return render_to_response('prueba.html', {'form':form}, context_instance=RequestContext(request))
