@@ -216,6 +216,9 @@ def terror(request):
     return render(request, template)
 
 def home(request):
+    if not request.user.is_anonymous():
+        url = '/usuarios/%s' % (request.user.username)       
+        return HttpResponseRedirect(url)
     template = "inicio.html"
     return render(request, template)
 

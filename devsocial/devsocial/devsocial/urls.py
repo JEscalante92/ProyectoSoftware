@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'app.views.salida', name='salida'),
     url(r'^ayuda/$', 'app.views.ingreso', name='ingreso'),
     
+    
     url(r'^usuarios/(?P<slug>[-\w]+)/$', 'app.views.perfil', name='perfil'),
     url(r'^tecnologias/(?P<slug>[-\w]+)/$', 'app.views.tecnologias', name='tecnologias'),
     url(r'^search/$', 'app.views.search', name='search'),
